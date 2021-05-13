@@ -2,8 +2,11 @@ package com.examsproject.nordicmotorhome.Service;
 
 import com.examsproject.nordicmotorhome.Model.Autocamper;
 import com.examsproject.nordicmotorhome.Model.Contract;
+import com.examsproject.nordicmotorhome.Repository.ContractRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * service class til contract
@@ -19,7 +22,7 @@ public class ContractService {
         return contractRepo.fetchAll();
     }
     public Contract addContract(Contract c){
-        return contractRepo.addContract(c);
+        return contractRepo.createContract(c);
     }
     public Contract findContractById(int contractID){
         return contractRepo.findContractByID(contractID);
