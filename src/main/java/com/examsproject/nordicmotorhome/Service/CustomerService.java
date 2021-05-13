@@ -1,6 +1,5 @@
 package com.examsproject.nordicmotorhome.Service;
 
-import com.examsproject.nordicmotorhome.Model.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
