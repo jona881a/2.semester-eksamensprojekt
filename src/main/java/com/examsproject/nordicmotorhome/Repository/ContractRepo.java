@@ -1,4 +1,4 @@
 package com.examsproject.nordicmotorhome.Repository;
 
-public class AutocamperRep {
+public class ContractRepo {
 }
