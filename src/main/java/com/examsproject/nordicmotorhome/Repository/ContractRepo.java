@@ -49,7 +49,7 @@ public class ContractRepo {
      * @return the contract
      */
     public Contract findContractByID(int contractID) {
-        String sql = "SELECT * FROM contracts WHERE contractid = ?";
+        String sql = "SELECT * FROM contracts WHERE contractID = ?";
         RowMapper<Contract> contracts = new BeanPropertyRowMapper<>(Contract.class);
         Contract c = template.queryForObject(sql, contracts, contractID);
 
