@@ -1,31 +1,33 @@
 package com.examsproject.nordicmotorhome.Service;
 
 import com.examsproject.nordicmotorhome.Model.Autocamper;
+import com.examsproject.nordicmotorhome.Model.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+/**
+ * service class til autocamper
+ *@author rasmuskoefoed
+ */
 
 @Service
 public class ContractService {
 
     @Autowired
-    AutocamperRepo autocamperRepo;
-    public List<Autocamper> fetchAll(){
-        return autocamperRepo.fetchAll();
+    ContractRepo contractRepo;
+    public List<Contract> fetchAll(){
+        return contractRepo.fetchAll();
     }
-    public Autocamper addAutocamper(Autocamper a){
-        return autocamperRepo.addAutocamper(a);
+    public Contract addContract(Contract c){
+        return contractRepo.addContract(c);
     }
-    public Autocamper findAutocamperById(int autocamperID){
-        return autocamperRepo.findAutocamperById(autocamperID);
+    public Autocamper findContractById(int contractID){
+        return contractRepo.findContractByID(contractID);
     }
     public Boolean deleteAutocamper(int autocamperID){
         return autocamperRepo.deleteAutocamper(autocamperID);
     }
     public Autocamper updateAutocamper(int autocamperID, Autocamper a){
         return autocamperRepo.updateAutocamper(autocamperID,a);
-    }
-    public class CarService {
-
-
     }
 }
