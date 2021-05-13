@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * service class til contract
+ * service class til contractFollowup
  *@author rasmuskoefoed
  */
 
