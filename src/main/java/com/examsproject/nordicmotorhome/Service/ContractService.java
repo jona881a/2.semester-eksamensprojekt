@@ -21,13 +21,13 @@ public class ContractService {
     public Contract addContract(Contract c){
         return contractRepo.addContract(c);
     }
-    public Autocamper findContractById(int contractID){
+    public Contract findContractById(int contractID){
         return contractRepo.findContractByID(contractID);
     }
-    public Boolean deleteAutocamper(int autocamperID){
-        return autocamperRepo.deleteAutocamper(autocamperID);
+    public Boolean deleteContract(int contractID){
+        return contractRepo.deleteContract(contractID);
     }
-    public Autocamper updateAutocamper(int autocamperID, Autocamper a){
-        return autocamperRepo.updateAutocamper(autocamperID,a);
+    public Contract updateContract(int contractID, Contract c){
+        return contractRepo.updateContract(contractID,c);
     }
 }
