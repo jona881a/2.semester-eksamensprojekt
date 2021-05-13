@@ -1,7 +1,16 @@
 package com.examsproject.nordicmotorhome.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+/**
+ * the model for a contract
+ * @author jonaskunert
+ */
+@Entity
 public class Contract {
 
+    @Id
     private int contractID;
     private int autocamperID;
     private int customerID;
