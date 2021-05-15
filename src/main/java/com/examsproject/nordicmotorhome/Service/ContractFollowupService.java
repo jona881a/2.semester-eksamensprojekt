@@ -1,7 +1,11 @@
 package com.examsproject.nordicmotorhome.Service;
 
+import com.examsproject.nordicmotorhome.Model.ContractFollowup;
+import com.examsproject.nordicmotorhome.Repository.ContractFollowupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * service class til contractFollowup
@@ -9,16 +13,16 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-
 public class ContractFollowupService {
 
     @Autowired
-    ContractFollowup contractFollowup;
+    ContractFollowupRepo contractFollowupRepo;
+
     public List<ContractFollowup> fetchAll(){
-        return ContractFollowupRepo.fetchAll();
+        return contractFollowupRepo.fetchAll();
     }
     public ContractFollowup addContractFollowup(ContractFollowup c){
-        return contractFollowupRepo.addContractFollowup(c);
+        return contractFollowupRepo.createContractFollowup(c);
     }
     public ContractFollowup findContractFollowupById(int contractFollowupID){
         return contractFollowupRepo.findContractFollowupByID(contractFollowupID);
@@ -26,7 +30,7 @@ public class ContractFollowupService {
     public Boolean deleteContractFollowup(int contractFollowupID){
         return contractFollowupRepo.deleteContractFollowup(contractFollowupID);
     }
-    public contractFollowup updateContractFollowup(int contractFollowupID, ContractFollowup c){
+    public ContractFollowup updateContractFollowup(int contractFollowupID, ContractFollowup c){
         return contractFollowupRepo.updateContractFollowup(contractFollowupID,c);
     }
 }

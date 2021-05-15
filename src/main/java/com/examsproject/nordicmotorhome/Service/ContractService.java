@@ -18,6 +18,7 @@ public class ContractService {
 
     @Autowired
     ContractRepo contractRepo;
+
     public List<Contract> fetchAll(){
         return contractRepo.fetchAll();
     }

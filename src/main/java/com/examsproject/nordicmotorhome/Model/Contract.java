@@ -14,16 +14,18 @@ public class Contract {
     private int contractID;
     private int autocamperID;
     private int customerID;
+    private int contractFollowupID;
     private double rentalPrice;
     private String rentalStartDate;
     private String rentalEndDate;
 
     public Contract () {}
 
-    public Contract(int contractID, int autocamperID, int customerID, double rentalPrice, String rentalStartDate, String rentalEndDate) {
+    public Contract(int contractID, int autocamperID, int customerID, int contractFollowupID, double rentalPrice, String rentalStartDate, String rentalEndDate) {
         this.contractID = contractID;
         this.autocamperID = autocamperID;
         this.customerID = customerID;
+        this.contractFollowupID = contractFollowupID;
         this.rentalPrice = rentalPrice;
         this.rentalStartDate = rentalStartDate;
         this.rentalEndDate = rentalEndDate;
@@ -51,6 +53,14 @@ public class Contract {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    public int getContractFollowupID() {
+        return contractFollowupID;
+    }
+
+    public void setContractFollowupID(int contractFollowupID) {
+        this.contractFollowupID = contractFollowupID;
     }
 
     public double getRentalPrice() {
