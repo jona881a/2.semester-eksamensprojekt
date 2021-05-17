@@ -49,11 +49,11 @@ public class Autocamper {
         this.model = model;
     }
 
-    public String isAvailable() {
+    public String getIsAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(String isAvailable) {
+    public void setIsAvailable(String isAvailable) {
         this.isAvailable = isAvailable;
     }
 
