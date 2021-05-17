@@ -1,7 +1,6 @@
 package com.examsproject.nordicmotorhome.Repository;
 
 import com.examsproject.nordicmotorhome.Model.Autocamper;
-import com.examsproject.nordicmotorhome.Model.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,7 +34,7 @@ public class AutocamperRepo {
     public Autocamper createAutocamper(Autocamper a) {
         String sql = "INSERT INTO autocampers(autocamperID, brand, model, isAvailable,size, numberPlate)" +
                 " VALUES(?,?,?,?,?,?)";
-        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.isAvailable(),a.getSize(),a.getNumberPlate());
+        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.isAvailable(),a.getSize(),a.getNumberplate());
 
         return a;
     }
@@ -73,7 +72,7 @@ public class AutocamperRepo {
     public Autocamper updateAutocamper(int autocamperID, Autocamper a) {
         String sql = "UPDATE autocampers SET autocamperID = ?, brand = ?, model = ?, isAvailable = ?," +
                 " size = ?, numberPlate = ? WHERE autocamperID = ?";
-        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.isAvailable(),a.getSize(),a.getNumberPlate());
+        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.isAvailable(),a.getSize(),a.getNumberplate());
         return a;
     }
 }
