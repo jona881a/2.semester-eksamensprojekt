@@ -3,8 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>contractCreate</title>
+    <link rel="stylesheet" type="text/css" href="create.css">
+    <style>
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: powderblue;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=datetime-local] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit]:hover {
+            background-color: cadetblue;
+        }
+    </style>
 </head>
 <body>
-    <h1>Lav en ny kontrakt</h1>
+    <h1>Assign a new Contract</h1>
+
+    <form action="/contract/contractCreate" method="post">
+        <label>Choose an available Autocamper</label>
+        <input type="text" name="autocamperid" placeholder="autocamperid">
+        <label>Enter customerID</label>
+        <input type="text" name="customerid" placeholder="customerid">
+        <label>Enter Rental start date</label>
+        <input type="datetime-local" name="rentalstartdate" placeholder="">
+        <label>Enter Rental end date</label>
+        <input type="datetime-local" name="rentalenddate" placeholder="">
+
+        <input type="submit" value="Assign">
+    </form>
 </body>
 </html>
