@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Autocamper</title>
-    <link rel="stylesheet" type="text/css" href="modelTableIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTableIndex.css">
 </head>
 <body>
-<div class="topBar">
-    <form action="/contract/contractIndex">
-        <button value="Create Contract"></button>
+<div id="topBar">
+    <form action="/.">
+        <button class="logo-btn">NORDIC MOTORHOME</button>
     </form>
-    <form action="/autocamper/autocamperIndex">
-        <button value="View autocampers"></button>
+    <form action="/homecontroller/login">
+        <button class="topButton">Log in</button>
     </form>
     <form action="/customer/customerIndex">
-        <button value="View customers"></button>
+        <button class="topButton">Customers</button>
     </form>
-    <a href="/homecontroller/login">Log in</a>
+    <form action="/autocamper/autocamperIndex">
+        <button class="topButton">Autocampers</button>
+    </form>
+    <form action="/contract/contractIndex">
+        <button class="topButton">Contracts</button>
+    </form>
 </div>
 
 <div id="indexHeader">
