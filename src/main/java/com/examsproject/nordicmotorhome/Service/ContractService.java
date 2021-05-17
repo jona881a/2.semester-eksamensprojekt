@@ -34,4 +34,7 @@ public class ContractService {
     public Contract updateContract(int contractID, Contract c){
         return contractRepo.updateContract(contractID,c);
     }
+    public double calculateRentalPrice(Contract c) {
+        return 0.0;
+    }
 }
