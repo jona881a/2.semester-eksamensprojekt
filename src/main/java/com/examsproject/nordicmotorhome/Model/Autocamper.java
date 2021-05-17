@@ -12,17 +12,17 @@ public class Autocamper {
     private String model;
     private boolean isAvailable;
     private String size;
-    private String numberPlate;
+    private String numberplate;
 
     public Autocamper() {}
 
-    public Autocamper(int autocamperID, String brand, String model, boolean isAvailable, String size, String numberPlate) {
+    public Autocamper(int autocamperID, String brand, String model, boolean isAvailable, String size, String numberplate) {
         this.autocamperID = autocamperID;
         this.brand = brand;
         this.model = model;
         this.isAvailable = isAvailable;
         this.size = size;
-        this.numberPlate = numberPlate;
+        this.numberplate = numberplate;
     }
 
     public int getAutocamperID() {
@@ -65,12 +65,12 @@ public class Autocamper {
         this.size = size;
     }
 
-    public String getNumberPlate() {
-        return numberPlate;
+    public String getNumberplate() {
+        return numberplate;
     }
 
-    public void setNumberPlate(String numberPlate) {
-        this.numberPlate = numberPlate;
+    public void setNumberplate(String numberPlate) {
+        this.numberplate = numberPlate;
     }
 
 }

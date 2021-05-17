@@ -1,8 +1,40 @@
-.topBar {
+#topBar{
     height: 62px;
     width: 100%;
-    background-color: forestgreen;
+    background-color: orange;
 }
-form {
+.topButton{
     float: right;
+    width: auto;
+    height: 62px;
+    color: black;
+    background-color: orange;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.topButton:hover{
+    background-color: #ff9900;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: black;
+}
+.topText{
+    color: black;
+    padding-top: 21px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: right;
+}
+.topText:hover {
+    color: #262626;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-right: 13px;
+
 }
