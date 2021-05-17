@@ -72,4 +72,5 @@ public class Autocamper {
     public void setNumberPlate(String numberPlate) {
         this.numberPlate = numberPlate;
     }
+
 }

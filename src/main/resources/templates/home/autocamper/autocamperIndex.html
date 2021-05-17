@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Autocamper</title>
+    <link rel="stylesheet" type="text/css" href="modelTableIndex.css">
 </head>
 <body>
+<div class="topBar">
+    <form action="/contract/contractIndex">
+        <button value="Create Contract"></button>
+    </form>
+    <form action="/autocamper/autocamperIndex">
+        <button value="View autocampers"></button>
+    </form>
+    <form action="/customer/customerIndex">
+        <button value="View customers"></button>
+    </form>
+    <a href="/homecontroller/login">Log in</a>
+</div>
+
+<div id="indexHeader">
+    <h1>Autocamper list</h1>
+</div>
+
+<div id="createButtonWrapper">
+    <a href="/autocamperCreate">
+        <button class="btn-create" id="btn-create">Assign new autocamper</button>
+    </a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>In Stock</th>
+        <th>Size</th>
+        <th>Plate</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="autocamper: ${autocampers}">
+        <td th:text="${autocamper.autocamperID}" />
+        <td th:text="${autocamper.brand}" />
+        <td th:text="${autocamper.model}" />
+        <td th:text="${autocamper.isavailable}" />
+        <td th:text="${autocamper.size}" />
+        <td th:text="${autocamper.numberplate}" />
+
+        <td>
+            <a th:href="@{'/autocamperDetails/'+${autocamper.autocamperID}}">
+                <button class="btn-Details", id="Details">Details</button>
+            </a>
+            <a th:href="@{'/autocamperDelete/'+${autocamper.autocamperID}}">
+                <button class="btn-delete", id="btn-delete">Delete</button>
+            </a>
+            <a th:href="@{'/autocamperUpdate/'+${autocamper.autocamperID}}">
+                <button class="btn-Edit", id="btn-Edit">Edit</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
 
 </body>
 </html>
