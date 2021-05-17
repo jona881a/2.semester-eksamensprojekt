@@ -1,8 +1,25 @@
-.topBar {
+#topBar {
     height: 62px;
     width: 100%;
-    background-color: forestgreen;
+    background-color: #FCD299;
+
 }
-form {
+.topButton{
     float: right;
+    width: auto;
+    height: 41px;
+    color: white;
+    background-color: orange;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    padding-top: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.topButton:hover {
+    background-color: darkorange;
+    color: darkgrey;
 }
