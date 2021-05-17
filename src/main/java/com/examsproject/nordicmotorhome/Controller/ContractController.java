@@ -10,4 +10,9 @@ public class ContractController {
     public String contractIndex() {
         return "home/contract/contractIndex";
     }
+
+    @GetMapping("/contract/contractCreate")
+    public String contractCreate() {
+        return "home/contract/contractCreate";
+    }
 }
