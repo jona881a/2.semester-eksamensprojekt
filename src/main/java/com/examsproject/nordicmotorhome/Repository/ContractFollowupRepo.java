@@ -28,7 +28,7 @@ public class ContractFollowupRepo {
      * @return list with all contractsfollowups in object form
      */
     public List<ContractFollowup> fetchAll() {
-        String sql = "SELECT * FROM contractFollowups";
+        String sql = "SELECT * FROM contractfollowups";
         RowMapper<ContractFollowup> contractFollowups = new BeanPropertyRowMapper<>(ContractFollowup.class);
 
         return template.query(sql, contractFollowups);
