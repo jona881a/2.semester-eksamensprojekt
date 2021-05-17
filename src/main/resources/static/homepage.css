@@ -1,11 +1,26 @@
 #topBar {
     height: 62px;
-    width: 100%;
+    width: auto;
     background-color: orange;
 }
-.topButton{
-    float: right;
+.logo-btn {
+    height: 62px;
     width: auto;
+    font-family: "Times New Roman", sans-serif;
+    font-style: italic;
+    font-size: 23px;
+    color: black;
+    background-color: orange;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.logo-btn:hover {
+    cursor: pointer;
+}
+.topButton{
+    float: left;
     height: 62px;
     color: black;
     background-color: orange;
@@ -18,6 +33,7 @@
     padding-right: 12px;
 }
 .topButton:hover {
+    cursor: pointer;
     background-color: #ff9900;
     font-size: 18px;
     padding-left: 15px;
