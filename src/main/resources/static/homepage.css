@@ -1,14 +1,14 @@
 #topBar {
     height: 62px;
     width: 100%;
-    background-color: #FCD299;
+    background-color: orange;
 
 }
 .topButton{
     float: right;
     width: auto;
     height: 41px;
-    color: white;
+    color: black;
     background-color: orange;
     border: none;
     text-align: center;
@@ -20,6 +20,6 @@
     padding-right: 12px;
 }
 .topButton:hover {
-    background-color: darkorange;
-    color: darkgrey;
+    background-color: #ff9900;
+    color: black;
 }
