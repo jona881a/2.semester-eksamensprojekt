@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
+/**
+ * @author jonaskunert
+ */
 @Controller
 public class ContractController {
 
@@ -28,13 +31,14 @@ public class ContractController {
 
     @GetMapping("/contract/contractCreate")
     public String contractCreate(Model model) {
-        List<Autocamper> autocampers = autocamperService.fetchAll();
+        List<Autocamper> autocampers = autocamperService.fetchAllAvailable();
         model.addAttribute("autocampers",autocampers);
         return "home/contract/contractCreate";
     }
 
     @PostMapping("/contract/contractCreate")
     public String contractCreate(@ModelAttribute Contract c) {
-        return "home/contract/contractCreate";
+        contractService.createContract(c);
+        return "home/contract/contractIndex";
     }
 }

@@ -22,7 +22,7 @@ public class ContractService {
     public List<Contract> fetchAll(){
         return contractRepo.fetchAll();
     }
-    public Contract addContract(Contract c){
+    public Contract createContract(Contract c){
         return contractRepo.createContract(c);
     }
     public Contract findContractById(int contractID){

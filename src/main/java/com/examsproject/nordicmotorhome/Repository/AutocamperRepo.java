@@ -27,6 +27,17 @@ public class AutocamperRepo {
     }
 
     /**
+     * queries the autocampers that is available and puts them in list
+     * @return list with autocampers available
+     */
+    public List<Autocamper> fetchAllAvailable() {
+        String sql = "SELECT * FROM autocampers WHERE isavailable = 'yes'";
+        RowMapper<Autocamper> autocampers = new BeanPropertyRowMapper<>(Autocamper.class);
+
+        return template.query(sql,autocampers);
+    }
+
+    /**
      * Inserts the chosen values into the database
      * @param a the autocamper
      * @return the autocamper

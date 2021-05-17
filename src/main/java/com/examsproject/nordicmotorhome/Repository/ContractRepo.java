@@ -36,9 +36,11 @@ public class ContractRepo {
      * @return the contract
      */
     public Contract createContract(Contract c) {
-        String sql = "INSERT INTO contracts(contractID,autocamperID,customerID,contractfollowupID,rentalPrice,rentalStartDate,rentalEndDate) VALUES(?,?,?,?,?,?)";
-        template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(), c.getContractFollowupID(),
-                c.getRentalPrice(),c.getRentalStartDate(),c.getRentalEndDate());
+        String sql = "INSERT INTO contracts(contractID,autocamperID,customerID," +
+                "rentalPrice,rentalStartDate,rentalEndDate) VALUES(?,?,?,?,?,?)";
+
+            template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
+                    c.getRentalPrice(),c.getRentalStartDate(),c.getRentalEndDate());
 
         return c;
     }
@@ -75,8 +77,8 @@ public class ContractRepo {
      */
     public Contract updateContract(int contractID, Contract c) {
         String sql = "UPDATE contracts SET contractID = ?,autocamperID = ?,customerID = ?" +
-                "contractfollowupID = ?,rentalPrice = ?,rentalStartDate = ?,rentalEndDate = ? WHERE contractid = ?";
-        template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(), c.getContractFollowupID(),
+                ",rentalPrice = ?,rentalStartDate = ?,rentalEndDate = ? WHERE contractid = ?";
+        template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
                 c.getRentalPrice(),c.getRentalStartDate(),c.getRentalEndDate());
         return c;
     }

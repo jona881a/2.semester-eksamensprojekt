@@ -21,6 +21,7 @@ public class AutocamperService {
     public List<Autocamper> fetchAll(){
         return autocamperRepo.fetchAll();
     }
+    public List<Autocamper> fetchAllAvailable() { return autocamperRepo.fetchAllAvailable(); }
     public Autocamper createAutocamper(Autocamper a){
         return autocamperRepo.createAutocamper(a);
     }
