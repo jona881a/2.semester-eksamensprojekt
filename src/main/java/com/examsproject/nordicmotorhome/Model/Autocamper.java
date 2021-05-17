@@ -10,13 +10,13 @@ public class Autocamper {
     private int autocamperID;
     private String brand;
     private String model;
-    private boolean isAvailable;
+    private String isAvailable;
     private String size;
     private String numberplate;
 
     public Autocamper() {}
 
-    public Autocamper(int autocamperID, String brand, String model, boolean isAvailable, String size, String numberplate) {
+    public Autocamper(int autocamperID, String brand, String model, String isAvailable, String size, String numberplate) {
         this.autocamperID = autocamperID;
         this.brand = brand;
         this.model = model;
@@ -49,12 +49,12 @@ public class Autocamper {
         this.model = model;
     }
 
-    public boolean isAvailable() {
+    public String isAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    public void setAvailable(String isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     public String getSize() {

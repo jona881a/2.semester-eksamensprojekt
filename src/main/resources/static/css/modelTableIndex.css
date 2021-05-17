@@ -54,3 +54,74 @@
     padding-right: 13px;
 
 }
+
+#indexHeader{
+    margin: auto;
+    text-align: center;
+    width: 500px;
+}
+
+
+table{
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+th{
+    background-color: orange;
+}
+td, th{
+    border: 1px solid black;
+    text-align: left;
+    padding: 4px;
+}
+tr:nth-child(even){
+    background: #f8cf7d;
+}
+.btn{
+    border: 1px solid black;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+}
+.btn:hover{
+    cursor: pointer;
+}
+
+#btn-Create{
+    background-color: #fac585;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+#CreateButtonWrapper{
+    width: 107px;
+    margin: auto;
+}
+
+#btn-Create:hover{
+    background-color: lightgray;
+}
+
+#btn-Details{
+    background-color: #b4e0f5;
+}
+#btn-Details:hover{
+    background-color: lightgray;
+}
+#btn-Delete{
+    background-color: #fa5c5c;
+}
+#btn-Delete:hover{
+    background-color: lightgray;
+}
+#btn-Edit{
+    background-color: #8cbaba;
+}
+#btn-Edit:hover{
+    background-color: lightgray;
+}
+
+
+

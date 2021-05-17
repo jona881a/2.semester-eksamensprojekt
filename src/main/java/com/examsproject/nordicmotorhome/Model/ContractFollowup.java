@@ -9,14 +9,14 @@ public class ContractFollowup {
     @Id
     private int contractFollowUpID;
     private int repairPrice;
-    private boolean halfTank;
-    private boolean extraDrivenKm;
-    private boolean damages;
+    private String halfTank;
+    private String extraDrivenKm;
+    private String damages;
     private int dropOffDistance;
 
     public ContractFollowup() {}
 
-    public ContractFollowup(int contractFollowUpID, int repairPrice, boolean halfTank, boolean extraDrivenKm, boolean damages, int dropOffDistance) {
+    public ContractFollowup(int contractFollowUpID, int repairPrice, String halfTank, String extraDrivenKm, String damages, int dropOffDistance) {
         this.contractFollowUpID = contractFollowUpID;
         this.repairPrice = repairPrice;
         this.halfTank = halfTank;
@@ -41,27 +41,27 @@ public class ContractFollowup {
         this.repairPrice = repairPrice;
     }
 
-    public boolean isHalfTank() {
+    public String isHalfTank() {
         return halfTank;
     }
 
-    public void setHalfTank(boolean halfTank) {
+    public void setHalfTank(String halfTank) {
         this.halfTank = halfTank;
     }
 
-    public boolean isExtraDrivenKm() {
+    public String isExtraDrivenKm() {
         return extraDrivenKm;
     }
 
-    public void setExtraDrivenKm(boolean extraDrivenKm) {
+    public void setExtraDrivenKm(String extraDrivenKm) {
         this.extraDrivenKm = extraDrivenKm;
     }
 
-    public boolean isDamages() {
+    public String isDamages() {
         return damages;
     }
 
-    public void setDamages(boolean damages) {
+    public void setDamages(String damages) {
         this.damages = damages;
     }
 

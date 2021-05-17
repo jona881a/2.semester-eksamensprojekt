@@ -28,9 +28,9 @@
     <h1>Autocamper list</h1>
 </div>
 
-<div id="createButtonWrapper">
+<div id="CreateButtonWrapper">
     <a href="/autocamperCreate">
-        <button class="btn-create" id="btn-create">Assign new autocamper</button>
+        <button class="btn" id="btn-Create">Assign new autocamper</button>
     </a>
 </div>
 
@@ -57,13 +57,13 @@
 
         <td>
             <a th:href="@{'/autocamperDetails/'+${autocamper.autocamperID}}">
-                <button class="btn-Details", id="Details">Details</button>
+                <button class="btn", id="btn-Details">Details</button>
             </a>
             <a th:href="@{'/autocamperDelete/'+${autocamper.autocamperID}}">
-                <button class="btn-delete", id="btn-delete">Delete</button>
+                <button class="btn", id="btn-Delete">Delete</button>
             </a>
             <a th:href="@{'/autocamperUpdate/'+${autocamper.autocamperID}}">
-                <button class="btn-Edit", id="btn-Edit">Edit</button>
+                <button class="btn", id="btn-Edit">Edit</button>
             </a>
         </td>
     </tr>
