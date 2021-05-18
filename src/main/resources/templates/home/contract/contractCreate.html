@@ -34,23 +34,35 @@
 
     <form id=assign-contract action="/contract/contractCreate" method="post">
 
-        <label>Choose an available Autocamper by inserting the autocampers ID </label>
-        <input type="text" name="autocamperID" placeholder="autocamperID">
+        <label>* Choose an available Autocamper by inserting the autocampers ID </label>
+        <input type="text" name="autocamperID" placeholder="autocamperID" required>
 
-        <label>Enter customerID</label>
-        <input type="text" name="customerID" placeholder="customerID">
+        <label>* Enter customerID</label>
+        <input type="text" name="customerID" placeholder="customerID" required>
 
-        <label>Enter Rental start date</label>
-        <input type="date" name="rentalStartDate" placeholder="">
+        <label>* Enter Rental start date</label>
+        <input type="date" name="rentalStartDate" placeholder="" required>
 
-        <label>Enter Rental pickup time</label>
-        <input type="text" name="pickupTime" placeholder="HH:mm:ss">
+        <label>* Enter Rental pickup time</label>
+        <input type="time" name="pickupTime" placeholder="" required>
 
-        <label>Enter Rental end date</label>
-        <input type="date" name="rentalEndDate" placeholder="">
+        <label>* Enter Rental end date</label>
+        <input type="date" name="rentalEndDate" placeholder="" required>
 
-        <label>Enter Rental dropoff time</label>
-        <input type="text" name="dropoffTime" placeholder="HH:mm:ss">
+        <label>* Enter Rental dropoff time</label>
+        <input type="time" name="dropoffTime" placeholder="" required>
+
+        <label>Choose the extras that the customer would like</label>
+        <div class="extras">
+            <label>Bike rack</label>
+            <input type="checkbox" name="bikerack" value="bikerack">
+            <label>Bed Linen</label>
+            <input type="checkbox" name="bedlinen" value="bedlinen">
+            <label>Child seat</label>
+            <input type="checkbox" name="childseat" value="childseat">
+            <label>Picnic table and chairs</label>
+            <input type="checkbox" name="picnicandtables" value="picnincandtables">
+        </div>
 
         <input type="submit" value="Assign">
     </form>

@@ -25,6 +25,11 @@ public class ContractController {
     @Autowired
     AutocamperService autocamperService;
 
+    /**
+     * getting the index site of the contracts
+     * @param model
+     * @return
+     */
     @GetMapping("/contract/contractIndex")
     public String contractIndex(Model model) {
         List<Contract> contractList = contractService.fetchAll();
@@ -32,6 +37,11 @@ public class ContractController {
         return "home/contract/contractIndex";
     }
 
+    /**
+     * getting the site for creating
+     * @param model
+     * @return
+     */
     @GetMapping("/contract/contractCreate")
     public String contractCreate(Model model) {
         List<Autocamper> autocampers = autocamperService.fetchAllAvailable();
@@ -39,15 +49,32 @@ public class ContractController {
         return "home/contract/contractCreate";
     }
 
+    /**
+     * Creation of a contract
+     * The method sets the autocamper to not available when rented and calculates the price for the rent
+     * @param c
+     * @return
+     */
     @PostMapping("/contract/contractCreate")
     public String contractCreate(@ModelAttribute Contract c) {
+        double rentalPrice;
+        
+
+        /* @TODO vi skal have lavet det om så den kun er "ikke tilgængelig" i den periode den er lejet i
         Autocamper a = autocamperService.findAutocamperByID(c.getAutocamperID());
         a.setIsAvailable("no");
         autocamperService.updateAutocamper(c.getAutocamperID(),a);
+
+         */
         contractService.createContract(c);
         return "redirect:/";
     }
 
+    /**
+     * Deletion of a contract
+     * @param contractID the id on the contract to be deleted
+     * @return to the homepage
+     */
     @GetMapping("/contract/contractDelete/{contractID}")
     public String contractDelete(@PathVariable("contractID") int contractID){
         contractService.deleteContract(contractID);
