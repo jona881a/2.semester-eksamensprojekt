@@ -53,9 +53,12 @@ header::after {
 
 .pageTitle {
     font-size: 45px;
-    text-shadow: -1px -1px , 1px 1px #060, -3px 0 4px #000;
+    text-shadow: -2px -2px dimgrey, 2px 2px darkorange, -3px 0 4px black;
     color: orange;
     padding: 16px;
+    width: 500px;
+    margin: auto;
+    text-align: center;
 }
 
 /*   -------    Her er css til bunden af siden   -------   */
