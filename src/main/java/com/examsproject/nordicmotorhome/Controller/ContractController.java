@@ -25,7 +25,9 @@ public class ContractController {
     AutocamperService autocamperService;
 
     @GetMapping("/contract/contractIndex")
-    public String contractIndex() {
+    public String contractIndex(Model model) {
+        List<Contract> contractList = contractService.fetchAll();
+        model.addAttribute("contracts",contractList);
         return "home/contract/contractIndex";
     }
 
