@@ -1,7 +1,6 @@
 /*  Det her er css til toppen af siden*/
-
 body {
-    margin: 0px;
+    margin: 0;
     font-family: 'work sans', sans-serif;
     font-weight: 400;
 }
@@ -52,6 +51,12 @@ header::after {
     margin: 25px;
 }
 
+.pageTitle {
+    font-size: 45px;
+    text-shadow: -1px -1px , 1px 1px #060, -3px 0 4px #000;
+    color: orange;
+    padding: 16px;
+}
 
 /*   -------    Her er css til bunden af siden   -------   */
 .bottom {
