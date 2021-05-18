@@ -20,7 +20,7 @@ td, th{
 }
 
 tr:nth-child(even){
-    background: #fac265;
+    background: #e7b25b;
 }
 tr:nth-child(odd){
     background: #ece9e3;
