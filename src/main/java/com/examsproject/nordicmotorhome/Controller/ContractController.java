@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -40,7 +41,16 @@ public class ContractController {
 
     @PostMapping("/contract/contractCreate")
     public String contractCreate(@ModelAttribute Contract c) {
+        Autocamper a = autocamperService.findAutocamperByID(c.getAutocamperID());
+        a.setIsAvailable("no");
+        autocamperService.updateAutocamper(c.getAutocamperID(),a);
         contractService.createContract(c);
-        return "home/contract/contractIndex";
+        return "redirect:/";
+    }
+
+    @GetMapping("/contract/contractDelete/{contractID}")
+    public String contractDelete(@PathVariable("contractID") int contractID){
+        contractService.deleteContract(contractID);
+        return "redirect:/";
     }
 }
