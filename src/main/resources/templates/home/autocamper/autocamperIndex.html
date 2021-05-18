@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Autocamper</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
     <link rel="stylesheet" type="text/css" href="/css/modelTableIndex.css">
+
+ <style>
+     h1 {
+         font-size: 45px;
+         text-shadow: -1px -1px #0c0, 1px 1px #060, -3px 0 4px #000;
+         color: orange;
+         padding: 16px;
+     }
+ </style>
+
 </head>
 <body>
-<div id="topBar">
-    <form action="/.">
-        <button class="logo-btn">NORDIC MOTORHOME</button>
-    </form>
-    <form action="/homecontroller/login">
-        <button class="topButton">Log in</button>
-    </form>
-    <form action="/customer/customerIndex">
-        <button class="topButton">Customers</button>
-    </form>
-    <form action="/autocamper/autocamperIndex">
-        <button class="topButton">Autocampers</button>
-    </form>
-    <form action="/contract/contractIndex">
-        <button class="topButton">Contracts</button>
-    </form>
-</div>
+
+<div style="background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_13/2798361/190325-rental-cars-cs-229p-2798361.jpg');">
+
+<header>
+    <div class="container">
+        <img class="logo" src="NordicMotorhomeLogo.png" height="70" width="117" alt="WebLogo"/>
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+                <li><a href="/loginIndex">Log in</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
 
 <div id="indexHeader">
     <h1>Autocamper list</h1>
 </div>
-
-
 
 <table>
     <thead>
