@@ -20,6 +20,9 @@ import java.util.List;
 @Controller
 public class ContractController {
 
+    private static final double MIDDLE_SEASON = 0.3;
+    private static final double PEAK_SEASON= 0.6;
+
     @Autowired
     ContractService contractService;
     @Autowired
@@ -57,8 +60,7 @@ public class ContractController {
      */
     @PostMapping("/contract/contractCreate")
     public String contractCreate(@ModelAttribute Contract c) {
-        double rentalPrice;
-        
+        double rentalPrice = 0.0;
 
         /* @TODO vi skal have lavet det om så den kun er "ikke tilgængelig" i den periode den er lejet i
         Autocamper a = autocamperService.findAutocamperByID(c.getAutocamperID());
