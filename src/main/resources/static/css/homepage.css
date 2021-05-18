@@ -1,3 +1,5 @@
+/*  Det her er css til toppen af siden*/
+
 body {
     margin: 0;
     font-family: 'work sans', sans-serif;
@@ -45,5 +47,38 @@ header::after {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 48px;
+    color: black;
+}
+
+/*   Her er css til bunden af siden       */
+
+.buttom {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.buttom a {
+    align-items: center;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.buttom a:hover {
+    background-color: darkorange;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.buttom a.active {
+    background-color: orange;
     color: black;
 }
