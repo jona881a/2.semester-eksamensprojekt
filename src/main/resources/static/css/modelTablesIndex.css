@@ -11,7 +11,7 @@ table{
     margin: auto;
 }
 th{
-    background-color: #f30d42;
+    background-color: orange;
 }
 td, th{
     border: 1px solid black;
@@ -20,7 +20,10 @@ td, th{
 }
 
 tr:nth-child(even){
-    background: #e71931;
+    background: #fac265;
+}
+tr:nth-child(odd){
+    background: #ece9e3;
 }
 
 .btn{
