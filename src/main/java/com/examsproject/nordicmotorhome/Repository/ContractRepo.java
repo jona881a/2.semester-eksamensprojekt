@@ -47,11 +47,6 @@ public class ContractRepo {
         try {
             Date formattedStartDate = new SimpleDateFormat("yyyy-MM-dd").parse(c.getRentalStartDate());
             Date formattedEndDate = new SimpleDateFormat("yyyy-MM-dd").parse(c.getRentalEndDate());
-            /*DateFormat formattedTime = new SimpleDateFormat("hh:mm:ss");
-            Date formattedPickupTime = formattedTime.parse(c.getPickupTime());
-            Date formattedDropoffTime = formattedTime.parse(c.getDropoffTime());
-
-             */
 
             template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
                     c.getRentalPrice(),formattedStartDate,c.getPickupTime(),formattedEndDate,c.getDropoffTime(),c.getContractFollowupID());

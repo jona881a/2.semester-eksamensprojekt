@@ -21,7 +21,7 @@ input[type=submit] {
 }
 
 input[type=date] {
-    width: 50%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -31,7 +31,7 @@ input[type=date] {
 }
 
 input[type=time] {
-    width: 50%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;

@@ -4,24 +4,39 @@
     <meta charset="UTF-8">
     <title>contractCreate</title>
     <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css"href="/css/modelTablesIndex.css">
 
 </head>
 <body>
     <h1>Assign a new Contract</h1>
 
-    <form id=assign-contract action="/contract/contractCreate"  method="post">
-        <label>Choose an available Autocamper</label>
-        <select id="autocampers" name="autocampers" th:Object="${autocampers}">
-            <option value="">Select autocamper from list</option>
-            <option th:each="autocamper : ${autocampers}"
-                    th:value="${autocamper.autocamperID}"
-                    th:text="${autocamper.autocamperID} + ' : ' +
-                             ${autocamper.brand} +
-                             ${autocamper.model} +
-                             ${autocamper.isAvailable} +
-                             ${autocamper.size} +
-                             ${autocamper.numberplate}"></option>
-        </select>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Size</th>
+            <th>Plate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="autocamper: ${autocampers}">
+            <td th:text="${autocamper.autocamperID}" />
+            <td th:text="${autocamper.brand}" />
+            <td th:text="${autocamper.model}" />
+            <td th:text="${autocamper.size}" />
+            <td th:text="${autocamper.numberplate}" />
+
+        </tr>
+        </tbody>
+    </table>
+
+    <form id=assign-contract action="/contract/contractCreate" method="post">
+
+        <label>Choose an available Autocamper by inserting the autocampers ID </label>
+        <input type="text" name="autcamperID" placeholder="autocamperID">
+
         <label>Enter customerID</label>
         <input type="text" name="customerID" placeholder="customerID">
 
