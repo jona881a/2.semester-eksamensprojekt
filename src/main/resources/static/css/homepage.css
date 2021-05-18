@@ -76,9 +76,3 @@ header::after {
     background-color: darkorange;
     color: black;
 }
-
-/* Add a color to the active/current link */
-.buttom a.active {
-    background-color: orange;
-    color: black;
-}
