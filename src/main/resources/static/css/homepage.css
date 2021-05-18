@@ -32,27 +32,23 @@ header::after {
 }
 .nav li {
     display: inline-block;
-    margin-left: 70px;
-    padding-top: 50px;
+    margin-left: 30px;
+    padding-top: 38px;
 }
 .nav a {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 18px;
+    padding: 12px 12px;
 }
 .nav a:hover {
     background-color: #ff9900;
-    font-size: 18px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 48px;
-    color: black;
 }
 
-/*   Her er css til bunden af siden       */
+/*   -------    Her er css til bunden af siden   -------   */
 
-.buttom {
+.bottom {
     background-color: #333;
     overflow: hidden;
     position: fixed;
@@ -61,7 +57,7 @@ header::after {
 }
 
 /* Style the links inside the navigation bar */
-.buttom a {
+.bottom a {
     align-items: center;
     display: block;
     color: black;
@@ -71,8 +67,8 @@ header::after {
     font-size: 17px;
 }
 
-/* Change the color of links on hover */
-.buttom a:hover {
+/*   -------    Change the color of links on hover   -------    */
+.bottom a:hover {
     background-color: darkorange;
     color: black;
 }
