@@ -9,7 +9,7 @@
 <body>
     <h1>Assign a new Contract</h1>
 
-    <form id=assign-contract action="/contract/contractCreate" method="post">
+    <form id=assign-contract action="/contract/contractCreate"  method="post">
         <label>Choose an available Autocamper</label>
         <select id="autocampers" name="autocampers" th:Object="${autocampers}">
             <option value="">Select autocamper from list</option>
@@ -26,10 +26,16 @@
         <input type="text" name="customerID" placeholder="customerID">
 
         <label>Enter Rental start date</label>
-        <input type="datetime-local" name="rentalStartDate" placeholder="">
+        <input type="date" name="rentalStartDate" placeholder="">
+
+        <label>Enter Rental pickup time</label>
+        <input type="text" name="rentalPickupTime" placeholder="">
 
         <label>Enter Rental end date</label>
-        <input type="datetime-local" name="rentalEndDate" placeholder="">
+        <input type="date" name="rentalEndDate" placeholder="">
+
+        <label>Enter Rental dropoff time</label>
+        <input type="text" name="rentalDropoffTime" placeholder="">
 
         <input type="submit" value="Assign">
     </form>
