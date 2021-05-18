@@ -46,13 +46,14 @@ header::after {
     background-color: #ff9900;
 }
 
+
 /*   -------    Her er css til brødtekst   -------   */
 .normText {
-
+    margin: 25px;
 }
 
-/*   -------    Her er css til bunden af siden   -------   */
 
+/*   -------    Her er css til bunden af siden   -------   */
 .bottom {
     background-color: #333;
     overflow: hidden;
