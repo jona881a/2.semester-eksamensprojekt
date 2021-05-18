@@ -11,7 +11,7 @@ input[type=text] {
 
 input[type=submit] {
     width: 100%;
-    background-color: powderblue;
+    background-color: orange;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -20,7 +20,17 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=datetime-local] {
+input[type=date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=time] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -41,5 +51,5 @@ select{
 }
 
 input[type=submit]:hover {
-    background-color: cadetblue;
+    background-color: #ffcc80;
 }

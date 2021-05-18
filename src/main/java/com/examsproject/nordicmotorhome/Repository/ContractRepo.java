@@ -7,6 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,10 +41,20 @@ public class ContractRepo {
      */
     public Contract createContract(Contract c) {
         String sql = "INSERT INTO contracts(contractID,autocamperID,customerID," +
-                "rentalPrice,rentalStartDate,rentalEndDate) VALUES(?,?,?,?,?,?)";
+                "rentalPrice,rentalStartDate,pickuptime,rentalEndDate,dropofftime,contractfollowupID) VALUES(?,?,?,?,?,?,?,?,?)";
+
+
+        try {
+            Date formattedStartDate = new SimpleDateFormat("yyyy-MM-dd").parse(c.getRentalStartDate());
+            Date formattedEndDate = new SimpleDateFormat("yyyy-MM-dd").parse(c.getRentalEndDate());
 
             template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
-                    c.getRentalPrice(),c.getRentalStartDate(),c.getRentalEndDate());
+                    c.getRentalPrice(),formattedStartDate,c.getPickupTime(),formattedEndDate,c.getDropoffTime(),c.getContractFollowupID());
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
         return c;
     }
@@ -77,9 +91,9 @@ public class ContractRepo {
      */
     public Contract updateContract(int contractID, Contract c) {
         String sql = "UPDATE contracts SET contractID = ?,autocamperID = ?,customerID = ?" +
-                ",rentalPrice = ?,rentalStartDate = ?,rentalEndDate = ? WHERE contractid = ?";
+                ",rentalPrice = ?,rentalStartDate = ?,pickuptime = ?,rentalEndDate = ?, dropofftime = ? WHERE contractid = ?";
         template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
-                c.getRentalPrice(),c.getRentalStartDate(),c.getRentalEndDate());
+                c.getRentalPrice(),c.getRentalStartDate(),c.getPickupTime(),c.getRentalEndDate(),c.getDropoffTime(),c.getContractFollowupID());
         return c;
     }
 

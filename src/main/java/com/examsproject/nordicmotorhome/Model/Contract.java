@@ -16,17 +16,23 @@ public class Contract {
     private int customerID;
     private double rentalPrice;
     private String rentalStartDate;
+    private String pickupTime;
     private String rentalEndDate;
+    private String dropoffTime;
+    private int contractFollowupID;
 
     public Contract () {}
 
-    public Contract(int contractID, int autocamperID, int customerID, double rentalPrice, String rentalStartDate, String rentalEndDate) {
+    public Contract(int contractID, int autocamperID, int customerID, double rentalPrice, String rentalStartDate, String pickupTime, String rentalEndDate, String dropoffTime, int contractFollowupID) {
         this.contractID = contractID;
         this.autocamperID = autocamperID;
         this.customerID = customerID;
         this.rentalPrice = rentalPrice;
         this.rentalStartDate = rentalStartDate;
+        this.pickupTime = pickupTime;
         this.rentalEndDate = rentalEndDate;
+        this.dropoffTime = dropoffTime;
+        this.contractFollowupID = contractFollowupID;
     }
 
     public int getContractID() {
@@ -61,19 +67,43 @@ public class Contract {
         this.rentalPrice = rentalPrice;
     }
 
-    public String getRentalStartDate() {
-        return rentalStartDate;
-    }
-
     public void setRentalStartDate(String rentalStartDate) {
         this.rentalStartDate = rentalStartDate;
+    }
+
+    public String getRentalStartDate() {
+        return rentalStartDate;
     }
 
     public String getRentalEndDate() {
         return rentalEndDate;
     }
 
+    public String getPickupTime() {
+        return pickupTime;
+    }
+
+    public void setPickupTime(String pickupTime) {
+        this.pickupTime = pickupTime;
+    }
+
     public void setRentalEndDate(String rentalEndDate) {
         this.rentalEndDate = rentalEndDate;
+    }
+
+    public String getDropoffTime() {
+        return dropoffTime;
+    }
+
+    public void setDropoffTime(String dropoffTime) {
+        this.dropoffTime = dropoffTime;
+    }
+    
+    public int getContractFollowupID() {
+        return contractFollowupID;
+    }
+
+    public void setContractFollowupID(int contractFollowupID) {
+        this.contractFollowupID = contractFollowupID;
     }
 }
