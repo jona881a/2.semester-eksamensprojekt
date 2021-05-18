@@ -1,7 +1,7 @@
 /*  Det her er css til toppen af siden*/
 
 body {
-    margin: 0;
+    margin: 0px;
     font-family: 'work sans', sans-serif;
     font-weight: 400;
 }
@@ -46,6 +46,11 @@ header::after {
     background-color: #ff9900;
 }
 
+/*   -------    Her er css til brødtekst   -------   */
+.normText {
+
+}
+
 /*   -------    Her er css til bunden af siden   -------   */
 
 .bottom {
@@ -56,13 +61,17 @@ header::after {
     width: 100%;
 }
 
+.bottom ul {
+    list-style: none;
+}
+
 /* Style the links inside the navigation bar */
 .bottom a {
-    align-items: center;
+    float: bottom;
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 12px;
     text-decoration: none;
     font-size: 17px;
 }
