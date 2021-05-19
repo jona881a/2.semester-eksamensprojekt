@@ -47,10 +47,9 @@ header::after {
 
 
 /*   -------    Her er css til brødtekst   -------   */
-.normText {
-    margin: 25px;
+.text {
+    margin: 20px;
 }
-
 .pageTitle {
     font-size: 45px;
     text-shadow: -2px -2px dimgrey, -3px 0 4px black;
@@ -60,33 +59,9 @@ header::after {
     margin: auto;
     text-align: center;
 }
-
-/*   -------    Her er css til bunden af siden   -------   */
-/*
-.bottom {
-    background-color: #333;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.normText {
+    margin: 60px;
+    background-color: white;
+    padding: 15px 18px;
+    font-size: 18px;
 }
-
-.bottom ul {
-    list-style: none;
-}
-
-.bottom a {
-    float: bottom;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/*   -------    Change the color of links on hover   -------    */
-/*.bottom a:hover {
-    background-color: darkorange;
-    color: black;
-}*/
