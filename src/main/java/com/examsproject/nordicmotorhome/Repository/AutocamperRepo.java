@@ -45,7 +45,7 @@ public class AutocamperRepo {
     public Autocamper createAutocamper(Autocamper a) {
         String sql = "INSERT INTO autocampers(autocamperID, brand, model, isAvailable,size, numberPlate, priceperday)" +
                 " VALUES(?,?,?,?,?,?,?)";
-        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(), a.getPrice());
+        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(), a.getPriceperday());
 
         return a;
     }
@@ -83,7 +83,7 @@ public class AutocamperRepo {
     public Autocamper updateAutocamper(int autocamperID, Autocamper a) {
         String sql = "UPDATE autocampers SET autocamperID = ?, brand = ?, model = ?, isAvailable = ?," +
                 " size = ?, numberPlate = ?, priceperday = ? WHERE autocamperID = ?";
-        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(),a.getPrice(),autocamperID);
+        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(),a.getPriceperday(),autocamperID);
         return a;
     }
 }
