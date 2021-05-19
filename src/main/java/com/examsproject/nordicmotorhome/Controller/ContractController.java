@@ -51,7 +51,7 @@ public class ContractController {
         return "home/contract/contractCreate";
     }
 
-    /**
+    /**@Author raskoe
      * Creation of a contract
      * The method sets the autocamper to not available when rented and calculates the price for the rent
      * @param c
