@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+
+</head>
+<body>
+
+<center><h1>Assign a new Contract</h1></center>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Size</th>
+        <th>Plate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="autocamper: ${autocampers}">
+        <td th:text="${autocamper.autocamperID}" />
+        <td th:text="${autocamper.brand}" />
+        <td th:text="${autocamper.model}" />
+        <td th:text="${autocamper.size}" />
+        <td th:text="${autocamper.numberplate}" />
+
+    </tr>
+    </tbody>
+</table>
+<div class="form-container">
+    <form id=assign-contract action="/contract/contractCreate" method="post">
+
+        <label>* Choose an available Autocamper by inserting the autocampers ID </label>
+        <input type="text" name="autocamperID" placeholder="autocamperID" required>
+
+        <label>* Enter customerID</label>
+        <input type="text" name="customerID" placeholder="customerID" required>
+
+        <label>* Enter Rental start date</label>
+        <input type="date" name="rentalStartDate" placeholder="" required>
+
+        <label>* Enter Rental pickup time</label>
+        <input type="time" name="pickupTime" placeholder="" required>
+
+        <label>* Enter Rental end date</label>
+        <input type="date" name="rentalEndDate" placeholder="" required>
+
+        <label>* Enter Rental dropoff time</label>
+        <input type="time" name="dropoffTime" placeholder="" required>
+
+        <div class="extras-container">
+            <label>Choose the extras that the customer would like</label>
+            <label>Bike rack</label>
+            <input type="checkbox" name="bikerack" value="bikerack">
+            <label>Bed Linen</label>
+            <input type="checkbox" name="bedlinen" value="bedlinen">
+            <label>Child seat</label>
+            <input type="checkbox" name="childseat" value="childseat">
+            <label>Picnic table and chairs</label>
+            <input type="checkbox" name="picnicandtables" value="picnincandtables">
+        </div>
+
+        <input type="submit" value="Assign">
+    </form>
+</div>
+</body>
+</html>

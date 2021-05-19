@@ -82,4 +82,20 @@ public class ContractController {
         contractService.deleteContract(contractID);
         return "redirect:/";
     }
+
+    /**
+     * Updating of a contract
+     * @param contractID the id on the contract to be updated
+     * @return redirect to page
+     */
+    @GetMapping("/contractUpdate/{contractID}")
+    public String contractUpdate(@PathVariable("contractID") int contractID, Model model){
+        model.addAttribute("contract", contractService.findContractById(contractID));
+        return "home/contractUpdate";
+    }
+    @PostMapping("/contractUpdate")
+    public String contractUpdate(@ModelAttribute Contract contract) {
+        contractService.updateContract(contract.getContractID(), contract);
+        return "redirect:/";
+    }
 }
