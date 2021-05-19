@@ -53,7 +53,7 @@ header::after {
 
 .pageTitle {
     font-size: 45px;
-    text-shadow: -2px -2px dimgrey, 2px 2px darkorange, -3px 0 4px black;
+    text-shadow: -2px -2px dimgrey, -3px 0 4px black;
     color: orange;
     padding: 16px;
     width: 500px;
@@ -62,6 +62,7 @@ header::after {
 }
 
 /*   -------    Her er css til bunden af siden   -------   */
+/*
 .bottom {
     background-color: #333;
     overflow: hidden;
@@ -85,7 +86,7 @@ header::after {
 }
 
 /*   -------    Change the color of links on hover   -------    */
-.bottom a:hover {
+/*.bottom a:hover {
     background-color: darkorange;
     color: black;
-}
+}*/
