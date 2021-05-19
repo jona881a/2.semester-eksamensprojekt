@@ -48,7 +48,7 @@ header::after {
 
 /*   -------    Her er css til brødtekst   -------   */
 .text {
-    margin: 25px;
+    margin: 20px;
 }
 .pageTitle {
     font-size: 45px;
@@ -60,11 +60,8 @@ header::after {
     text-align: center;
 }
 .normText {
+    margin: 60px;
     background-color: white;
-}
-/*
-.normText::after {
-    content: '';
-    display: table;
-    clear: both;
+    padding: 15px 18px;
+    font-size: 18px;
 }
