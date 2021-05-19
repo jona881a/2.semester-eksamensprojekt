@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Add autocamper</title>
-    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTables.css">
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
 </head>
 <body>
 
@@ -25,22 +27,20 @@
 <h1 class="pageTitle">Assign new autocamper</h1>
 
 <div class="form-container">
-    <form id=assign-contract action="/contract/contractCreate" method="post">
+    <form id=assign action="/autocamper/autocamperCreate" method="post">
 
-        <label>* autocamperID</label>
-        <input type="text" name="autocamperID" placeholder="(automatic)" required>
-        <label>Brand</label>
+        <label>*Brand</label>
         <input type="text" name="brand" placeholder="example: audi" required>
-        <label>Model</label>
+        <label>*Model</label>
         <input type="text" name="model" placeholder="example: 387A" required>
-        <label>In stock</label>
+        <label>*In stock</label>
         <input type="text" name="isAvailable" placeholder="yes/no" required>
-        <label>Size</label>
+        <label>*Size</label>
         <input type="text" name="size" placeholder="example: 2Persons" required>
-        <label>Plate</label>
+        <label>*Plate</label>
         <input type="text" name="numberplate" placeholder="example: HI739191" required>
-        <label>Price</label>
-        <input type="text" name="price" placeholder="(only numbers)" required>
+        <label>*Price</label>
+        <input type="text" name="priceperday" placeholder="(only numbers)" required>
         <input type="submit" value="Assign">
     </form>
 </div>

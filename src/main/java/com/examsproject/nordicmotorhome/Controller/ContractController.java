@@ -62,7 +62,7 @@ public class ContractController {
      * @return
      */
     @PostMapping("/contract/contractCreate")
-    public String contractCreate(@ModelAttribute Contract c) {
+    public String contractCreate(@ModelAttribute Contract c, @ModelAttribute Extras e) {
         double rentalPrice = 0.0;
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
         LocalDate localDateEnd = LocalDate.parse(c.getRentalStartDate());
@@ -88,7 +88,7 @@ public class ContractController {
         autocamperService.updateAutocamper(c.getAutocamperID(),a);
 
          */
-        contractService.createContract(c);
+        contractService.createContract(c,e);
         return "redirect:/";
     }
 
