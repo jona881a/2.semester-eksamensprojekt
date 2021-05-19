@@ -41,6 +41,8 @@
             <th>Start time</th>
             <th>Dropoff date</th>
             <th>End time</th>
+            <th>Duration</th>
+            <th>Extras ID</th>
             <th>Contract follow up ID</th>
 
             <th>
@@ -60,6 +62,8 @@
             <td th:text="${contract.pickupTime}" />
             <td th:text="${contract.rentalEndDate}" />
             <td th:text="${contract.dropoffTime}" />
+            <td th:text="${contract.duration}" />
+            <td th:text="${contract.extrasID}" />
             <td th:text="${contract.contractFollowupID}" />
 
             <td>

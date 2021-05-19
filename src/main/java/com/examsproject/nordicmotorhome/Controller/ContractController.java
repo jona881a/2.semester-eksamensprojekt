@@ -2,8 +2,10 @@ package com.examsproject.nordicmotorhome.Controller;
 
 import com.examsproject.nordicmotorhome.Model.Autocamper;
 import com.examsproject.nordicmotorhome.Model.Contract;
+import com.examsproject.nordicmotorhome.Model.Extras;
 import com.examsproject.nordicmotorhome.Service.AutocamperService;
 import com.examsproject.nordicmotorhome.Service.ContractService;
+import com.examsproject.nordicmotorhome.Service.ExtrasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,8 @@ public class ContractController {
     ContractService contractService;
     @Autowired
     AutocamperService autocamperService;
+    @Autowired
+    ExtrasService extrasService;
 
     /**
      * getting the index site of the contracts
@@ -48,7 +52,10 @@ public class ContractController {
     @GetMapping("/contract/contractCreate")
     public String contractCreate(Model model) {
         List<Autocamper> autocampers = autocamperService.fetchAllAvailable();
+        List<Extras> extras = extrasService.fetchAll();
         model.addAttribute("autocampers",autocampers);
+        model.addAttribute("extras", extras);
+
         return "home/contract/contractCreate";
     }
 
@@ -59,16 +66,15 @@ public class ContractController {
      * @return
      */
     @PostMapping("/contract/contractCreate")
-    public String contractCreate(@ModelAttribute Contract c) {
+    public String contractCreate(@ModelAttribute Contract c, @ModelAttribute Extras e) {
         double rentalPrice = 0.0;
-
-        /* @TODO vi skal have lavet det om så den kun er "ikke tilgængelig" i den periode den er lejet i
+        /*
         Autocamper a = autocamperService.findAutocamperByID(c.getAutocamperID());
         a.setIsAvailable("no");
-        autocamperService.updateAutocamper(c.getAutocamperID(),a);
-
+        autocamperService.updateAutocamper(c.getAutocamperID(),a)
+        contractService.findContractById(c.getContractID()).setRentalPrice(rentalPrice);
          */
-        contractService.createContract(c);
+        contractService.createContract(c,e);
         return "redirect:/";
     }
 
