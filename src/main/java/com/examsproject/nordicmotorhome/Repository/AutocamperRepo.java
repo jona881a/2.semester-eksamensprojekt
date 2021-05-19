@@ -43,9 +43,9 @@ public class AutocamperRepo {
      * @return the autocamper
      */
     public Autocamper createAutocamper(Autocamper a) {
-        String sql = "INSERT INTO autocampers(autocamperID, brand, model, isAvailable,size, numberPlate)" +
-                " VALUES(?,?,?,?,?,?)";
-        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate());
+        String sql = "INSERT INTO autocampers(autocamperID, brand, model, isAvailable,size, numberPlate, priceperday)" +
+                " VALUES(?,?,?,?,?,?,?)";
+        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(), a.getPrice());
 
         return a;
     }
@@ -82,8 +82,8 @@ public class AutocamperRepo {
      */
     public Autocamper updateAutocamper(int autocamperID, Autocamper a) {
         String sql = "UPDATE autocampers SET autocamperID = ?, brand = ?, model = ?, isAvailable = ?," +
-                " size = ?, numberPlate = ? WHERE autocamperID = ?";
-        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(),autocamperID);
+                " size = ?, numberPlate = ?, priceperday = ? WHERE autocamperID = ?";
+        template.update(sql,a.getAutocamperID(),a.getBrand(),a.getModel(),a.getIsAvailable(),a.getSize(),a.getNumberplate(),a.getPrice(),autocamperID);
         return a;
     }
 }
