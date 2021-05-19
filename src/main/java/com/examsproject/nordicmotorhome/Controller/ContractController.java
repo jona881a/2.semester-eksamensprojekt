@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 import java.util.List;
 
 /**
@@ -61,6 +64,23 @@ public class ContractController {
     @PostMapping("/contract/contractCreate")
     public String contractCreate(@ModelAttribute Contract c) {
         double rentalPrice = 0.0;
+        LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
+        LocalDate localDateEnd = LocalDate.parse(c.getRentalStartDate());
+
+        //Udregn samlede dage bilen er lejet og gang det med bilens daglige pris
+        //Gang desuden beløbet med attributter hvis det er højsæson/middelsæson
+        LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
+        LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
+        int numDays = Period.between(date1, date2).getDays();
+        if (numDays == 0) {
+            numDays = 1;
+        }
+
+        rentalPrice += + numDays * autocamperService.findAutocamperByID(c.getAutocamperID()).getPrice();
+
+        if (localDateEnd.getMonthValue() == 5) {
+
+        }
 
         /* @TODO vi skal have lavet det om så den kun er "ikke tilgængelig" i den periode den er lejet i
         Autocamper a = autocamperService.findAutocamperByID(c.getAutocamperID());
