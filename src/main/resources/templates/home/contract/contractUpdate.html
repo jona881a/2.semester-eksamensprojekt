@@ -9,8 +9,9 @@
 </head>
 <body>
 
-<img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+
 <header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
     <div class="container">
 
         <nav class="nav">
@@ -24,7 +25,7 @@
     </div>
 </header>
 
-<center><h1>Assign a new Contract</h1></center>
+<h1 class="pageTitle">Assign a new Contract</h1>
 <table>
     <thead>
     <tr>
@@ -48,6 +49,8 @@
 </table>
 <div class="form-container">
     <form id=assign-contract action="/contract/contractCreate" method="post">
+        <label>* Choose contract to edit ID</label>
+        <input type="text" name="contractID" placeholder="contractID" required>
 
         <label>* Choose an available Autocamper by inserting the autocampers ID </label>
         <input type="text" name="autocamperID" placeholder="autocamperID" required>
