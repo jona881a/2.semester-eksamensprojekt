@@ -1,4 +1,4 @@
-/*  Det her er css til toppen af siden*/
+/*   -------    her er css til toppen af siden     -------    */
 body {
     margin: 0;
     font-family: 'work sans', sans-serif;
@@ -74,7 +74,6 @@ header::after {
     list-style: none;
 }
 
-/* Style the links inside the navigation bar */
 .bottom a {
     float: bottom;
     display: block;
