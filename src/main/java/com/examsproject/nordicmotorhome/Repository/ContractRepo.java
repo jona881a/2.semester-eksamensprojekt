@@ -56,7 +56,7 @@ public class ContractRepo {
             template.update(sqlExtras,c.getContractID(),e.getLuxuryPackage(),e.getSportPackage()
                     ,e.getFamilyPackage(),e.getPicknickPackage());
             template.update(sqlRentalDetails,c.getContractID(),formattedStartDate,formattedEndDate,c.getPickupTime(),
-                    c.getDropoffTime(),c.getDuration());
+                    c.getDropoffTime());
             template.update(sqlContracts,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
                     c.getRentalPrice(),c.getContractFollowupID());
 

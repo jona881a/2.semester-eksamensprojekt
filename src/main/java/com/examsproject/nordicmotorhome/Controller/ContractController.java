@@ -6,6 +6,7 @@ import com.examsproject.nordicmotorhome.Model.CustomerDebt;
 import com.examsproject.nordicmotorhome.Model.Extras;
 import com.examsproject.nordicmotorhome.Service.AutocamperService;
 import com.examsproject.nordicmotorhome.Service.ContractService;
+import com.examsproject.nordicmotorhome.Service.CustomerDebtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +31,8 @@ public class ContractController {
     ContractService contractService;
     @Autowired
     AutocamperService autocamperService;
+    @Autowired
+    CustomerDebtService customerDebtService;
 
     /**
      * getting the index site of the contracts
@@ -74,8 +78,16 @@ public class ContractController {
      */
     @GetMapping("/contract/contractDelete/{contractID}")
     public String contractDelete(@PathVariable("contractID") int contractID){
-        contractService.findContractById(contractID).setWasCancelled("yes");
-        contractService.findContractById(contractID).setCancelDate(LocalDate.now().toString());
+        customerDebtService.createCustomerDebt(
+                new CustomerDebt(
+                        contractID,
+                        contractID,
+                        contractService.findContractById(contractID).getRentalStartDate(),
+                        contractService.findContractById(contractID).getRentalEndDate(),
+                        contractService.findContractById(contractID).setWasCancelled("yes"),
+                        LocalDate.now().toString(),
+                        Period.between(LocalDate.now(), LocalDate.parse(contractService.findContractById(contractID).getRentalStartDate()).getDays,
+                        contractService.findContractById(contractID).getRentalPrice()),
         contractService.deleteContract(contractID);
         return "redirect:/";
     }
