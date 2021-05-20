@@ -21,8 +21,8 @@ import java.util.List;
 @Service
 public class ContractService {
 
-    private static final double MIDDLE_SEASON = 0.3;
-    private static final double PEAK_SEASON= 0.6;
+    private static final double MIDDLE_SEASON = 1.3;
+    private static final double PEAK_SEASON= 1.6;
 
     @Autowired
     ContractRepo contractRepo;
@@ -46,7 +46,7 @@ public class ContractService {
     public void calculateTotalContractPrice(Contract c, Extras e, AutocamperService autocamperService) {
         double rentalPrice = 0.0;
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
-        LocalDate localDateEnd = LocalDate.parse(c.getRentalStartDate());
+        LocalDate localDateEnd = LocalDate.parse(c.getRentalEndDate());
 
         //Udregn samlede dage bilen er lejet og gang det med bilens daglige pris
         //Gang desuden beløbet med attributter hvis det er højsæson/middelsæson
@@ -59,13 +59,13 @@ public class ContractService {
 
         rentalPrice += numDays * autocamperService.findAutocamperByID(c.getAutocamperID()).getPriceperday();
 
-        if (e.getFamilyPackage().equals("yes")) {
+        if (!(e.getFamilyPackage() == null) && e.getFamilyPackage().equals("yes")) {
             rentalPrice += 750;
-        } else if (e.getSportPackage().equals("yes")) {
+        } else if (!(e.getSportPackage() == null) && e.getSportPackage().equals("yes")) {
             rentalPrice += 500;
-        } else if (e.getLuxuryPackage().equals("yes")) {
+        } else if (!(e.getLuxuryPackage() == null) && e.getLuxuryPackage().equals("yes")) {
             rentalPrice += 1000;
-        } else if (e.getPicknickPackage().equals("yes")) {
+        } else if (!(e.getPicknickPackage() == null) && e.getPicknickPackage().equals("yes")) {
             rentalPrice += 250;
         }
 

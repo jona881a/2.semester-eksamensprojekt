@@ -1,7 +1,12 @@
 package com.examsproject.nordicmotorhome.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class CustomerDebt {
 
+    @Id
     private int customerDebtID;
     private int contractID; //Kan det lade sig gøre i sql?
     private String contractStartDate; //Start-og slutdato er der mest for overblikkets skyld.
@@ -23,7 +28,9 @@ public class CustomerDebt {
         this.totalPrice = totalPrice;
     }
 
-    CustomerDebt () {}
+    public CustomerDebt() {}
+
+
 
     public int getCustomerDebtID() {
         return customerDebtID;
