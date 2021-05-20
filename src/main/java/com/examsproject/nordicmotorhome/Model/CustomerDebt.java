@@ -14,10 +14,10 @@ public class CustomerDebt {
     private String wasCancelled;  //Hvis kontrakten blev afbrudt
     private String cancellationDate; //Skal vise hvordan vi udregnede antal dage, kan være null.
     private int daysSinceCancellation; //For at dobbelttjekke
-    private int totalPrice; //Er enten contract price eller cancellation fee.
+    private double totalPrice; //Er enten contract price eller cancellation fee.
 
     public CustomerDebt (int customerDebtID, int contractID, String contractStartDate, String contractEndDate,
-                         String wasCancelled, String cancellationDate, int daysSinceCancellation, int totalPrice) {
+                         String wasCancelled, String cancellationDate, int daysSinceCancellation, double totalPrice) {
         this.customerDebtID = customerDebtID;
         this.contractID = contractID;
         this.contractStartDate = contractStartDate;
@@ -88,11 +88,11 @@ public class CustomerDebt {
         this.daysSinceCancellation = daysSinceCancellation;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

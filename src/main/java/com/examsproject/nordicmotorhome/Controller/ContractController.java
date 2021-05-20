@@ -78,16 +78,13 @@ public class ContractController {
      */
     @GetMapping("/contract/contractDelete/{contractID}")
     public String contractDelete(@PathVariable("contractID") int contractID){
+        Contract c = contractService.findContractById(contractID);
+
         customerDebtService.createCustomerDebt(
-                new CustomerDebt(
-                        contractID,
-                        contractID,
-                        contractService.findContractById(contractID).getRentalStartDate(),
-                        contractService.findContractById(contractID).getRentalEndDate(),
-                        contractService.findContractById(contractID).setWasCancelled("yes"),
+                new CustomerDebt(contractID, contractID, c.getRentalStartDate(), c.getRentalEndDate(),
+                        "yes",
                         LocalDate.now().toString(),
-                        Period.between(LocalDate.now(), LocalDate.parse(contractService.findContractById(contractID).getRentalStartDate()).getDays,
-                        contractService.findContractById(contractID).getRentalPrice()),
+                        Period.between(LocalDate.now(), LocalDate.parse(c.getRentalStartDate())).getDays(),c.getRentalPrice()));
         contractService.deleteContract(contractID);
         return "redirect:/";
     }
