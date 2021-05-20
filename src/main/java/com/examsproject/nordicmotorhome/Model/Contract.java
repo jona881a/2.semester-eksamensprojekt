@@ -41,24 +41,6 @@ public class Contract {
         this.extrasID = extrasID;
         this.rentaldetailsID = rentaldetailsID;
         this.contractFollowupID = contractFollowupID;
-        this.wasCancelled = wasCancelled;
-        this.cancelDate = cancelDate;
-    }
-
-    public String isWasCancelled() {
-        return wasCancelled;
-    }
-
-    public void setWasCancelled(String wasCancelled) {
-        this.wasCancelled = wasCancelled;
-    }
-
-    public String getCancelDate() {
-        return cancelDate;
-    }
-
-    public void setCancelDate(String cancelDate) {
-        this.cancelDate = cancelDate;
     }
 
     public int getContractID() {
