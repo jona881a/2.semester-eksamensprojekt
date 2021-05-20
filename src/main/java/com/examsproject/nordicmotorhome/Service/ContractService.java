@@ -43,7 +43,7 @@ public class ContractService {
         return contractRepo.updateContract(contractID,c);
     }
 
-    public void calculateTotalContractPrice(Contract c, Extras e, AutocamperService autocamperService) {
+    public double calculateTotalContractPrice(Contract c, Extras e, AutocamperService autocamperService) {
         double rentalPrice = 0.0;
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
         LocalDate localDateEnd = LocalDate.parse(c.getRentalEndDate());
@@ -87,9 +87,11 @@ public class ContractService {
             rentalPrice *= MIDDLE_SEASON;
         }
         c.setRentalPrice(rentalPrice);
+
+        return rentalPrice;
     }
 
-    public void calculateCancellationFee(Contract c) {
+    public double calculateCancellationFee(Contract c) {
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
         LocalDate dateCancelDate = LocalDate.now();
         double cancellationFeePrice = 0;
@@ -113,5 +115,7 @@ public class ContractService {
         } else if (numDays < 1) {
             cancellationFeePrice = c.getRentalPrice() * 0.95;
         }
+
+        return cancellationFeePrice;
     }
 }

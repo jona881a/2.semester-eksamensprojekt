@@ -81,11 +81,12 @@ public class ContractController {
         Contract c = contractService.findContractById(contractID);
 
         customerDebtService.createCustomerDebt(
-                new CustomerDebt(contractID, contractID, c.getRentalStartDate(), c.getRentalEndDate(),
-                        "yes",
-                        LocalDate.now().toString(),
-                        Period.between(LocalDate.now(), LocalDate.parse(c.getRentalStartDate())).getDays(),c.getRentalPrice()));
+                new CustomerDebt(contractID, contractID, c.getRentalStartDate(), c.getRentalEndDate(), "yes",
+                        LocalDate.now().toString(), Period.between(LocalDate.now(), LocalDate.parse(c.getRentalStartDate())).getDays(),
+                        contractService.calculateCancellationFee(c)));
+
         contractService.deleteContract(contractID);
+
         return "redirect:/";
     }
 

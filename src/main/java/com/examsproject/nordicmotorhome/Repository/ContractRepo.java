@@ -44,7 +44,7 @@ public class ContractRepo {
         String sqlContracts = "INSERT INTO contracts(contractID,autocamperID,customerID," +
                 "rentalprice,contractfollowupID) VALUES(?,?,?,?,?)";
         String sqlRentalDetails = "INSERT INTO rentaldetails(rentaldetailsID,rentalstartdate,rentalenddate," +
-                "pickuptime,dropofftime,duration) VALUES(?,?,?,?,?,?)";
+                "pickuptime,dropofftime) VALUES(?,?,?,?,?)";
         String sqlExtras = "INSERT INTO extras(extrasID,luxurypackage,sportpackage,familypackage,picknickpackage)" +
                 "VALUES(?,?,?,?,?)";
 
@@ -83,7 +83,7 @@ public class ContractRepo {
      * @return the contract
      */
     public Contract findContractByID(int contractID) {
-        String sql = "SELECT * FROM contracts WHERE contractID = ?";
+        String sql = "SELECT * FROM contracts JOIN rentaldetails using(rentaldetailsID) WHERE contractID = ?";
         RowMapper<Contract> contracts = new BeanPropertyRowMapper<>(Contract.class);
         Contract c = template.queryForObject(sql, contracts, contractID);
 
@@ -97,13 +97,13 @@ public class ContractRepo {
      */
     public Contract deleteContract(int contractID) {
         String sqlDeleteContracts = "DELETE FROM contracts WHERE contractID = ?";
-
         String sqlDeleteRentalDetails = "DELETE FROM rentaldetails WHERE rentaldetailsID = ?";
         String sqlDeleteExtras = "DELETE FROM extras WHERE extrasID = ?";
+        Contract c = findContractByID(contractID);
 
-        template.update(sqlDeleteRentalDetails,findContractByID(contractID).getRentaldetailsID());
-        template.update(sqlDeleteExtras,findContractByID(contractID).getExtrasID());
         template.update(sqlDeleteContracts,contractID);
+        template.update(sqlDeleteRentalDetails,c.getRentaldetailsID());
+        template.update(sqlDeleteExtras,c.getExtrasID());
 
         return null;
     }
