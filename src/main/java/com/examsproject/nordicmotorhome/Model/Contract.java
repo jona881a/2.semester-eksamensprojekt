@@ -19,18 +19,17 @@ public class Contract {
     private String pickupTime;
     private String rentalEndDate;
     private String dropoffTime;
-    private int duration;
     private int rentaldetailsID;
     private int extrasID;
-
+    private String wasCancelled;
+    private String cancelDate;
     private int contractFollowupID;
 
     public Contract () {}
 
     public Contract(int contractID, int autocamperID, int customerID, double rentalPrice, String rentalStartDate,
-                    String pickupTime, String rentalEndDate, String dropoffTime, int duration,
-                    int extrasID, int rentaldetailsID, int contractFollowupID)
-    {
+                    String pickupTime, String rentalEndDate, String dropoffTime, int extrasID,
+                    int rentaldetailsID, int contractFollowupID) {
         this.contractID = contractID;
         this.autocamperID = autocamperID;
         this.customerID = customerID;
@@ -39,10 +38,27 @@ public class Contract {
         this.pickupTime = pickupTime;
         this.rentalEndDate = rentalEndDate;
         this.dropoffTime = dropoffTime;
-        this.duration = duration;
         this.extrasID = extrasID;
         this.rentaldetailsID = rentaldetailsID;
         this.contractFollowupID = contractFollowupID;
+        this.wasCancelled = wasCancelled;
+        this.cancelDate = cancelDate;
+    }
+
+    public String isWasCancelled() {
+        return wasCancelled;
+    }
+
+    public void setWasCancelled(String wasCancelled) {
+        this.wasCancelled = wasCancelled;
+    }
+
+    public String getCancelDate() {
+        return cancelDate;
+    }
+
+    public void setCancelDate(String cancelDate) {
+        this.cancelDate = cancelDate;
     }
 
     public int getContractID() {
@@ -115,14 +131,6 @@ public class Contract {
 
     public void setContractFollowupID(int contractFollowupID) {
         this.contractFollowupID = contractFollowupID;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
     }
 
     public int getExtrasID() {

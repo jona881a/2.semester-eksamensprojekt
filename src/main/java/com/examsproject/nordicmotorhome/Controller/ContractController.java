@@ -2,6 +2,7 @@ package com.examsproject.nordicmotorhome.Controller;
 
 import com.examsproject.nordicmotorhome.Model.Autocamper;
 import com.examsproject.nordicmotorhome.Model.Contract;
+import com.examsproject.nordicmotorhome.Model.CustomerDebt;
 import com.examsproject.nordicmotorhome.Model.Extras;
 import com.examsproject.nordicmotorhome.Service.AutocamperService;
 import com.examsproject.nordicmotorhome.Service.ContractService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -72,7 +74,8 @@ public class ContractController {
      */
     @GetMapping("/contract/contractDelete/{contractID}")
     public String contractDelete(@PathVariable("contractID") int contractID){
-
+        contractService.findContractById(contractID).setWasCancelled("yes");
+        contractService.findContractById(contractID).setCancelDate(LocalDate.now().toString());
         contractService.deleteContract(contractID);
         return "redirect:/";
     }
