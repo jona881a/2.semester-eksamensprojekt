@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -86,5 +87,31 @@ public class ContractService {
             rentalPrice *= MIDDLE_SEASON;
         }
         c.setRentalPrice(rentalPrice);
+    }
+
+    public void calculateCancellationFee(Contract c) {
+        LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
+        LocalDate dateCancelDate = LocalDate.now();
+        double cancellationFeePrice = 0;
+
+        LocalDate dateContractBeginDate = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
+
+        int numDays = Period.between(dateCancelDate, dateContractBeginDate).getDays();
+        if (numDays == 0) {
+            numDays = 1;
+        }
+        if (numDays >= 50) {
+            if (c.getRentalPrice() * 0.2 <= 200) {
+                cancellationFeePrice += 200;
+            } else {
+                cancellationFeePrice = c.getRentalPrice() * 0.2;
+            }
+        } else if (numDays <= 49 && numDays >= 15) {
+            cancellationFeePrice = c.getRentalPrice() * 0.5;
+        } else if (numDays < 15 && numDays > 1) {
+            cancellationFeePrice = c.getRentalPrice() * 0.8;
+        } else if (numDays < 1) {
+            cancellationFeePrice = c.getRentalPrice() * 0.95;
+        }
     }
 }
