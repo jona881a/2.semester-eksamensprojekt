@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Customer - index</title>
+    <title>Customer</title>
     <link rel="stylesheet" type="text/css" href="/css/homepage.css">
     <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
 </head>
@@ -24,7 +24,12 @@
     </div>
 </header>
 
-<h1 class="pageTitle">Customer list</h1>
+
+
+
+
+    <h1 class="pageTitle">Customer list</h1>
+
 
 <table>
     <thead>
@@ -54,18 +59,16 @@
         <td th:text="${customer.address}" />
         <td th:text="${customer.zipcode}" />
 
+
         <td>
             <a th:href="@{'/customer/customerDetails/'+${customer.customerID}}">
-                <button class="btn" id="btn-Details">Details</button>
+                <button class="btn", id="btn-Details">Details</button>
             </a>
             <a th:href="@{'/customer/customerDelete/'+${customer.customerID}}">
-                <button class="btn" id="btn-Delete">Delete</button>
+                <button class="btn", id="btn-Delete">Delete</button>
             </a>
             <a th:href="@{'/customer/customerUpdate/'+${customer.customerID}}">
-                <button class="btn" id="btn-Edit">Edit</button>
-            </a>
-            <a href="">
-                <button class="btn" id="btn-Customer">Customer debt</button>
+                <button class="btn", id="btn-Edit">Edit</button>
             </a>
         </td>
     </tr>

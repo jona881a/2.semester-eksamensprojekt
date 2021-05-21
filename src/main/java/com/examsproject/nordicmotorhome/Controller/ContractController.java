@@ -98,8 +98,9 @@ public class ContractController {
     @GetMapping("/contractUpdate/{contractID}")
     public String contractUpdate(@PathVariable("contractID") int contractID, Model model){
         model.addAttribute("contract", contractService.findContractById(contractID));
-        return "home/contractUpdate";
+        return "home/contract/contractUpdate";
     }
+
     @PostMapping("/contractUpdate")
     public String contractUpdate(@ModelAttribute Contract contract) {
         contractService.updateContract(contract.getContractID(), contract);

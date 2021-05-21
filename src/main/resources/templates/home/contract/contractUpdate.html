@@ -27,49 +27,35 @@
 
 <h1 class="pageTitle">Assign a new Contract</h1>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Size</th>
-        <th>Plate</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="autocamper: ${autocampers}">
-        <td th:text="${autocamper.autocamperID}" />
-        <td th:text="${autocamper.brand}" />
-        <td th:text="${autocamper.model}" />
-        <td th:text="${autocamper.size}" />
-        <td th:text="${autocamper.numberplate}" />
-
-    </tr>
-    </tbody>
-</table>
 <div class="form-container">
-    <form id=assign-contract action="/contract/contractCreate" method="post">
-        <label>* Choose contract to edit ID</label>
-        <input type="text" name="contractID" placeholder="contractID" required>
+    <form id=assign-contract action="/contract/contractUpdate" method="post">
 
-        <label>* Choose an available Autocamper by inserting the autocampers ID </label>
-        <input type="text" name="autocamperID" placeholder="autocamperID" required>
+        <label>ContractID</label>
+        <input type="text" name="contractID" placeholder="contractID" th:value="${contract.contractID}" required>
 
-        <label>* Enter customerID</label>
-        <input type="text" name="customerID" placeholder="customerID" required>
+        <label>Edit autocamperID</label>
+        <input type="text" name="autocamperID" placeholder="autocamperID" th:value="${contract.autocamperID}" required>
 
-        <label>* Enter Rental start date</label>
-        <input type="date" name="rentalStartDate" placeholder="" required>
+        <label>Edit customerID</label>
+        <input type="text" name="customerID" placeholder="customerID" th:value="${contract.customerID}" required>
 
-        <label>* Enter Rental pickup time</label>
-        <input type="time" name="pickupTime" placeholder="" required>
+        <label>Edit Rental start date</label>
+        <input type="date" name="rentalStartDate" placeholder="" th:value="${contract.rentalStartDate}"required>
 
-        <label>* Enter Rental end date</label>
-        <input type="date" name="rentalEndDate" placeholder="" required>
+        <label>Edit Rental pickup time</label>
+        <input type="time" name="pickupTime" placeholder="" th:value="${contract.pickupTime}" required>
 
-        <label>* Enter Rental dropoff time</label>
-        <input type="time" name="dropoffTime" placeholder="" required>
+        <label>Edit Rental end date</label>
+        <input type="date" name="rentalEndDate" placeholder="" th:value="${contract.rentalEndDate}" required>
+
+        <label>Edit Rental dropoff time</label>
+        <input type="time" name="dropoffTime" placeholder="" th:value="${contract.dropoffTime}" required>
+
+        <label>Edit pickup address</label>
+        <input type="text" name="pickupAddress" placeholder="" th:value="${contract.pickupAddress}" required>
+
+        <label>Edit dropoff address</label>
+        <input type="text" name="dropoffAddress" placeholder="" th:value="${contract.dropoffAddress}" required>
 
         <div class="extras-container">
             <label>Choose the extras that the customer would like</label>

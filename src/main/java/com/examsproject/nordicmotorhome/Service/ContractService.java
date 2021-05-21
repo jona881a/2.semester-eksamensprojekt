@@ -54,10 +54,6 @@ public class ContractService {
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
         LocalDate localDateEnd = LocalDate.parse(c.getRentalEndDate());
 
-        //Udregn samlede dage bilen er lejet og gang det med bilens daglige pris
-        //Tilføj dernæst ekstra distance for pickup/dropoff.
-        //Dernæst en package med diverse ting som sengelinned og cykel anhænger m.m.
-        //Til sidst ganges beløbet med attributter hvis det er højsæson/middelsæson
         LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
         LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
         int numDays = Period.between(date1, date2).getDays();
