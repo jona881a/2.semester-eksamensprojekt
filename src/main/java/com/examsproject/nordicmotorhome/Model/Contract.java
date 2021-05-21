@@ -55,6 +55,54 @@ public class Contract {
         this.contractFollowupID = contractFollowupID;
     }
 
+    public String getPickupAddress() {
+        return pickupAddress;
+    }
+
+    public void setPickupAddress(String pickupAddress) {
+        this.pickupAddress = pickupAddress;
+    }
+
+    public int getPickupDistance() {
+        return pickupDistance;
+    }
+
+    public void setPickupDistance(int pickupDistance) {
+        this.pickupDistance = pickupDistance;
+    }
+
+    public String getDropoffAddress() {
+        return dropoffAddress;
+    }
+
+    public void setDropoffAddress(String dropoffAddress) {
+        this.dropoffAddress = dropoffAddress;
+    }
+
+    public int getDropoffDistance() {
+        return dropoffDistance;
+    }
+
+    public void setDropoffDistance(int dropoffDistance) {
+        this.dropoffDistance = dropoffDistance;
+    }
+
+    public String getWasCancelled() {
+        return wasCancelled;
+    }
+
+    public void setWasCancelled(String wasCancelled) {
+        this.wasCancelled = wasCancelled;
+    }
+
+    public String getCancelDate() {
+        return cancelDate;
+    }
+
+    public void setCancelDate(String cancelDate) {
+        this.cancelDate = cancelDate;
+    }
+
     public int getContractID() {
         return contractID;
     }

@@ -48,7 +48,8 @@ public class ContractService {
 
         //Udregn samlede dage bilen er lejet og gang det med bilens daglige pris
         //Tilføj dernæst ekstra distance for pickup/dropoff.
-        //Gang desuden beløbet med attributter hvis det er højsæson/middelsæson
+        //Dernæst en package med diverse ting som sengelinned og cykel anhænger m.m.
+        //Til sidst ganges beløbet med attributter hvis det er højsæson/middelsæson
         LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
         LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
         int numDays = Period.between(date1, date2).getDays();
@@ -57,15 +58,16 @@ public class ContractService {
         }
 
         rentalPrice += numDays * autocamperService.findAutocamperByID(c.getAutocamperID()).getPriceperday();
+        rentalPrice += c.getPickupDistance() * 0.7 + c.getDropoffDistance() + 0.7;
 
         if (!(e.getFamilyPackage() == null) && e.getFamilyPackage().equals("yes")) {
-            rentalPrice += 750;
+            rentalPrice += 75;
         } else if (!(e.getSportPackage() == null) && e.getSportPackage().equals("yes")) {
-            rentalPrice += 500;
+            rentalPrice += 50;
         } else if (!(e.getLuxuryPackage() == null) && e.getLuxuryPackage().equals("yes")) {
-            rentalPrice += 1000;
+            rentalPrice += 100;
         } else if (!(e.getPicknickPackage() == null) && e.getPicknickPackage().equals("yes")) {
-            rentalPrice += 250;
+            rentalPrice += 25;
         }
 
         if (localDateEnd.getMonthValue() == 5) {
