@@ -17,8 +17,12 @@ public class Contract {
     private double rentalPrice;
     private String rentalStartDate;
     private String pickupTime;
+    private String pickupAddress;
+    private int pickupDistance;
     private String rentalEndDate;
     private String dropoffTime;
+    private String dropoffAddress;
+    private int dropoffDistance;
     private int rentaldetailsID;
     private int extrasID;
     private String wasCancelled;
@@ -27,20 +31,76 @@ public class Contract {
 
     public Contract () {}
 
-    public Contract(int contractID, int autocamperID, int customerID, double rentalPrice, String rentalStartDate,
-                    String pickupTime, String rentalEndDate, String dropoffTime, int extrasID,
-                    int rentaldetailsID, int contractFollowupID) {
+    public Contract(int contractID, int autocamperID, int customerID, double rentalPrice,
+                    String rentalStartDate, String pickupTime, String pickupAddress,
+                    int pickupDistance, String rentalEndDate, String dropoffTime,
+                    String dropoffAddress, int dropoffDistance, int rentaldetailsID,
+                    int extrasID, String wasCancelled, String cancelDate, int contractFollowupID) {
         this.contractID = contractID;
         this.autocamperID = autocamperID;
         this.customerID = customerID;
         this.rentalPrice = rentalPrice;
         this.rentalStartDate = rentalStartDate;
         this.pickupTime = pickupTime;
+        this.pickupAddress = pickupAddress;
+        this.pickupDistance = pickupDistance;
         this.rentalEndDate = rentalEndDate;
         this.dropoffTime = dropoffTime;
-        this.extrasID = extrasID;
+        this.dropoffAddress = dropoffAddress;
+        this.dropoffDistance = dropoffDistance;
         this.rentaldetailsID = rentaldetailsID;
+        this.extrasID = extrasID;
+        this.wasCancelled = wasCancelled;
+        this.cancelDate = cancelDate;
         this.contractFollowupID = contractFollowupID;
+    }
+
+    public String getPickupAddress() {
+        return pickupAddress;
+    }
+
+    public void setPickupAddress(String pickupAddress) {
+        this.pickupAddress = pickupAddress;
+    }
+
+    public int getPickupDistance() {
+        return pickupDistance;
+    }
+
+    public void setPickupDistance(int pickupDistance) {
+        this.pickupDistance = pickupDistance;
+    }
+
+    public String getDropoffAddress() {
+        return dropoffAddress;
+    }
+
+    public void setDropoffAddress(String dropoffAddress) {
+        this.dropoffAddress = dropoffAddress;
+    }
+
+    public int getDropoffDistance() {
+        return dropoffDistance;
+    }
+
+    public void setDropoffDistance(int dropoffDistance) {
+        this.dropoffDistance = dropoffDistance;
+    }
+
+    public String getWasCancelled() {
+        return wasCancelled;
+    }
+
+    public void setWasCancelled(String wasCancelled) {
+        this.wasCancelled = wasCancelled;
+    }
+
+    public String getCancelDate() {
+        return cancelDate;
+    }
+
+    public void setCancelDate(String cancelDate) {
+        this.cancelDate = cancelDate;
     }
 
     public int getContractID() {
