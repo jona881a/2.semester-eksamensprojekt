@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:https="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Customer - index</title>
+    <title>Customer debt - index</title>
     <link rel="stylesheet" type="text/css" href="/css/homepage.css">
-    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
 </head>
-
-<body style="background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_13/2798361/190325-rental-cars-cs-229p-2798361.jpg');">
+<body>
 
 <header>
     <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
@@ -24,21 +22,22 @@
     </div>
 </header>
 
-<h1 class="pageTitle">Customer list</h1>
+<h1 class="pageTitle">Customer debt list</h1>
+
 
 <table>
     <thead>
     <tr>
-        <th>ID</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Email</th>
-        <th>Phonenumber</th>
-        <th>Address</th>
-        <th>Zipcode</th>
+        <th>Customer debt ID</th>
+        <th>Contract ID</th>
+        <th>Contract followup ID</th>
+        <th>Customer ID</th>
+        <th>Autocamper ID</th>
+        <th>Was cancelled:</th>
+        <th>Total payment:</th>
 
         <th>
-            <a href="/customer/customerCreate">
+            <a href="/customer/customerdebt/customerdebtCreate">
                 <button class="btn" id="btn-Create">Assign new customer</button>
             </a>
         </th>
@@ -46,14 +45,7 @@
     </thead>
     <tbody>
     <tr th:each="customer: ${customers}">
-        <td th:text="${customer.customerID}" />
-        <td th:text="${customer.firstname}" />
-        <td th:text="${customer.lastname}" />
-        <td th:text="${customer.email}" />
-        <td th:text="${customer.phonenumber}" />
-        <td th:text="${customer.address}" />
-        <td th:text="${customer.zipcode}" />
-
+        <td th:text="${customerdebt.customerdebtID}">
 
         <td>
             <a th:href="@{'/customer/customerDetails/'+${customer.customerID}}">
@@ -62,17 +54,13 @@
             <a th:href="@{'/customer/customerDelete/'+${customer.customerID}}">
                 <button class="btn", id="btn-Delete">Delete</button>
             </a>
-            <a th:href="@{'/customer/customerUpdate/'+${customer.customerID}}">
+            <a th:href="@{'/customer/customerUpdate/'+${customerdebt.customerdebtID}}">
                 <button class="btn", id="btn-Edit">Edit</button>
-            </a>
-            <a th:href="@{'/customer/customerdebt/'+${customer.customerID}}">
-                <button class="btn", id="btn-Details">Customer debt</button>
             </a>
         </td>
     </tr>
     </tbody>
 </table>
-
 
 </body>
 </html>

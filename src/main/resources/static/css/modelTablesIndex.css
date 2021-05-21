@@ -53,3 +53,9 @@ tr:nth-child(odd){
 #btn-Edit:hover{
     background-color: lightgray;
 }
+#btn-Customer{
+    background-color: darkseagreen;
+}
+#btn-Customer:hover{
+    background-color: lightgray;
+}
