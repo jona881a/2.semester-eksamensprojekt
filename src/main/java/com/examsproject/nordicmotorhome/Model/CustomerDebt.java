@@ -31,7 +31,6 @@ public class CustomerDebt {
     public CustomerDebt() {}
 
 
-
     public int getCustomerDebtID() {
         return customerDebtID;
     }
