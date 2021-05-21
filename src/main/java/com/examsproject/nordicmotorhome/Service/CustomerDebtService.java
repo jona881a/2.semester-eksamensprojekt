@@ -3,6 +3,7 @@ package com.examsproject.nordicmotorhome.Service;
 import com.examsproject.nordicmotorhome.Model.Contract;
 import com.examsproject.nordicmotorhome.Model.ContractFollowup;
 import com.examsproject.nordicmotorhome.Model.CustomerDebt;
+import com.examsproject.nordicmotorhome.Model.Extras;
 import com.examsproject.nordicmotorhome.Repository.CustomerDebtRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,9 +36,13 @@ public class CustomerDebtService {
         return customerDebtRepo.updateCustomerDebt(customerDebtID,c);
     }
 
-    public void calculateTotalDebt(Contract contract, ContractFollowup contractFollowup) {
-        double totalPrice;
+    public double calculateTotalDebt(ContractService contractService, ContractFollowupService contractFollowupService,
+                                   Contract c, Extras e, AutocamperService autocamperService, ContractFollowup cf) {
+        double totalPrice = 0;
 
-        totalPrice +=
+        totalPrice += contractService.calculateTotalContractPrice(c, e, autocamperService)
+                + contractFollowupService.caluculateTotalPrice(cf);
+
+        return totalPrice
     }
 }

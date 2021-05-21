@@ -33,4 +33,18 @@ public class ContractFollowupService {
     public ContractFollowup updateContractFollowup(int contractFollowupID, ContractFollowup c){
         return contractFollowupRepo.updateContractFollowup(contractFollowupID,c);
     }
+
+    public double caluculateTotalPrice(ContractFollowup c) {
+        double totalPrice = 0;
+
+        if (c.getHalfTank().equals("yes")) {
+            totalPrice += 70;
+        }
+        if (c.getDamages().equals("yes")) {
+            totalPrice += c.getDamageCost();
+        }
+
+        totalPrice += c.getRepairPrice();
+        return totalPrice;
+    }
 }

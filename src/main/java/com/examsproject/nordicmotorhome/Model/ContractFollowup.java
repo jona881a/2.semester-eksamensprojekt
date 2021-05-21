@@ -85,17 +85,4 @@ public class ContractFollowup {
         this.damages = damages;
     }
 
-    public double caluculateTotalPrice() {
-        double totalPrice = 0;
-
-        if (halfTank.equals("yes")) {
-            totalPrice += 70;
-        }
-        if (damages.equals("yes")) {
-            totalPrice += damageCost;
-        }
-
-        totalPrice = repairPrice;
-        return repairPrice;
-    }
 }
