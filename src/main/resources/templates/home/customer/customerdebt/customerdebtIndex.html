@@ -46,6 +46,12 @@
     <tbody>
     <tr th:each="customer: ${customers}">
         <td th:text="${customerdebt.customerdebtID}">
+        <td th:text="${contract.contractID}">
+        <td th:text="${contract.contractfollowupID}">
+        <td th:text="${contract.customerID}">
+        <td th:text="${contract.autocamperID}">
+        <td th:text="${customerdebt.wascancelled}">
+        <td th:text="${customerdebt.totalpayment}">
 
         <td>
             <a th:href="@{'/customer/customerDetails/'+${customer.customerID}}">
