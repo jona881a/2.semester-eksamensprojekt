@@ -10,18 +10,39 @@ public class ContractFollowup {
     private int contractFollowUpID;
     private int repairPrice;
     private String halfTank;
-    private String extraDrivenKm;
+    private int extraDrivenKm;
     private String damages;
+    private int damageCost;
 
     public ContractFollowup() {}
 
     public ContractFollowup(int contractFollowUpID, int repairPrice, String halfTank,
-                            String extraDrivenKm, String damages) {
+                            String damages, int damageCost) {
         this.contractFollowUpID = contractFollowUpID;
         this.repairPrice = repairPrice;
         this.halfTank = halfTank;
-        this.extraDrivenKm = extraDrivenKm;
         this.damages = damages;
+        this.damageCost = damageCost;
+    }
+
+    public String getHalfTank() {
+        return halfTank;
+    }
+
+    public int getExtraDrivenKm() {
+        return extraDrivenKm;
+    }
+
+    public String getDamages() {
+        return damages;
+    }
+
+    public int getDamageCost() {
+        return damageCost;
+    }
+
+    public void setDamageCost(int damageCost) {
+        this.damageCost = damageCost;
     }
 
     public int getContractFollowUpID() {
@@ -48,11 +69,11 @@ public class ContractFollowup {
         this.halfTank = halfTank;
     }
 
-    public String isExtraDrivenKm() {
+    public int isExtraDrivenKm() {
         return extraDrivenKm;
     }
 
-    public void setExtraDrivenKm(String extraDrivenKm) {
+    public void setExtraDrivenKm(int extraDrivenKm) {
         this.extraDrivenKm = extraDrivenKm;
     }
 
@@ -62,5 +83,19 @@ public class ContractFollowup {
 
     public void setDamages(String damages) {
         this.damages = damages;
+    }
+
+    public double caluculateTotalPrice() {
+        double totalPrice = 0;
+
+        if (halfTank.equals("yes")) {
+            totalPrice += 70;
+        }
+        if (damages.equals("yes")) {
+            totalPrice += damageCost;
+        }
+
+        totalPrice = repairPrice;
+        return repairPrice;
     }
 }

@@ -1,5 +1,7 @@
 package com.examsproject.nordicmotorhome.Service;
 
+import com.examsproject.nordicmotorhome.Model.Contract;
+import com.examsproject.nordicmotorhome.Model.ContractFollowup;
 import com.examsproject.nordicmotorhome.Model.CustomerDebt;
 import com.examsproject.nordicmotorhome.Repository.CustomerDebtRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +33,11 @@ public class CustomerDebtService {
 
     public CustomerDebt updateCustomerDebt(int customerDebtID, CustomerDebt c) {
         return customerDebtRepo.updateCustomerDebt(customerDebtID,c);
+    }
+
+    public void calculateTotalDebt(Contract contract, ContractFollowup contractFollowup) {
+        double totalPrice;
+
+        totalPrice +=
     }
 }

@@ -44,7 +44,7 @@ public class ContractFollowupRepo {
         String sql = "INSERT INTO contractfollowups(contractFollowupID,repairPrice,halfTank," +
                 "extraDrivenKm,damages,dropoffDistance) VALUES(?,?,?,?,?,?)";
         template.update(sql,c.getContractFollowUpID(),c.getRepairPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
-                c.isDamages(),c.getDropOffDistance());
+                c.isDamages());
 
         return c;
     }
@@ -86,7 +86,7 @@ public class ContractFollowupRepo {
         String sql = "UPDATE contractfollowups SET contractFollowupID = ?,repairPrice = ?,HalfTank() = ?" +
                 ",isExtraDrivenKm() = ?,isDamages() = ?,getDropOffDistance() = ?";
         template.update(sql,c.getContractFollowUpID(),c.getRepairPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
-                c.isDamages(),c.getDropOffDistance());
+                c.isDamages());
         return c;
     }
 }

@@ -113,7 +113,8 @@ public class ContractService {
         LocalDate dateCancelDate = LocalDate.now();
         double cancellationFeePrice = 0;
 
-        LocalDate dateContractBeginDate = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
+        LocalDate dateContractBeginDate = LocalDate.of(localDateStart.getYear(),
+                localDateStart.getMonth(), localDateStart.getDayOfMonth());
 
         //Det antal dage der er imellem den dag den bliver aflyst og den dag contracten skulle have været gået i gang
         int numDays = Period.between(dateCancelDate, dateContractBeginDate).getDays();
