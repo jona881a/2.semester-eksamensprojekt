@@ -119,12 +119,16 @@ public class ContractRepo {
      * @return the contract
      */
     public Contract updateContract(int contractID, Contract c) {
-        String sql = "UPDATE contracts SET contractID = ?,autocamperID = ?,customerID = ?" +
-                ",rentalPrice = ?,rentalStartDate = ?,pickuptime = ?,rentalEndDate = ?, dropofftime = ?," +
-                " pickupaddress = ?, dropoffaddress = ? WHERE contractid = ?";
-        template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
-                c.getRentalPrice(),c.getRentalStartDate(),c.getPickupTime(),c.getRentalEndDate(),c.getDropoffTime(),
-                c.getPickupAddress(),c.getDropoffAddress(),contractID);
+        String sqlContractUpdate = "UPDATE contracts SET contractID = ?,autocamperID = ?,customerID = ?" +
+                ",rentalprice = ? WHERE contractid = ?";
+        String sqlRentalDetailsUpdate = "UPDATE rentaldetails SET rentaldetailsID = ?,rentalstartdate = ?," +
+                "rentalenddate = ?,pickuptime = ?,dropofftime = ?,pickupaddress = ?,dropoffaddress = ?" +
+                "WHERE rentaldetailsID = ?";
+        template.update(sqlContractUpdate,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
+                c.getRentalPrice(),contractID);
+        template.update(sqlRentalDetailsUpdate,c.getRentaldetailsID(),c.getRentalStartDate(),c.getRentalEndDate(),
+                c.getPickupTime(),c.getDropoffTime(),c.getPickupAddress(),c.getDropoffAddress(),c.getRentaldetailsID());
+
         return c;
     }
 

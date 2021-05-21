@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit autocamper</title>
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+</head>
+<body>
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<h1 class="pageTitle">Edit autocamper</h1>
+
+<div class="form-container">
+    <form id=assign-autocamper action="/autocamper/autocamperUpdate" method="post">
+
+        <label>AutocamperID</label>
+        <input type="text" name="autocamperID" value="autocamperID" th:value="${autocamper.autocamperID}" readonly required>
+
+        <label>Edit Brand</label>
+        <input type="text" name="brand" value="brand" th:value="${autocamper.brand}" required>
+
+        <label>Edit model</label>
+        <input type="text" name="model" value="model" th:value="${autocamper.model}" required>
+
+        <label>Edit availability</label>
+        <input type="text" name="isAvailable" value="isAvailable" th:value="${autocamper.isAvailable}" required>
+
+        <label>Edit Size</label>
+        <input type="text" name="size" value="size" th:value="${autocamper.size}" required>
+
+        <label>Edit Numberplate</label>
+        <input type="text" name="numberplate" value="numberplate" th:value="${autocamper.numberplate}" required>
+
+        <label>Edit Price per day</label>
+        <input type="text" name="priceperday" value="priceperday" th:value="${autocamper.priceperday}" required>
+
+        <input type="submit" value="Assign">
+    </form>
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Edit contract</title>
     <link rel="stylesheet" type="text/css" href="/css/create.css">
-    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
 
 </head>
 <body>
@@ -25,13 +25,13 @@
     </div>
 </header>
 
-<h1 class="pageTitle">Assign a new Contract</h1>
+<h1 class="pageTitle">Edit Contract</h1>
 
 <div class="form-container">
     <form id=assign-contract action="/contract/contractUpdate" method="post">
 
         <label>ContractID</label>
-        <input type="text" name="contractID" placeholder="contractID" th:value="${contract.contractID}" required>
+        <input type="text" name="contractID" placeholder="contractID" th:value="${contract.contractID}" readonly required>
 
         <label>Edit autocamperID</label>
         <input type="text" name="autocamperID" placeholder="autocamperID" th:value="${contract.autocamperID}" required>
@@ -57,17 +57,20 @@
         <label>Edit dropoff address</label>
         <input type="text" name="dropoffAddress" placeholder="" th:value="${contract.dropoffAddress}" required>
 
-        <div class="extras-container">
-            <label>Choose the extras that the customer would like</label>
-            <label>Bike rack</label>
-            <input type="checkbox" name="bikerack" value="bikerack">
-            <label>Bed Linen</label>
-            <input type="checkbox" name="bedlinen" value="bedlinen">
-            <label>Child seat</label>
-            <input type="checkbox" name="childseat" value="childseat">
-            <label>Picnic table and chairs</label>
-            <input type="checkbox" name="picnicandtables" value="picnincandtables">
-        </div>
+        <label>ExtrasID</label>
+        <input type="text" name="extrasID" th:value="${extras.extrasID}" readonly>
+
+        <label>Luxurypackage included</label>
+        <input type="text" name="luxuryPackage" th:value="${extras.luxuryPackage}">
+
+        <label>Sportpackage included</label>
+        <input type="text" name="sportPackage" th:value="${extras.sportPackage}">
+
+        <label>Familypackage included</label>
+        <input type="text" name="familyPackage" th:value="${extras.familyPackage}">
+
+        <label>Picknickpackage included</label>
+        <input type="text" name="picknickPackage" th:value="${extras.picknickPackage}">
 
         <input type="submit" value="Assign">
     </form>
