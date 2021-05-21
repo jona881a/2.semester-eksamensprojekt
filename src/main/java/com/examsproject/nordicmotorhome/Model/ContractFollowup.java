@@ -21,6 +21,7 @@ public class ContractFollowup {
         this.contractFollowUpID = contractFollowUpID;
         this.repairPrice = repairPrice;
         this.halfTank = halfTank;
+        this.extraDrivenKm = extraDrivenKm;
         this.damages = damages;
         this.damageCost = damageCost;
     }

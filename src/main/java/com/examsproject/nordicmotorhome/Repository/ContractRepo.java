@@ -36,33 +36,37 @@ public class ContractRepo {
     }
 
     /**
-     * Inserts the chosen values into the database
-     * @param c the contract
-     * @return the contract
+     * Metoden indsætter i contract, rentaldetails og extras og linker de rigtige id'er til contract
+     * @param c
+     * @return c
      */
     public Contract createContract(Contract c, Extras e) {
         String sqlContracts = "INSERT INTO contracts(contractID,autocamperID,customerID," +
                 "rentalprice,contractfollowupID) VALUES(?,?,?,?,?)";
         String sqlRentalDetails = "INSERT INTO rentaldetails(rentaldetailsID,rentalstartdate,rentalenddate," +
-                "pickuptime,dropofftime) VALUES(?,?,?,?,?)";
+                "pickuptime,dropofftime,pickupaddress,dropoffaddress) VALUES(?,?,?,?,?,?,?)";
         String sqlExtras = "INSERT INTO extras(extrasID,luxurypackage,sportpackage,familypackage,picknickpackage)" +
                 "VALUES(?,?,?,?,?)";
 
 
-        try {
+        try { //Der skal formatteres til den amerikanske dateformat fra html siden så den kan gemmes i SQL
             Date formattedStartDate = new SimpleDateFormat("yyyy-MM-dd").parse(c.getRentalStartDate());
             Date formattedEndDate = new SimpleDateFormat("yyyy-MM-dd").parse(c.getRentalEndDate());
 
             template.update(sqlExtras,c.getContractID(),e.getLuxuryPackage(),e.getSportPackage()
                     ,e.getFamilyPackage(),e.getPicknickPackage());
             template.update(sqlRentalDetails,c.getContractID(),formattedStartDate,formattedEndDate,c.getPickupTime(),
-                    c.getDropoffTime());
+                    c.getDropoffTime(),c.getPickupAddress(),c.getDropoffAddress());
             template.update(sqlContracts,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
                     c.getRentalPrice(),c.getContractFollowupID());
 
         } catch (ParseException parseException) {
             parseException.printStackTrace();
+            parseException.printStackTrace();
         }
+
+        //Efter vi har indsat værdierne i rentaldetails og extras hiver vi fat i deres id'er så vi kan tilknytte dem til
+        //den contract som de høre til
         String insertIDs = "UPDATE contracts SET rentaldetailsID = ?, extrasID = ? WHERE contractID = ?";
         String sqlRentaldetailID = "SELECT rentaldetailsID FROM rentaldetails ORDER BY rentaldetailsID DESC LIMIT 1";
         String sqlExtrasID = "SELECT extrasID FROM extras ORDER BY extrasID DESC LIMIT 1";
@@ -116,9 +120,11 @@ public class ContractRepo {
      */
     public Contract updateContract(int contractID, Contract c) {
         String sql = "UPDATE contracts SET contractID = ?,autocamperID = ?,customerID = ?" +
-                ",rentalPrice = ?,rentalStartDate = ?,pickuptime = ?,rentalEndDate = ?, dropofftime = ? WHERE contractid = ?";
+                ",rentalPrice = ?,rentalStartDate = ?,pickuptime = ?,rentalEndDate = ?, dropofftime = ?," +
+                " pickupaddress = ?, dropoffaddress = ? WHERE contractid = ?";
         template.update(sql,c.getContractID(),c.getAutocamperID(),c.getCustomerID(),
-                c.getRentalPrice(),c.getRentalStartDate(),c.getPickupTime(),c.getRentalEndDate(),c.getDropoffTime(),c.getContractFollowupID());
+                c.getRentalPrice(),c.getRentalStartDate(),c.getPickupTime(),c.getRentalEndDate(),c.getDropoffTime(),
+                c.getPickupAddress(),c.getDropoffAddress(),contractID);
         return c;
     }
 
