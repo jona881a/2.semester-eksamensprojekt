@@ -43,6 +43,6 @@ public class CustomerDebtService {
         totalPrice += contractService.calculateTotalContractPrice(c, e, autocamperService)
                 + contractFollowupService.caluculateTotalPrice(cf);
 
-        return totalPrice
+        return totalPrice;
     }
 }
