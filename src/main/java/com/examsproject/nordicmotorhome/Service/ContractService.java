@@ -41,6 +41,14 @@ public class ContractService {
         return contractRepo.updateContract(contractID,c);
     }
 
+    /**
+     * metoden udregner den totale lejepris i den pågældende sæson og med ekstrapakker
+     * @param c
+     * @param e
+     * @param autocamperService
+     * @return rentalPrice
+     */
+
     public double calculateTotalContractPrice(Contract c, Extras e, AutocamperService autocamperService) {
         double rentalPrice = 0.0;
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
@@ -56,10 +64,11 @@ public class ContractService {
         if (numDays == 0) {
             numDays = 1;
         }
-
+        //lægger antaldage ganget med prisen af autocamperen til prisen
         rentalPrice += numDays * autocamperService.findAutocamperByID(c.getAutocamperID()).getPriceperday();
         rentalPrice += c.getPickupDistance() * 0.7 + c.getDropoffDistance() + 0.7;
 
+        //Hvis ingen, en eller flere pakker er hakket af på siden så medtages prisen her
         if (!(e.getFamilyPackage() == null) && e.getFamilyPackage().equals("yes")) {
             rentalPrice += 75;
         } else if (!(e.getSportPackage() == null) && e.getSportPackage().equals("yes")) {
@@ -69,7 +78,9 @@ public class ContractService {
         } else if (!(e.getPicknickPackage() == null) && e.getPicknickPackage().equals("yes")) {
             rentalPrice += 25;
         }
-
+        //Hvis det er mellem den 5 og 8 så regner den med højsæson (60%)
+        //Hvis den er mellem 3 og 10 så er vi i midtesæsonen (30%)
+        //Hvis vi er i 11 til 2 så er det lavsæson og der ligges ingen pris oveni
         if (localDateEnd.getMonthValue() == 5) {
             rentalPrice *= PEAK_SEASON;
         } else if (localDateEnd.getMonthValue() == 6) {
@@ -92,6 +103,11 @@ public class ContractService {
         return rentalPrice;
     }
 
+    /**
+     * Metoden regner det kunden får tilbage hvis der annulleres en udlejning pba. det antal dage der er tilbage
+     * @param c
+     * @return cancellationFeePrice
+     */
     public double calculateCancellationFee(Contract c) {
         LocalDate localDateStart = LocalDate.parse(c.getRentalStartDate());
         LocalDate dateCancelDate = LocalDate.now();
@@ -99,24 +115,25 @@ public class ContractService {
 
         LocalDate dateContractBeginDate = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
 
+        //Det antal dage der er imellem den dag den bliver aflyst og den dag contracten skulle have været gået i gang
         int numDays = Period.between(dateCancelDate, dateContractBeginDate).getDays();
         if (numDays == 0) {
             numDays = 1;
         }
-        if (numDays >= 50) {
+        if (numDays >= 50) { //hvis der er mere end 50 dage til så får man 80% tilbage
             if (c.getRentalPrice() * 0.2 <= 200) {
                 cancellationFeePrice += 200;
             } else {
                 cancellationFeePrice = c.getRentalPrice() * 0.2;
             }
-        } else if (numDays <= 49 && numDays >= 15) {
+        } else if (numDays <= 49 && numDays >= 15) { //Hvis man aflyser imellem 49 og 15 dage før så får man 50% tilbage
             cancellationFeePrice = c.getRentalPrice() * 0.5;
-        } else if (numDays < 15 && numDays > 1) {
+        } else if (numDays < 15 && numDays > 1) { //hvis man aflyser imellem 15 og 1 dag før får man 20%
             cancellationFeePrice = c.getRentalPrice() * 0.8;
-        } else if (numDays < 1) {
+        } else if (numDays < 1) { //hvis det er på dagen får man kun 5% tilbage
             cancellationFeePrice = c.getRentalPrice() * 0.95;
         }
 
-        return cancellationFeePrice;
+        return cancellationFeePrice; //Værdien er det som der skal trækkes fra i den originale pris og ikke det som de får tilbage
     }
 }

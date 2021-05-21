@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ContractServiceTest {
 
-    @Autowired
     Contract contract;
     @Autowired
     ContractService contractService;
@@ -17,6 +16,8 @@ class ContractServiceTest {
 
     @Test
     void calculateTotalContractPrice() {
+        contract = new Contract();
+
     }
 
     @Test
