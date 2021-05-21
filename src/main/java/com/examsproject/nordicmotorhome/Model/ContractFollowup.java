@@ -12,17 +12,16 @@ public class ContractFollowup {
     private String halfTank;
     private String extraDrivenKm;
     private String damages;
-    private int dropOffDistance;
 
     public ContractFollowup() {}
 
-    public ContractFollowup(int contractFollowUpID, int repairPrice, String halfTank, String extraDrivenKm, String damages, int dropOffDistance) {
+    public ContractFollowup(int contractFollowUpID, int repairPrice, String halfTank,
+                            String extraDrivenKm, String damages) {
         this.contractFollowUpID = contractFollowUpID;
         this.repairPrice = repairPrice;
         this.halfTank = halfTank;
         this.extraDrivenKm = extraDrivenKm;
         this.damages = damages;
-        this.dropOffDistance = dropOffDistance;
     }
 
     public int getContractFollowUpID() {
@@ -63,13 +62,5 @@ public class ContractFollowup {
 
     public void setDamages(String damages) {
         this.damages = damages;
-    }
-
-    public int getDropOffDistance() {
-        return dropOffDistance;
-    }
-
-    public void setDropOffDistance(int dropOffDistance) {
-        this.dropOffDistance = dropOffDistance;
     }
 }

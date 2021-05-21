@@ -86,7 +86,8 @@ public class ContractController {
                         c.getRentalStartDate(),
                         c.getRentalEndDate(), "yes",
                         LocalDate.now().toString(),
-                        Period.between(LocalDate.now(), LocalDate.parse(c.getRentalStartDate())).getDays(),c.getRentalPrice()));
+                        Period.between(LocalDate.now(), LocalDate.parse(c.getRentalStartDate())).getDays(),
+                        c.getRentalPrice()));
 
         contractService.deleteContract(contractID);
         return "redirect:/";

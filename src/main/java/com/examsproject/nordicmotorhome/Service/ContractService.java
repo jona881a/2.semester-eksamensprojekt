@@ -1,6 +1,5 @@
 package com.examsproject.nordicmotorhome.Service;
 
-import com.examsproject.nordicmotorhome.Model.Autocamper;
 import com.examsproject.nordicmotorhome.Model.Contract;
 import com.examsproject.nordicmotorhome.Model.Extras;
 import com.examsproject.nordicmotorhome.Repository.ContractRepo;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,6 +47,7 @@ public class ContractService {
         LocalDate localDateEnd = LocalDate.parse(c.getRentalEndDate());
 
         //Udregn samlede dage bilen er lejet og gang det med bilens daglige pris
+        //Tilføj dernæst ekstra distance for pickup/dropoff.
         //Gang desuden beløbet med attributter hvis det er højsæson/middelsæson
         LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
         LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
