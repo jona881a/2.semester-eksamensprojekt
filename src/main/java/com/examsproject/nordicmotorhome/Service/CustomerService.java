@@ -22,7 +22,7 @@ public class CustomerService {
     public List<Customer> fetchAll(){
         return customerRepo.fetchAll();
     }
-    public Customer addCustomer(Customer c){
+    public Customer createCustomer(Customer c){
         return customerRepo.createCustomer(c);
     }
     public Customer findCustomerById(int customerID){

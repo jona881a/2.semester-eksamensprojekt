@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add autocamper</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+</head>
+<body>
+
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<h1 class="pageTitle">Assign new customer</h1>
+
+<div class="form-container">
+    <form id=assign action="/customer/customerCreate" method="post">
+
+        <label>*Firstname</label>
+        <input type="text" name="firstname" placeholder="firstname " required>
+        <label>*Lastname</label>
+        <input type="text" name="lastname" placeholder="lastname " required>
+        <label>*Email</label>
+        <input type="text" name="email" placeholder="@ " required>
+        <label>*Mobile</label>
+        <input type="text" name="phonenumber" placeholder="mobile " required>
+        <label>*Address</label>
+        <input type="text" name="address" placeholder="street, number, (floor, r/v) " required>
+        <label>*Zipcode</label>
+        <input type="text" name="zipcode" placeholder="zipcode " required>
+        <label>customerDebtID</label>
+        <input type="text" name="customerDebtID" placeholder="optional ">
+        <input type="submit" value="Assign">
+    </form>
+</div>
+
+</body>
+</html>
