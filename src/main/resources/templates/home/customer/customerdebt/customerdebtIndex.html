@@ -38,9 +38,7 @@
         <th>Total payment:</th>
 
         <th>
-            <a href="/customer/customerdebt/customerdebtCreate">
-                <button class="btn" id="btn-Create">Assign new customer</button>
-            </a>
+
         </th>
     </tr>
     </thead>
@@ -55,19 +53,21 @@
         <td th:text="${customerdebt.totalpayment}">
 
         <td>
-            <a th:href="@{'/customer/customerDetails/'+${customer.customerID}}">
-                <button class="btn", id="btn-Details">Details</button>
+            <a th:href="@{'/customerdebt/customerdebtDetails/'+${customer.customerID}}">
+                <button class="btn" id="btn-Details">Details</button>
             </a>
-            <a th:href="@{'/customer/customerDelete/'+${customer.customerID}}">
-                <button class="btn", id="btn-Delete">Delete</button>
+            <a th:href="@{'/customerdebt/customerdebtDelete/'+${customer.customerID}}">
+                <button class="btn" id="btn-Delete">Delete</button>
             </a>
-            <a th:href="@{'/customer/customerUpdate/'+${customerdebt.customerdebtID}}">
-                <button class="btn", id="btn-Edit">Edit</button>
+            <a th:href="@{'/customerdebt/customerdebtUpdate/'+${customerdebt.customerdebtID}}">
+                <button class="btn" id="btn-Edit">Edit</button>
+            </a>
+            <a href="/customer/customerdebt/customerdebtCreate">
+                <button class="btn" id="btn-Create">Assign new customer</button>
             </a>
         </td>
     </tr>
     </tbody>
 </table>
-
 </body>
 </html>
