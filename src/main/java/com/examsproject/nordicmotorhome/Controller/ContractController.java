@@ -120,4 +120,10 @@ public class ContractController {
         extrasService.updateExtras(contract.getExtrasID(), extras);
         return "redirect:/contract/contractIndex";
     }
+
+    @GetMapping("/contract/contractDetails/{contractID}")
+    public String contractDetails(@PathVariable("contractID") int contractID, Model model){
+        model.addAttribute("contract", contractService.findContractById(contractID));
+        return "home/contract/contractDetails";
+    }
 }
