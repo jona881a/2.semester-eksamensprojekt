@@ -25,8 +25,8 @@ public class ContractRepo {
     JdbcTemplate template;
 
     /**
-     * queries the table for all contracts
-     * @return list with all contracts in object form
+     * queries tabellen for contracts
+     * @return en liste med alle contracts som objekter
      */
     public List<Contract> fetchAll() {
         String sql = "SELECT * FROM contracts JOIN rentaldetails USING(rentaldetailsID)";
@@ -82,9 +82,9 @@ public class ContractRepo {
     }
 
     /**
-     * find the desired contract by its id
-     * @param contractID the id on the contract
-     * @return the contract
+     * finder den relevante kontrakt med den id man oplyser
+     * @param contractID
+     * @return kontrakten der er fundet
      */
     public Contract findContractByID(int contractID) {
         String sql = "SELECT * FROM contracts JOIN rentaldetails using(rentaldetailsID) WHERE contractID = ?";

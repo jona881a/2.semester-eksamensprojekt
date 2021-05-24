@@ -92,7 +92,7 @@ public class ContractController {
 
         return "redirect:/contract/contractIndex";
     }
-
+    
     /**
      * Updating of a contract
      * @param contractID the id on the contract to be updated
@@ -108,10 +108,10 @@ public class ContractController {
     }
 
     /**
-     * @TODO der skal updates pris hvis der ændres i dato (IKKE LØST)
+     * Metode der updatere kontrakten og udregner prisen igen
      * @param contract
      * @param extras
-     * @return
+     * @return redirecter til indekssiden
      */
     @PostMapping("/contract/contractUpdate")
     public String contractUpdate(@ModelAttribute Contract contract, @ModelAttribute Extras extras) {

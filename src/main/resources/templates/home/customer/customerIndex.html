@@ -37,6 +37,7 @@
     <thead>
     <tr>
         <th>ID</th>
+        <th>CustomerdebtID</th>
         <th>First name</th>
         <th>Last name</th>
         <th>Email</th>
@@ -54,7 +55,7 @@
     <tbody>
     <tr th:each="customer: ${customers}">
         <td th:text="${customer.customerID}" />
-        <td th:text="${customer.customerdebtID}" />
+        <td th:text="${customer.customerDebtID}" />
         <td th:text="${customer.firstname}" />
         <td th:text="${customer.lastname}" />
         <td th:text="${customer.email}" />
