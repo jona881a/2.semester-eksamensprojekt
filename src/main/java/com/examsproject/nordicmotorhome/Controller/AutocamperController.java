@@ -45,9 +45,7 @@ public class AutocamperController {
     @GetMapping("/autocamper/autocamperDelete/{autocamperID}")
     public String autocamperDelete(@PathVariable("autocamperID") int autocamperID) {
         Autocamper a = autocamperService.findAutocamperByID(autocamperID);
-
         autocamperService.deleteAutocamper(a.getAutocamperID());
-
         return "redirect:/autocamper/autocamperIndex";
     }
 
@@ -55,7 +53,6 @@ public class AutocamperController {
     public String autocamperUpdate(@PathVariable("autocamperID") int autocamperID, Model model) {
         Autocamper a = autocamperService.findAutocamperByID(autocamperID);
         model.addAttribute("autocamper",a);
-
         return "home/autocamper/autocamperUpdate";
     }
 
@@ -65,4 +62,9 @@ public class AutocamperController {
         return "redirect:/autocamper/autocamperIndex";
     }
 
+    @GetMapping("/autocamper/autocamperDetails/{autocamperID}")
+    public String autocamperDetails(@PathVariable("autocamperID") int autocamperID, Model model){
+        model.addAttribute("autocamper", autocamperService.findAutocamperByID(autocamperID));
+        return "home/autocamper/autocamperDetails";
+    }
 }
