@@ -115,6 +115,7 @@ public class ContractController {
      */
     @PostMapping("/contract/contractUpdate")
     public String contractUpdate(@ModelAttribute Contract contract, @ModelAttribute Extras extras) {
+        contractService.calculateTotalContractPrice(contract,extras,autocamperService); //Udregner prisen for de nye ændringer
         contractService.updateContract(contract.getContractID(), contract);
         extrasService.updateExtras(contract.getExtrasID(), extras);
         return "redirect:/contract/contractIndex";
