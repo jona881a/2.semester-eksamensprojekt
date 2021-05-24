@@ -64,6 +64,7 @@ tr:nth-child(odd){
 .btnReturn{
     width: 50px;
     margin: auto;
+    text-align: center;
 }
 #btn-return{
     background-color: #a3d97c;
