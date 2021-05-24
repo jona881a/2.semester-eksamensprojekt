@@ -37,7 +37,7 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>CustomerdebtID</th>
+        <th>Customer debt ID</th>
         <th>First name</th>
         <th>Last name</th>
         <th>Email</th>
@@ -66,10 +66,10 @@
 
         <td>
             <a th:href="@{'/customer/customerDetails/'+${customer.customerID}}">
-                <button class="btn", id="btn-Details">Details</button>
+                <button class="btn" id="btn-Details">Details</button>
             </a>
             <a th:href="@{'/customer/customerDelete/'+${customer.customerID}}">
-                <button class="btn", id="btn-Delete">Delete</button>
+                <button class="btn" id="btn-Delete">Delete</button>
             </a>
             <a th:href="@{'/customer/customerUpdate/'+${customer.customerID}}">
                 <button class="btn", id="btn-Edit">Edit</button>
