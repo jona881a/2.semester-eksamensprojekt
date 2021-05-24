@@ -75,9 +75,9 @@ public class CustomerRepo {
      */
     public Customer updateCustomer(int customerID, Customer c) {
         String sql = "UPDATE customers SET customerID = ?,firstname = ?,lastname = ?," +
-                "email = ?,phonenumber = ?,address = ?,zipcode WHERE customerID = ?";
+                "email = ?,phonenumber = ?,address = ?,zipcode = ? WHERE customerID = ?";
         template.update(sql,c.getCustomerID(),c.getFirstname(),c.getLastname(),c.getEmail(),c.getPhonenumber(),
-                c.getAddress(),c.getZipcode());
+                c.getAddress(),c.getZipcode(), customerID);
         return c;
     }
 

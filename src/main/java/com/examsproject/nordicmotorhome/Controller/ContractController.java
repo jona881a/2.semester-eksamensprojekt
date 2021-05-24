@@ -7,6 +7,7 @@ import com.examsproject.nordicmotorhome.Model.Extras;
 import com.examsproject.nordicmotorhome.Service.AutocamperService;
 import com.examsproject.nordicmotorhome.Service.ContractService;
 import com.examsproject.nordicmotorhome.Service.CustomerDebtService;
+import com.examsproject.nordicmotorhome.Service.ExtrasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +34,8 @@ public class ContractController {
     AutocamperService autocamperService;
     @Autowired
     CustomerDebtService customerDebtService;
+    @Autowired
+    ExtrasService extrasService;
 
     /**
      * getting the index site of the contracts
@@ -68,12 +71,12 @@ public class ContractController {
     public String contractCreate(@ModelAttribute Contract c, @ModelAttribute Extras e) {
         contractService.calculateTotalContractPrice(c,e,autocamperService);
         contractService.createContract(c,e);
-        return "redirect:/";
+        return "redirect:/contract/contractIndex";
     }
 
     /**
-     * Deletion of a contract
-     * @param contractID the id on the contract to be deleted
+     * Metode til at slette en contract, når vi sletter en kontrakt så laver vi en customerdebt som regner cancellationprisen
+     * @param contractID
      * @return to the homepage
      */
     @GetMapping("/contract/contractDelete/{contractID}")
@@ -87,7 +90,7 @@ public class ContractController {
 
         contractService.deleteContract(contractID);
 
-        return "redirect:/";
+        return "redirect:/contract/contractIndex";
     }
 
     /**
@@ -95,15 +98,25 @@ public class ContractController {
      * @param contractID the id on the contract to be updated
      * @return redirect to page
      */
-    @GetMapping("/contractUpdate/{contractID}")
+    @GetMapping("/contract/contractUpdate/{contractID}")
     public String contractUpdate(@PathVariable("contractID") int contractID, Model model){
-        model.addAttribute("contract", contractService.findContractById(contractID));
+        Contract c = contractService.findContractById(contractID);
+        Extras e = extrasService.findExtrastByID(c.getExtrasID());
+        model.addAttribute("contract", c);
+        model.addAttribute("extras", e);
         return "home/contract/contractUpdate";
     }
 
-    @PostMapping("/contractUpdate")
-    public String contractUpdate(@ModelAttribute Contract contract) {
+    /**
+     * @TODO der skal updates pris hvis der ændres i dato (IKKE LØST)
+     * @param contract
+     * @param extras
+     * @return
+     */
+    @PostMapping("/contract/contractUpdate")
+    public String contractUpdate(@ModelAttribute Contract contract, @ModelAttribute Extras extras) {
         contractService.updateContract(contract.getContractID(), contract);
-        return "redirect:/";
+        extrasService.updateExtras(contract.getExtrasID(), extras);
+        return "redirect:/contract/contractIndex";
     }
 }

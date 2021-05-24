@@ -22,4 +22,20 @@ public class ExtrasRepository {
 
         return template.query(sql,extras);
     }
+
+    public Extras findExtrastByID(int extrasID) {
+        String sql = "SELECT * FROM extras WHERE extrasID = ?";
+        RowMapper<Extras> extras = new BeanPropertyRowMapper<>(Extras.class);
+        Extras e = template.queryForObject(sql, extras, extrasID);
+
+        return e;
+    }
+
+    public Extras updateExtras(int extrasID, Extras e) {
+        String sql = "UPDATE extras SET extrasID = ?, luxurypackage = ?, sportpackage = ?, familypackage = ?," +
+                " picknickpackage = ? WHERE extrasID = ?";
+        template.update(sql,e.getExtrasID(),e.getLuxuryPackage(),e.getSportPackage(),e.getFamilyPackage(),
+                e.getPicknickPackage(),extrasID);
+        return e;
+    }
 }
