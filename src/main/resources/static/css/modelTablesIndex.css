@@ -61,13 +61,14 @@ tr:nth-child(odd){
     background-color: lightgray;
 }
 
-.btnReturn{
-    width: 50px;
+#returnBtnContainer{
+    width: 100px;
     margin: auto;
-    text-align: center;
+    padding: 10px;
 }
 #btn-return{
     background-color: #a3d97c;
+    text-align: center;
 }
 #btn-return:hover{
     background-color: white;
