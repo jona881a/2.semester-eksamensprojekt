@@ -24,6 +24,7 @@ tr:nth-child(odd){
     padding: 7px 10px;
     text-align: center;
 }
+
 .btn:hover{
     box-shadow: 2px 2px yellow;
     cursor: pointer;
@@ -58,4 +59,15 @@ tr:nth-child(odd){
 }
 #btn-Customer:hover{
     background-color: lightgray;
+}
+
+.btnReturn{
+    width: 50px;
+    margin: auto;
+}
+#btn-return{
+    background-color: #a3d97c;
+}
+#btn-return:hover{
+    background-color: white;
 }

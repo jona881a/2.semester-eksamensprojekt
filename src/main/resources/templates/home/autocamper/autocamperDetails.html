@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Autocamper Details</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+</head>
+<body>
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1 class="pageTitle">Details</h1>
+<table style="border-collapse: collapse; width: 40%;">
+    <thead>
+    <tr style="background-color: lightblue;">
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>In stock</th>
+        <th>Size</th>
+        <th>Plate</th>
+        <th>Price/day</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${autocamper.autocamperID}" />
+        <td th:text="${autocamper.brand}" />
+        <td th:text="${autocamper.model}" />
+        <td th:text="${autocamper.isAvailable}" />
+        <td th:text="${autocamper.size}" />
+        <td th:text="${autocamper.numberplate}" />
+        <td th:text="${autocamper.priceperday}" />
+    </tr>
+    </tbody>
+</table>
+
+    <button class="btnReturn", id="btn-return">Return</button>
+
+
+
+</body>
+</html>
