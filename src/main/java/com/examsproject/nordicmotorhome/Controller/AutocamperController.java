@@ -17,6 +17,10 @@ import java.util.List;
 @Controller
 public class AutocamperController {
 
+    /**
+     * @author oliverskau
+     */
+
     @Autowired
     AutocamperService autocamperService;
 
