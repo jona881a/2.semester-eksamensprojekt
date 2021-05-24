@@ -8,7 +8,7 @@ public class Customer {
 
     @Id
     private int customerID;
-    private int customerDebtID;
+    private int customerDebtListID;
     private String firstname;
     private String lastname;
     private String email;
@@ -17,10 +17,10 @@ public class Customer {
     private String zipcode;
 
 
-    public Customer(int customerID, int customerDebtID, String firstname, String lastname, String email, String phonenumber,
+    public Customer(int customerID, int customerDebtListID, String firstname, String lastname, String email, String phonenumber,
                     String address, String zipcode) {
         this.customerID = customerID;
-        this.customerDebtID = customerDebtID;
+        this.customerDebtListID = customerDebtListID;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -31,12 +31,12 @@ public class Customer {
 
     public Customer() {}
 
-    public int getCustomerDebtID() {
-        return customerDebtID;
+    public int getCustomerDebtListID() {
+        return customerDebtListID;
     }
 
-    public void setCustomerDebtID(int customerDebtID) {
-        this.customerDebtID = customerDebtID;
+    public void setCustomerDebtListID(int customerDebtListID) {
+        this.customerDebtListID = customerDebtListID;
     }
 
     public int getCustomerID() {
