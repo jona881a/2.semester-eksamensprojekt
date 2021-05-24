@@ -10,7 +10,9 @@
 <body style="background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_13/2798361/190325-rental-cars-cs-229p-2798361.jpg');">
 
 <header>
-    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <a href="/.">
+        <img class="logo"  src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    </a>
     <div class="container">
 
         <nav class="nav">
@@ -28,13 +30,14 @@
 
 
 
-    <h1 class="pageTitle">Customer list</h1>
+<h1 class="pageTitle">Customer list</h1>
 
 
 <table>
     <thead>
     <tr>
         <th>ID</th>
+        <th>Customer debt ID</th>
         <th>First name</th>
         <th>Last name</th>
         <th>Email</th>
@@ -52,6 +55,7 @@
     <tbody>
     <tr th:each="customer: ${customers}">
         <td th:text="${customer.customerID}" />
+        <td th:text="${customer.customerDebtID}" />
         <td th:text="${customer.firstname}" />
         <td th:text="${customer.lastname}" />
         <td th:text="${customer.email}" />
@@ -62,13 +66,13 @@
 
         <td>
             <a th:href="@{'/customer/customerDetails/'+${customer.customerID}}">
-                <button class="btn", id="btn-Details">Details</button>
+                <button class="btn" id="btn-Details">Details</button>
             </a>
             <a th:href="@{'/customer/customerDelete/'+${customer.customerID}}">
-                <button class="btn", id="btn-Delete">Delete</button>
+                <button class="btn" id="btn-Delete">Delete</button>
             </a>
             <a th:href="@{'/customer/customerUpdate/'+${customer.customerID}}">
-                <button class="btn", id="btn-Edit">Edit</button>
+                <button class="btn" id="btn-Edit">Edit</button>
             </a>
         </td>
     </tr>

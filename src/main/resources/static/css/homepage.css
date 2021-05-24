@@ -21,6 +21,9 @@ header::after {
     padding: 10px 0;
     visibility: visible;
 }
+.logo:hover {
+    cursor: pointer;
+}
 .nav {
     float: right;
 }

@@ -8,25 +8,25 @@ public class Customer {
 
     @Id
     private int customerID;
+    private int customerDebtID;
     private String firstname;
     private String lastname;
     private String email;
     private String phonenumber;
     private String address;
     private String zipcode;
-    private int customerDebtID;
 
 
-    public Customer(int customerID, String firstname, String lastname, String email, String phonenumber,
-                    String address, String zipcode, int customerDebtID) {
+    public Customer(int customerID, int customerDebtID, String firstname, String lastname, String email, String phonenumber,
+                    String address, String zipcode) {
         this.customerID = customerID;
+        this.customerDebtID = customerDebtID;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phonenumber = phonenumber;
         this.address = address;
         this.zipcode = zipcode;
-        this.customerDebtID = customerDebtID;
     }
 
     public Customer() {}

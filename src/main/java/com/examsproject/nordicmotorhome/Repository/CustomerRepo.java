@@ -36,8 +36,8 @@ public class CustomerRepo {
      * @return the customer
      */
     public Customer createCustomer(Customer c) {
-        String sql = "INSERT INTO customers(customerID,firstname,lastname,email,phonenumber,address,zipcode) VALUES(?,?,?,?,?,?,?)";
-        template.update(sql,c.getCustomerID(),c.getFirstname(),c.getLastname(),c.getEmail(),c.getPhonenumber(),
+        String sql = "INSERT INTO customers(customerID,customerdebtID,firstname,lastname,email,phonenumber,address,zipcode) VALUES(?,?,?,?,?,?,?)";
+        template.update(sql,c.getCustomerID(),c.getCustomerDebtID(),c.getFirstname(),c.getLastname(),c.getEmail(),c.getPhonenumber(),
                 c.getAddress(),c.getZipcode());
 
         return c;
@@ -74,9 +74,9 @@ public class CustomerRepo {
      * @return the customer
      */
     public Customer updateCustomer(int customerID, Customer c) {
-        String sql = "UPDATE customers SET customerID = ?,firstname = ?,lastname = ?," +
+        String sql = "UPDATE customers SET customerID = ?, customerdebtID = ?, firstname = ?,lastname = ?," +
                 "email = ?,phonenumber = ?,address = ?,zipcode = ? WHERE customerID = ?";
-        template.update(sql,c.getCustomerID(),c.getFirstname(),c.getLastname(),c.getEmail(),c.getPhonenumber(),
+        template.update(sql,c.getCustomerID(), c.getCustomerDebtID(), c.getFirstname(),c.getLastname(),c.getEmail(),c.getPhonenumber(),
                 c.getAddress(),c.getZipcode(), customerID);
         return c;
     }
