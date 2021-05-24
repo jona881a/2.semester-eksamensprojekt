@@ -75,6 +75,9 @@
                 <a th:href="@{'/contract/contractUpdate/'+${contract.contractID}}">
                     <button class="btn" id="btn-Edit">Edit</button>
                 </a>
+                <a th:href="@{'/contract/contractFollowup/contractFollowupCreate/'+${contract.contractID}}">
+                    <button class="btn" id="btn-FollowUp">Perform followup</button>
+                </a>
             </td>
         </tr>
         </tbody>

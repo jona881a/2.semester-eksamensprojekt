@@ -1,13 +1,7 @@
 package com.examsproject.nordicmotorhome.Controller;
 
-import com.examsproject.nordicmotorhome.Model.Autocamper;
-import com.examsproject.nordicmotorhome.Model.Contract;
-import com.examsproject.nordicmotorhome.Model.CustomerDebt;
-import com.examsproject.nordicmotorhome.Model.Extras;
-import com.examsproject.nordicmotorhome.Service.AutocamperService;
-import com.examsproject.nordicmotorhome.Service.ContractService;
-import com.examsproject.nordicmotorhome.Service.CustomerDebtService;
-import com.examsproject.nordicmotorhome.Service.ExtrasService;
+import com.examsproject.nordicmotorhome.Model.*;
+import com.examsproject.nordicmotorhome.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +30,8 @@ public class ContractController {
     CustomerDebtService customerDebtService;
     @Autowired
     ExtrasService extrasService;
+    @Autowired
+    ContractFollowupService contractFollowupService;
 
     /**
      * getting the index site of the contracts
@@ -92,11 +88,11 @@ public class ContractController {
 
         return "redirect:/contract/contractIndex";
     }
-    
+
     /**
-     * Updating of a contract
-     * @param contractID the id on the contract to be updated
-     * @return redirect to page
+     * Metode der henter siden til opdatering af contract
+     * @param contractID
+     * @return redirect til contractUpdate
      */
     @GetMapping("/contract/contractUpdate/{contractID}")
     public String contractUpdate(@PathVariable("contractID") int contractID, Model model){
@@ -125,5 +121,31 @@ public class ContractController {
     public String contractDetails(@PathVariable("contractID") int contractID, Model model){
         model.addAttribute("contract", contractService.findContractById(contractID));
         return "home/contract/contractDetails";
+    }
+
+    //---------------------CONTRACT FOLLOWUP CONTROLLERPART-------------------------------------------------------------
+
+    /**
+     * Metode der henter contractFollowupCreate siden
+     * @param contractID
+     * @param model
+     * @return contractFollowupCreate.html
+     */
+    @GetMapping("/contract/contractFollowup/contractFollowupCreate/{contractID}")
+    public String contractFollowupCreate(@PathVariable("contractID") int contractID, Model model) {
+        Contract c = contractService.findContractById(contractID);
+        model.addAttribute("contract",c);
+        return "home/contract/contractFollowup/contractFollowupCreate";
+    }
+
+    /**
+     * Metode der gemmer contractFollowup til databasen på contracten
+     * @param contractFollowUp
+     * @return tilbage til contractIndex.html
+     */
+    @PostMapping("/contract/contractFollowup/contractFollowupCreate")
+    public String contractFollowupCreate(@ModelAttribute ContractFollowup contractFollowUp) {
+        contractFollowupService.createContractFollowup(contractFollowUp);
+        return "redirect:/contract/contractIndex";
     }
 }
