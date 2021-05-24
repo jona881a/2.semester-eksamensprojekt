@@ -43,6 +43,7 @@ public class ContractService {
 
     /**
      * metoden udregner den totale lejepris i den pågældende sæson og med ekstrapakker
+     * @author: rasmuskoefoed
      * @param c
      * @param e
      * @param autocamperService
@@ -101,6 +102,7 @@ public class ContractService {
 
     /**
      * Metoden regner det kunden får tilbage hvis der annulleres en udlejning pba. det antal dage der er tilbage
+     * @author: rasmuskoefoed
      * @param c
      * @return cancellationFeePrice
      */

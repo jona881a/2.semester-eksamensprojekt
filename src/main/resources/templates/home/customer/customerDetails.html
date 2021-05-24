@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Autocamper Details</title>
+    <title>Customer Details</title>
     <link rel="stylesheet" type="text/css" href="/css/homepage.css">
     <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
 </head>
@@ -26,23 +26,27 @@
     <thead>
     <tr style="background-color: lightblue;">
         <th>ID</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>In stock</th>
-        <th>Size</th>
-        <th>Plate</th>
-        <th>Price/day</th>
+        <th>customerDebtID</th>
+        <th>firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Zipcode</th>
+
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td th:text="${autocamper.autocamperID}" />
-        <td th:text="${autocamper.brand}" />
-        <td th:text="${autocamper.model}" />
-        <td th:text="${autocamper.isAvailable}" />
-        <td th:text="${autocamper.size}" />
-        <td th:text="${autocamper.numberplate}" />
-        <td th:text="${autocamper.priceperday}" />
+        <td th:text="${customer.customerID}" />
+        <td th:text="${customer.customerDebtID}" />
+        <td th:text="${customer.firstname}" />
+        <td th:text="${customer.lastname}" />
+        <td th:text="${customer.email}" />
+        <td th:text="${customer.phonenumber}" />
+        <td th:text="${customer.address}" />
+        <td th:text="${customer.zipcode}" />
+
     </tr>
     </tbody>
 </table>
@@ -50,7 +54,7 @@
 
 
 <div id="returnBtnContainer">
-    <a href="/autocamper/autocamperIndex">
+    <a href="/customer/customerIndex">
         <button class="btnReturn", id="btn-return">Return</button>
     </a>
 </div>

@@ -1,6 +1,8 @@
 package com.examsproject.nordicmotorhome.Controller;
 import com.examsproject.nordicmotorhome.Model.Autocamper;
 import com.examsproject.nordicmotorhome.Model.Customer;
+import com.examsproject.nordicmotorhome.Model.CustomerDebt;
+import com.examsproject.nordicmotorhome.Service.CustomerDebtService;
 import com.examsproject.nordicmotorhome.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -67,4 +69,58 @@ public class CustomerController {
         return "redirect:/customer/customerIndex";
     }
 
+    @GetMapping("/customer/customerDetails/{customerID}")
+    public String customerDetails(@PathVariable("customerID") int customerID, Model model){
+        model.addAttribute("customer", customerService.findCustomerById(customerID));
+        return "home/customer/customerDetails";
+    }
+
+
+
+    //----------------------  Controller til customerdebt  -------------------//
+
+    @Autowired
+    CustomerDebtService customerDebtService;
+
+    @GetMapping("/customer/customerdebt/customerdebtIndex")
+    public String customerdebtIndex(Model model) {
+        List<CustomerDebt> customerdebtList = customerDebtService.fetchAll();
+        model.addAttribute("customerdebts",customerdebtList);
+        return "home/customer/customerdebt/customerdebtIndex";
+    }
+
+    @GetMapping("/customer/customerdebt/customerdebtCreate")
+    public String customerdebtCreate() {
+        return "home/customer/customerdebt/customerdebtCreate";
+    }
+
+    @PostMapping("/customer/customerdebt/customerdebtCreate")
+    public String customerdebtCreate(@ModelAttribute CustomerDebt customerDebt){
+        customerDebtService.createCustomerDebt(customerDebt);
+        return "redirect:/customer/customerdebt/customerdebtIndex";
+    }
+
+    @GetMapping("/customer/customerdebtDelete/{customerdebtID}")
+    public String customerdebtDelete(@PathVariable("customerdebtID") int customerdebtID) {
+        CustomerDebt c = customerDebtService.findCustomerDebtByID(customerdebtID);
+
+        customerDebtService.deleteCustomerDebt(c.getCustomerDebtID());
+
+        return "redirect:/customer/customerdebt/customerdebtIndex";
+    }
+
+    @GetMapping("/customer/customerdebt/customerdebtIndex/{customerdebtID}")
+    public String customerdebtUpdate(@PathVariable("customerdebtID") int customerdebtID, Model model) {
+        CustomerDebt c = customerDebtService.findCustomerDebtByID(customerdebtID);
+        model.addAttribute("customerdebt",c);
+
+        return "home/customer/customerdebt/customerdeptUpdate";
+    }
+
+    @PostMapping("/customer/customerdebt/customerdebtIndex/customerUpdate")
+    public String customerdebtUpdate(@ModelAttribute CustomerDebt customerDebt) {
+        customerDebtService.updateCustomerDebt(customerDebt.getCustomerDebtID(),customerDebt);
+
+        return "redirect:/customer/customerdebt/customerdebtIndex";
+    }
 }

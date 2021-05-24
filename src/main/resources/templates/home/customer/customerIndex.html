@@ -74,6 +74,9 @@
             <a th:href="@{'/customer/customerUpdate/'+${customer.customerID}}">
                 <button class="btn", id="btn-Edit">Edit</button>
             </a>
+            <a th:href="@{'/customer/customerdebt/customerdebtIndex/'+${customer.customerID}}">
+                <button class="btn" id="btn-Customer">Customer-debt</button>
+            </a>
         </td>
     </tr>
     </tbody>
