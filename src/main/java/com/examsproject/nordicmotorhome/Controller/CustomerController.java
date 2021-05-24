@@ -70,6 +70,13 @@ public class CustomerController {
         return "redirect:/customer/customerIndex";
     }
 
+    @GetMapping("/customer/customerDetails/{customerID}")
+    public String customerDetails(@PathVariable("customerID") int customerID, Model model){
+        model.addAttribute("customer", customerService.findCustomerById(customerID));
+        return "home/customer/customerDetails";
+    }
+
+
 
     //----------------------  Controller til customerdebt  -------------------//
 

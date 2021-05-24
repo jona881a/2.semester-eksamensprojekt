@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+</head>
+<body>
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1 class="pageTitle">Details</h1>
+<table style="border-collapse: collapse; width: 40%;">
+    <thead>
+    <tr style="background-color: lightblue;">
+        <th>ID</th>
+        <th>customerDebtID</th>
+        <th>firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Zipcode</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${customer.customerID}" />
+        <td th:text="${customer.customerDebtID}" />
+        <td th:text="${customer.firstname}" />
+        <td th:text="${customer.lastname}" />
+        <td th:text="${customer.email}" />
+        <td th:text="${customer.phonenumber}" />
+        <td th:text="${customer.address}" />
+        <td th:text="${customer.zipcode}" />
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+<div id="returnBtnContainer">
+    <a href="/customer/customerIndex">
+        <button class="btnReturn", id="btn-return">Return</button>
+    </a>
+</div>
+
+
+
+
+</body>
+</html>
