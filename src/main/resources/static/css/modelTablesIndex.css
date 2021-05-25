@@ -66,9 +66,6 @@ tr:nth-child(odd){
     background-color: orange;
     text-decoration: none;
     display: inline-block;
-    width: 100px;
-    margin: auto;
-    padding: 10px;
  }
 .btn-Return:hover{
     background-color: darkorange;
