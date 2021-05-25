@@ -34,7 +34,7 @@ public class ContractFollowupService {
         return contractFollowupRepo.updateContractFollowup(contractFollowupID,c);
     }
 
-    public double caluculateTotalPrice(ContractFollowup c) {
+    public double calculateTotalPrice(ContractFollowup c) {
         double totalPrice = 0;
 
         if (c.getHalfTank().equals("yes")) {

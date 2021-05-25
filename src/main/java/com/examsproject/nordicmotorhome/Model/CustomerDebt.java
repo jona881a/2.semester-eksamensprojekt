@@ -8,13 +8,13 @@ public class CustomerDebt {
 
     @Id
     private int customerDebtID;
-    private int contractID; //Kan det lade sig gøre i sql?
-    private String contractStartDate; //Start-og slutdato er der mest for overblikkets skyld.
-    private String contractEndDate; //Kan evt. fjernes
-    private String wasCancelled;  //Hvis kontrakten blev afbrudt
-    private String cancellationDate; //Skal vise hvordan vi udregnede antal dage, kan være null.
-    private int daysSinceCancellation; //For at dobbelttjekke
-    private double totalPrice; //Er enten contract price eller cancellation fee.
+    private int contractID;
+    private String contractStartDate;
+    private String contractEndDate;
+    private String wasCancelled;
+    private String cancellationDate;
+    private int daysSinceCancellation;
+    private double totalPrice;
 
     public CustomerDebt (int customerDebtID, int contractID, String contractStartDate, String contractEndDate,
                          String wasCancelled, String cancellationDate, int daysSinceCancellation, double totalPrice) {

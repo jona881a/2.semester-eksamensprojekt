@@ -24,6 +24,10 @@ public class CustomerDebtRepo {
     }
 
     public CustomerDebt createCustomerDebt(CustomerDebt c) {
+        String sqlListItem = "INSERT INTO customerdebtlists(customerdebtID) VALUE(?)";
+
+        template.update(sqlListItem, c.getCustomerDebtID());
+
         String sql = "INSERT INTO customerdebts(customerdebtID,contractID,contractstartdate,contractenddate," +
                 "wascancelled,cancellationdate,dayssincecancellation,totalprice) VALUES(?,?,?,?,?,?,?,?)";
 
@@ -49,7 +53,7 @@ public class CustomerDebtRepo {
 
     public CustomerDebt updateCustomerDebt(int customerDebtID, CustomerDebt c) {
         String sql = "UPDATE customerdebts SET customerdebtID = ?,contractID = ?,contractstartdate = ?,contractenddate = ?," +
-                "waccancelled = ?,cancellationdate = ?,dayssincecancellation = ?,totalprice = ? WHERE customerdebtid = ?";
+                "wascancelled = ?,cancellationdate = ?,dayssincecancellation = ?,totalprice = ? WHERE customerdebtid = ?";
         template.update(sql,c.getCustomerDebtID(),c.getContractID(),c.getContractStartDate(),c.getContractEndDate(),
                 c.getWasCancelled(),c.getCancellationDate(),c.getDaysSinceCancellation(),c.getTotalPrice());
         return c;
