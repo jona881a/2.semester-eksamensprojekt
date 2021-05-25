@@ -61,16 +61,15 @@ tr:nth-child(odd){
 #btn-Customer:hover{
     background-color: lightgray;
 }
-
-#returnBtnContainer{
+.btn-Return {
+    alignment: center;
+    background-color: orange;
+    text-decoration: none;
+    display: inline-block;
     width: 100px;
     margin: auto;
     padding: 10px;
-}
-#btn-return{
-    background-color: #a3d97c;
-    text-align: center;
-}
-#btn-return:hover{
-    background-color: white;
+ }
+.btn-Return:hover{
+    background-color: darkorange;
 }

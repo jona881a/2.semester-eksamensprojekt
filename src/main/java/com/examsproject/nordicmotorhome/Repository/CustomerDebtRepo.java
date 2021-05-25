@@ -38,7 +38,7 @@ public class CustomerDebtRepo {
     }
 
     public CustomerDebt findCustomerDebtByID(int customerDebtID) {
-        String sql = "SELECT * FROM customerdebts WHERE customerdebtID = ?";
+        String sql = "SELECT * FROM customerdebtlists WHERE customerdebtID = ?";
         RowMapper<CustomerDebt> customerDebt = new BeanPropertyRowMapper<>(CustomerDebt.class);
         CustomerDebt c = template.queryForObject(sql,customerDebt,customerDebtID);
 

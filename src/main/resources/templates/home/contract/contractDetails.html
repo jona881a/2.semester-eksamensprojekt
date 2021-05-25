@@ -25,24 +25,18 @@
 <table style="border-collapse: collapse; width: 40%;">
     <thead>
     <tr style="background-color: lightblue;">
-        <th>contractID</th>
-        <th>autocamperID</th>
-        <th>customerID</th>
+        <th>contract ID</th>
+        <th>autocamper ID</th>
+        <th>customer ID</th>
         <th>Price</th>
-        <th>Start Date</th>
-        <th>Pickup Time</th>
-        <th>Pickup Address</th>
-        <th>Pickup Distance</th>
-        <th>End Date</th>
-        <th>Dropoff Time</th>
-        <th>Dropoff Address</th>
-        <th>Dropoff Distance</th>
-        <th>rentaldetailsID</th>
-        <th>extrasID</th>
-        <th>Was cancelled</th>
-        <th>Cancel Date</th>
-        <th>contractFollowupID</th>
-
+        <th>Start date</th>
+        <th>Pickup time</th>
+        <th>Pickup address</th>
+        <th>Pickup distance</th>
+        <th>End date</th>
+        <th>Dropoff time</th>
+        <th>Dropoff address</th>
+        <th>Dropoff distance</th>
     </tr>
     </thead>
     <tbody>
@@ -59,22 +53,31 @@
         <td th:text="${contract.dropoffTime}" />
         <td th:text="${contract.dropoffAddress}" />
         <td th:text="${contract.dropoffDistance}" />
-        <td th:text="${contract.rentaldetailsID}" />
+    </tr>
+    </tbody>
+    <thead>
+    <tr style="background-color: lightblue;">
+        <th>Extras ID</th>
+        <th>Rentaldetails ID</th>
+        <th>Was cancelled</th>
+        <th>Cancel date</th>
+        <th>Contract followup ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
         <td th:text="${contract.extrasID}" />
+        <td th:text="${contract.rentaldetailsID}" />
         <td th:text="${contract.wasCancelled}" />
         <td th:text="${contract.cancelDate}" />
         <td th:text="${contract.contractFollowupID}" />
     </tr>
     </tbody>
 </table>
-<div id="returnBtnContainer">
-    <a href="/contract/contractIndex">
-        <button class="btnReturn", id="btn-return">Return</button>
+<div>
+    <a href="/contract/contractIndex" >
+        <button class="btn-Return">Return</button>
     </a>
 </div>
-
-
-
-
 </body>
 </html>
