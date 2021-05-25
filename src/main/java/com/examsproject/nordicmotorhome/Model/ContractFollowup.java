@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class ContractFollowup {
 
     @Id
-    private int contractFollowUpID;
+    private int contractfollowupID;
     private double followupPrice;
     private String halfTank;
     private double extraDrivenKm;
@@ -17,9 +17,9 @@ public class ContractFollowup {
 
     public ContractFollowup() {}
 
-    public ContractFollowup(int contractFollowUpID, int followupPrice, String halfTank,
+    public ContractFollowup(int contractfollowupID, int followupPrice, String halfTank,
                             int extraDrivenKm, String damages, int damageCost, int dropoffDistance) {
-        this.contractFollowUpID = contractFollowUpID;
+        this.contractfollowupID = contractfollowupID;
         this.followupPrice = followupPrice;
         this.halfTank = halfTank;
         this.extraDrivenKm = extraDrivenKm;
@@ -48,12 +48,12 @@ public class ContractFollowup {
         this.damageCost = damageCost;
     }
 
-    public double getContractFollowUpID() {
-        return contractFollowUpID;
+    public int getContractfollowupID() {
+        return contractfollowupID;
     }
 
-    public void setContractFollowUpID(int contractFollowUpID) {
-        this.contractFollowUpID = contractFollowUpID;
+    public void setContractfollowupID(int contractFollowUpID) {
+        this.contractfollowupID = contractFollowUpID;
     }
 
     public double getFollowupPrice() {
