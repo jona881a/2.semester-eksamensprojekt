@@ -24,6 +24,10 @@ public class CustomerDebtRepo {
     }
 
     public CustomerDebt createCustomerDebt(CustomerDebt c) {
+        String sqlListItem = "INSERT INTO customerdebtlists(customerdebtID) VALUE(?)";
+
+        template.update(sqlListItem, c.getCustomerDebtID());
+
         String sql = "INSERT INTO customerdebts(customerdebtID,contractID,contractstartdate,contractenddate," +
                 "wascancelled,cancellationdate,dayssincecancellation,totalprice) VALUES(?,?,?,?,?,?,?,?)";
 
