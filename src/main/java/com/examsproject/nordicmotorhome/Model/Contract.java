@@ -22,7 +22,6 @@ public class Contract {
     private String rentalEndDate;
     private String dropoffTime;
     private String dropoffAddress;
-    private int dropoffDistance;
     private int rentaldetailsID;
     private int extrasID;
     private String wasCancelled;
@@ -34,7 +33,7 @@ public class Contract {
     public Contract(int contractID, int autocamperID, int customerID, double rentalPrice,
                     String rentalStartDate, String pickupTime, String pickupAddress,
                     int pickupDistance, String rentalEndDate, String dropoffTime,
-                    String dropoffAddress, int dropoffDistance, int rentaldetailsID,
+                    String dropoffAddress, int rentaldetailsID,
                     int extrasID, String wasCancelled, String cancelDate, int contractFollowupID) {
         this.contractID = contractID;
         this.autocamperID = autocamperID;
@@ -47,7 +46,6 @@ public class Contract {
         this.rentalEndDate = rentalEndDate;
         this.dropoffTime = dropoffTime;
         this.dropoffAddress = dropoffAddress;
-        this.dropoffDistance = dropoffDistance;
         this.rentaldetailsID = rentaldetailsID;
         this.extrasID = extrasID;
         this.wasCancelled = wasCancelled;
@@ -77,14 +75,6 @@ public class Contract {
 
     public void setDropoffAddress(String dropoffAddress) {
         this.dropoffAddress = dropoffAddress;
-    }
-
-    public int getDropoffDistance() {
-        return dropoffDistance;
-    }
-
-    public void setDropoffDistance(int dropoffDistance) {
-        this.dropoffDistance = dropoffDistance;
     }
 
     public String getWasCancelled() {

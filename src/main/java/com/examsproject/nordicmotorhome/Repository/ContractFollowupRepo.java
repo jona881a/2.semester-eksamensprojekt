@@ -1,6 +1,5 @@
 package com.examsproject.nordicmotorhome.Repository;
 
-import com.examsproject.nordicmotorhome.Model.Contract;
 import com.examsproject.nordicmotorhome.Model.ContractFollowup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -35,16 +34,26 @@ public class ContractFollowupRepo {
     }
 
     /**
-     * Inserts the chosen values into the database
+     * Indsætter den nyoprettede contractfollowup i databasen og opdatere contract så contractFollowupID passer
      *
-     * @param c the contract followup
-     * @return the contract followup
+     * @param c
+     * @return contract followup
      */
-    public ContractFollowup createContractFollowup(ContractFollowup c) {
-        String sql = "INSERT INTO contractfollowups(contractFollowupID,repairPrice,halfTank," +
-                "extraDrivenKm,damages,dropoffDistance) VALUES(?,?,?,?,?,?)";
-        template.update(sql,c.getContractFollowUpID(),c.getRepairPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
-                c.isDamages());
+    public ContractFollowup createContractFollowup(ContractFollowup c, int contractID) {
+        String sqlCreateContractFollowup = "INSERT INTO contractfollowups(contractfollowupID,followupprice,halftank," +
+                "extradrivenkm,damages,damagecost,dropoffdistance) VALUES(?,?,?,?,?,?,?)";
+        //Bruger vi til at opdatere contracten så contractFollowupID er tilknyttet til contracten korrekt
+        String sqlUpdateContractFollowupID = "UPDATE contracts SET contractfollowupID = ? WHERE contractID = ?";
+
+        template.update(sqlCreateContractFollowup,c.getContractFollowUpID(),c.getFollowupPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
+                c.isDamages(),c.getDamageCost(),c.getDropoffDistance());
+
+        //Bruger vi til at hente contractfollowupID som lige er blevet oprettet
+        String sqlContractFollowupID = "SELECT contractfollowupID FROM contractfollowups ORDER BY contractfollowupID DESC LIMIT 1";
+        //Vi querier for den værdi contractFollowupID fik
+        int contractFollowupID = template.queryForObject(sqlContractFollowupID,Integer.class);
+        //Her opdatere vi contract så den referere til den id som passer med den opretted followup
+        template.update(sqlUpdateContractFollowupID,contractFollowupID,contractID);
 
         return c;
     }
@@ -83,10 +92,10 @@ public class ContractFollowupRepo {
      * @return the contract followup
      */
     public ContractFollowup updateContractFollowup(int contractFollowupID, ContractFollowup c) {
-        String sql = "UPDATE contractfollowups SET contractFollowupID = ?,repairPrice = ?,HalfTank() = ?" +
-                ",isExtraDrivenKm() = ?,isDamages() = ?,getDropOffDistance() = ?";
-        template.update(sql,c.getContractFollowUpID(),c.getRepairPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
-                c.isDamages());
+        String sql = "UPDATE contractfollowups SET contractfollowupID = ?,followupprice = ?,halftank = ?" +
+                ",extradrivenkm = ?,damages = ?,damagecost = ?, dropoffdistance = ? WHERE contractfollowupID = ?";
+        template.update(sql,c.getContractFollowUpID(),c.getFollowupPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
+                c.isDamages(),c.getDamageCost(),c.getDropoffDistance(), contractFollowupID);
         return c;
     }
 }

@@ -144,8 +144,10 @@ public class ContractController {
      * @return tilbage til contractIndex.html
      */
     @PostMapping("/contract/contractFollowup/contractFollowupCreate")
-    public String contractFollowupCreate(@ModelAttribute ContractFollowup contractFollowUp) {
-        contractFollowupService.createContractFollowup(contractFollowUp);
+    public String contractFollowupCreate(@ModelAttribute ContractFollowup contractFollowUp, @ModelAttribute Contract c) {
+        contractFollowupService.calculateTotalPrice(contractFollowUp);
+        contractFollowupService.createContractFollowup(contractFollowUp,c.getContractID());
+
         return "redirect:/contract/contractIndex";
     }
 }

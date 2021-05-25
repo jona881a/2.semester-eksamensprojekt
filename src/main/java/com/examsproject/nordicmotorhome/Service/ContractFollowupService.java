@@ -21,8 +21,8 @@ public class ContractFollowupService {
     public List<ContractFollowup> fetchAll(){
         return contractFollowupRepo.fetchAll();
     }
-    public ContractFollowup createContractFollowup(ContractFollowup c){
-        return contractFollowupRepo.createContractFollowup(c);
+    public ContractFollowup createContractFollowup(ContractFollowup c, int contractID){
+        return contractFollowupRepo.createContractFollowup(c,contractID);
     }
     public ContractFollowup findContractFollowupById(int contractFollowupID){
         return contractFollowupRepo.findContractFollowupByID(contractFollowupID);
@@ -43,8 +43,15 @@ public class ContractFollowupService {
         if (c.getDamages().equals("yes")) {
             totalPrice += c.getDamageCost();
         }
+        if(c.getExtraDrivenKm() > 0.0) { //hvis der er kørt gennemsnittleigt over 400 km om dagen ganger vi med 5.21 pr km
+            totalPrice += c.getExtraDrivenKm() * 5.21;
+        }
+        if(c.getDropoffDistance() > 0.0) { //hvis afleveringsstedet er udenfor Nordic motorhome ganger vi med 5.21
+            // for hver km der er til vores garage
+            totalPrice += c.getDropoffDistance() * 5.21;
+        }
+        c.setFollowupPrice(totalPrice);
 
-        totalPrice += c.getRepairPrice();
         return totalPrice;
     }
 }

@@ -72,6 +72,7 @@ public class ContractRepo {
         String sqlExtrasID = "SELECT extrasID FROM extras ORDER BY extrasID DESC LIMIT 1";
         String sqlContractID = "SELECT contractID FROM contracts ORDER BY contractID DESC LIMIT 1";
 
+        //Vi querier nu de tre integers
         int rentaldetailID = template.queryForObject(sqlRentaldetailID,Integer.class);
         int extrasID = template.queryForObject(sqlExtrasID,Integer.class);
         int contractID = template.queryForObject(sqlContractID,Integer.class);
@@ -103,13 +104,15 @@ public class ContractRepo {
         String sqlDeleteContracts = "DELETE FROM contracts WHERE contractID = ?";
         String sqlDeleteRentalDetails = "DELETE FROM rentaldetails WHERE rentaldetailsID = ?";
         String sqlDeleteExtras = "DELETE FROM extras WHERE extrasID = ?";
+        String sqlDeleteContractFollowup = "DELETE FROM contractfollowups WHERE contractfollowupID = ?";
         Contract c = findContractByID(contractID);
 
         template.update(sqlDeleteContracts,contractID);
         template.update(sqlDeleteRentalDetails,c.getRentaldetailsID());
         template.update(sqlDeleteExtras,c.getExtrasID());
+        template.update(sqlDeleteContractFollowup,c.getContractFollowupID());
 
-        return null;
+        return c;
     }
 
     /**

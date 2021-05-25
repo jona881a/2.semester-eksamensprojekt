@@ -26,37 +26,45 @@
 
     <h1 class="pageTitle">Checkup report</h1>
 
-    <h3>Performing a checkup on the selected contract</h3>
-    <div>
-        <label>Performing checkup for Contract:</label>
-        <span th:text="${contract.contractID}"></span>
+    <h3 class="text">Performing a checkup on the selected contract</h3>
 
-        <label>with AutocamperID:</label>
-        <span th:text="${contract.autocamperID}"></span>
+    <form id="assign" class="text" action="/contract/contractFollowup/contractFollowupCreate" method="post">
+        <div class="text">
+            <label>Performing checkup for Contract:</label>
+            <input type="text" name="contractID" th:value="${contract.contractID}" readonly>
 
-        <label>and CustomerID:</label>
-        <span th:text="${contract.customerID}"></span>
-        <br><br>
-    </div>
+            <label>with AutocamperID:</label>
+            <span th:text="${contract.autocamperID}"></span>
 
-    <form id="assign" action="/contract/contractFollowup/contractFollowupCreate" method="post">
-        <label>Is the tank half full og below? </label>
-        <input type="checkbox" name="halfTank" value="yes">
-        <br>
-        <br>
+            <label>and CustomerID:</label>
+            <span th:text="${contract.customerID}"></span>
+            <br><br>
 
-        <label>If the average driven km exceeds 400 km please write by how many below. Else, do nothing </label>
-        <input type="text" name="extraDrivenKm" placeholder="e.g 20 (NUMBERS ONLY)">
+            <label>Is the tank half full og below? </label>
+            <input type="checkbox" name="halfTank" value="yes">
+            <br>
+            <br>
 
-        <label>Is there any damages to the autocamper? </label>
-        <input type="checkbox" name="damages" value="yes">
-        <br>
-        <br>
+            <label>If the average driven km exceeds 400 km please write by how many below. Else, write 0 </label>
+            <input type="text" name="extraDrivenKm" placeholder="e.g 20 (NUMBERS ONLY)">
 
-        <label>If there are any damages list the price below </label>
-        <input type="text" name="damageCost" placeholder="e.g 200 (NUMBERS ONLY)">
+            <label>Is there any damages to the autocamper? </label>
+            <input type="checkbox" name="damages" value="yes">
+            <br>
+            <br>
 
-        <input type="submit" value="Assign">
+            <label>If there are any damages list the price below, if not then write 0</label>
+            <input type="text" name="damageCost" placeholder="e.g 200 (NUMBERS ONLY)">
+
+            <label>the dropoff point: </label>
+            <span th:text="${contract.dropoffAddress}"></span>
+
+            <label>If the autocamper where dropped off a place that requires to transport it home. Write the km here, else write 0</label>
+            <br>
+            <input type="text" name="dropoffDistance" placeholder="e.g 10.5 (NUMBERS ONLY)">
+
+            <input type="submit" value="Assign">
+        </div>
     </form>
 
 </body>

@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 
 class CalculateRentalPriceTests {
 
-    Contract contract1 = new Contract(1, 1, 1,0,"2021-05-30","12:00","Drejøgade 35",0,"2021-06-04","12:00","Østerport",5,1,1,"no","",0);
+    //Contract contract1 = new Contract(1, 1, 1,0,"2021-05-30","12:00","Drejøgade 35",0,"2021-06-04","12:00","Østerport",5,1,1,"no","",0);
     Extras extras1 = new Extras();
     /*
     ContractService contractService = new ContractService();

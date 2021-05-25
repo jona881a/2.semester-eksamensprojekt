@@ -8,29 +8,31 @@ public class ContractFollowup {
 
     @Id
     private int contractFollowUpID;
-    private int repairPrice;
+    private double followupPrice;
     private String halfTank;
-    private int extraDrivenKm;
+    private double extraDrivenKm;
     private String damages;
-    private int damageCost;
+    private double damageCost;
+    private double dropoffDistance;
 
     public ContractFollowup() {}
 
-    public ContractFollowup(int contractFollowUpID, int repairPrice, String halfTank,
-                            int extraDrivenKm,String damages, int damageCost) {
+    public ContractFollowup(int contractFollowUpID, int followupPrice, String halfTank,
+                            int extraDrivenKm, String damages, int damageCost, int dropoffDistance) {
         this.contractFollowUpID = contractFollowUpID;
-        this.repairPrice = repairPrice;
+        this.followupPrice = followupPrice;
         this.halfTank = halfTank;
         this.extraDrivenKm = extraDrivenKm;
         this.damages = damages;
         this.damageCost = damageCost;
+        this.dropoffDistance = dropoffDistance;
     }
 
     public String getHalfTank() {
         return halfTank;
     }
 
-    public int getExtraDrivenKm() {
+    public double getExtraDrivenKm() {
         return extraDrivenKm;
     }
 
@@ -38,15 +40,15 @@ public class ContractFollowup {
         return damages;
     }
 
-    public int getDamageCost() {
+    public double getDamageCost() {
         return damageCost;
     }
 
-    public void setDamageCost(int damageCost) {
+    public void setDamageCost(double damageCost) {
         this.damageCost = damageCost;
     }
 
-    public int getContractFollowUpID() {
+    public double getContractFollowUpID() {
         return contractFollowUpID;
     }
 
@@ -54,12 +56,12 @@ public class ContractFollowup {
         this.contractFollowUpID = contractFollowUpID;
     }
 
-    public int getRepairPrice() {
-        return repairPrice;
+    public double getFollowupPrice() {
+        return followupPrice;
     }
 
-    public void setRepairPrice(int repairPrice) {
-        this.repairPrice = repairPrice;
+    public void setFollowupPrice(double repairPrice) {
+        this.followupPrice = repairPrice;
     }
 
     public String isHalfTank() {
@@ -70,11 +72,11 @@ public class ContractFollowup {
         this.halfTank = halfTank;
     }
 
-    public int isExtraDrivenKm() {
+    public double isExtraDrivenKm() {
         return extraDrivenKm;
     }
 
-    public void setExtraDrivenKm(int extraDrivenKm) {
+    public void setExtraDrivenKm(double extraDrivenKm) {
         this.extraDrivenKm = extraDrivenKm;
     }
 
@@ -86,4 +88,11 @@ public class ContractFollowup {
         this.damages = damages;
     }
 
+    public double getDropoffDistance() {
+        return dropoffDistance;
+    }
+
+    public void setDropoffDistance(double dropoffDistance) {
+        this.dropoffDistance = dropoffDistance;
+    }
 }

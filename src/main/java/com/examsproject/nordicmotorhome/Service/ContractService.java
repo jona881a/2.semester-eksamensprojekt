@@ -63,7 +63,6 @@ public class ContractService {
         }
         //lægger antaldage ganget med prisen af autocamperen til prisen
         rentalPrice += numDays * autocamperService.findAutocamperByID(c.getAutocamperID()).getPriceperday();
-        rentalPrice += c.getPickupDistance() * 0.7 + c.getDropoffDistance() + 0.7;
 
         //Hvis ingen, en eller flere pakker er hakket af på siden så medtages prisen her
         if (!(e.getFamilyPackage() == null) && e.getFamilyPackage().equals("yes")) {
