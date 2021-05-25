@@ -1,10 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Customer debt - update</title>
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+
 </head>
 <body>
 
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<h1 class="pageTitle">Assign a new Contract</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Customer debt ID</th>
+        <th>Contract ID</th>
+        <th>Contract start</th>
+        <th>Contract end</th>
+        <th>Was it cancelled?</th>
+        <th>Day of cancellation</th>
+        <th>Number of days until contract start</th>
+        <th>Total price owed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customerdebt: ${customerdebts}">
+        <td th:text="${customerdebt.customerdebtID}" />
+        <td th:text="${customerdebt.contractID}" />
+        <td th:text="${customerdebt.contractstartdate}" />
+        <td th:text="${customerdebt.contractenddate}" />
+        <td th:text="${customerdebt.wascancelled}" />
+        <td th:text="${customerdebt.cancellationdate}" />
+        <td th:text="${customerdebt.dayssincecancellation}" />
+        <td th:text="${customerdebt.totalprice}" />
+
+    </tr>
+    </tbody>
+</table>
+
+<div class="form-container">
+    <form id=assign action="/contract/contractCreate" method="post">
+
+        <label>* Enter contract ID</label>
+        <input type="text" name="contractID" placeholder="contract ID" required>
+
+        <label>* Enter contract start date</label>
+        <input type="date" name="contractStartDate" placeholder="" required>
+
+        <label>* Enter contract end date</label>
+        <input type="date" name="contractEndDate" placeholder="" required>
+
+        <label>* Was/is the contract cancelled?</label>
+        <input type="text" name="wasCancelled" placeholder="(yes/no)" required>
+
+        <label>  Cancellation date</label>
+        <input type="date" name="cancellationDate" placeholder="">
+
+        <label>  Days since cancellation</label>
+        <input type="time" name="dropoffTime" placeholder="1,2,..." required>
+
+        <label>* Total price</label>
+        <input type="text" name="pickupAddress" placeholder="" required>
+
+        <input type="submit" value="Assign">
+    </form>
+</div>
 </body>
 </html>

@@ -7,14 +7,12 @@
     <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex">
 </head>
 <body>
-
 <header>
     <a href="/.">
         <img class="logo"  src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
     </a>
 
     <div class="container">
-
         <nav class="nav">
             <ul>
                 <li><a href="/.">Home</a></li>
@@ -52,10 +50,7 @@
         <td th:text="${customerdebt.totalpayment}">
 
         <td>
-            <a th:href="@{'/customerdebt/customerdebtDetails/'+${customer.customerID}}">
-                <button class="btn" id="btn-Details">Details</button>
-            </a>
-            <a th:href="@{'/customerdebt/customerdebtDelete/'+${customer.customerID}}">
+            <a th:href="@{'/customerdebt/customerdebtDelete/'+${customerdebt.customerdebtID}}">
                 <button class="btn" id="btn-Delete">Delete</button>
             </a>
             <a th:href="@{'/customerdebt/customerdebtUpdate/'+${customerdebt.customerdebtID}}">

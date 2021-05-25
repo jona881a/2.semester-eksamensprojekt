@@ -38,7 +38,7 @@ public class CustomerDebtRepo {
     }
 
     public CustomerDebt findCustomerDebtByID(int customerDebtID) {
-        String sql = "SELECT * FROM customerdebtlists WHERE customerdebtID = ?";
+        String sql = "SELECT * FROM customerdebts WHERE customerdebtID = ?";
         RowMapper<CustomerDebt> customerDebt = new BeanPropertyRowMapper<>(CustomerDebt.class);
         CustomerDebt c = template.queryForObject(sql,customerDebt,customerDebtID);
 
@@ -53,7 +53,7 @@ public class CustomerDebtRepo {
 
     public CustomerDebt updateCustomerDebt(int customerDebtID, CustomerDebt c) {
         String sql = "UPDATE customerdebts SET customerdebtID = ?,contractID = ?,contractstartdate = ?,contractenddate = ?," +
-                "wascancelled = ?,cancellationdate = ?,dayssincecancellation = ?,totalprice = ? WHERE customerdebtid = ?";
+                "wascancelled = ?,cancellationdate = ?,dayssincecancellation = ?,totalprice = ? WHERE customerdebtID = ?";
         template.update(sql,c.getCustomerDebtID(),c.getContractID(),c.getContractStartDate(),c.getContractEndDate(),
                 c.getWasCancelled(),c.getCancellationDate(),c.getDaysSinceCancellation(),c.getTotalPrice());
         return c;
