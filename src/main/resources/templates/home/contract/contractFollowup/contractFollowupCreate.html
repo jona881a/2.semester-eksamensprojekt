@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>contractFollowupCreate</title>
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+        <div class="container">
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="/.">Home</a></li>
+                    <li><a href="/contract/contractIndex">Contract</a></li>
+                    <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                    <li><a href="/customer/customerIndex">Customers</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1 class="pageTitle">Checkup report</h1>
+
+    <h3>Performing a checkup on the selected contract</h3>
+    <div>
+        <label>Performing checkup for Contract:</label>
+        <span th:text="${contract.contractID}"></span>
+
+        <label>with AutocamperID:</label>
+        <span th:text="${contract.autocamperID}"></span>
+
+        <label>and CustomerID:</label>
+        <span th:text="${contract.customerID}"></span>
+        <br><br>
+    </div>
+
+    <form id="assign" action="/contract/contractFollowup/contractFollowupCreate" method="post">
+        <label>Is the tank half full og below? </label>
+        <input type="checkbox" name="halfTank" value="yes">
+        <br>
+        <br>
+
+        <label>If the average driven km exceeds 400 km please write by how many below. Else, do nothing </label>
+        <input type="text" name="extraDrivenKm" placeholder="e.g 20 (NUMBERS ONLY)">
+
+        <label>Is there any damages to the autocamper? </label>
+        <input type="checkbox" name="damages" value="yes">
+        <br>
+        <br>
+
+        <label>If there are any damages list the price below </label>
+        <input type="text" name="damageCost" placeholder="e.g 200 (NUMBERS ONLY)">
+
+        <input type="submit" value="Assign">
+    </form>
+
+</body>
+</html>

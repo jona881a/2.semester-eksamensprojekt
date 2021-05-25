@@ -17,7 +17,7 @@ public class ContractFollowup {
     public ContractFollowup() {}
 
     public ContractFollowup(int contractFollowUpID, int repairPrice, String halfTank,
-                            String damages, int damageCost) {
+                            int extraDrivenKm,String damages, int damageCost) {
         this.contractFollowUpID = contractFollowUpID;
         this.repairPrice = repairPrice;
         this.halfTank = halfTank;

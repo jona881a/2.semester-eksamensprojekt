@@ -21,7 +21,7 @@ public class ContractFollowupService {
     public List<ContractFollowup> fetchAll(){
         return contractFollowupRepo.fetchAll();
     }
-    public ContractFollowup addContractFollowup(ContractFollowup c){
+    public ContractFollowup createContractFollowup(ContractFollowup c){
         return contractFollowupRepo.createContractFollowup(c);
     }
     public ContractFollowup findContractFollowupById(int contractFollowupID){

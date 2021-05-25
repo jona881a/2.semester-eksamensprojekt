@@ -8,7 +8,7 @@
 </head>
 
 
-<body style="background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_13/2798361/190325-rental-cars-cs-229p-2798361.jpg');">
+<body background="/css/img/tablesBgImage.png">
 
 
 <header>
@@ -74,6 +74,9 @@
                 </a>
                 <a th:href="@{'/contract/contractUpdate/'+${contract.contractID}}">
                     <button class="btn" id="btn-Edit">Edit</button>
+                </a>
+                <a th:href="@{'/contract/contractFollowup/contractFollowupCreate/'+${contract.contractID}}">
+                    <button class="btn" id="btn-FollowUp">Perform followup</button>
                 </a>
             </td>
         </tr>
