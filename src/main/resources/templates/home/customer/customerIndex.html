@@ -30,7 +30,7 @@
 
 
 
-<h1 class="pageTitle">Customer list</h1>
+    <h1 class="pageTitle">Customer list</h1>
 
 
 <table>
@@ -72,7 +72,7 @@
                 <button class="btn" id="btn-Delete">Delete</button>
             </a>
             <a th:href="@{'/customer/customerUpdate/'+${customer.customerID}}">
-                <button class="btn" id="btn-Edit">Edit</button>
+                <button class="btn", id="btn-Edit">Edit</button>
             </a>
             <a th:href="@{'/customer/customerdebt/customerdebtIndex/'+${customer.customerID}}">
                 <button class="btn" id="btn-Customer">Customer-debt</button>

@@ -21,7 +21,6 @@ import java.util.List;
  * @author oliverskau
  */
 
-
 @Controller
 public class CustomerController {
 
