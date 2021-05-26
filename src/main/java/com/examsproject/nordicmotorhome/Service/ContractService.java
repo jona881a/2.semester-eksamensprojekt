@@ -57,7 +57,7 @@ public class ContractService {
 
         LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
         LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
-        int numDays = Period.between(date1, date2).getDays();
+        int numDays = Period.between(date1, date2).getDays(); //Vi tager afstanden imellem de to datoer
         if (numDays == 0) {
             numDays = 1;
         }
