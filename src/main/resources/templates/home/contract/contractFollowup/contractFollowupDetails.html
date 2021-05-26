@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ContractfollowupDetails</title>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/css/modelTablesIndex.css">
+</head>
+<body>
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1 class="pageTitle">Details</h1>
+<table style="border-collapse: collapse; width: 40%;">
+    <thead>
+    <tr style="background-color: lightblue;">
+        <th>ContractFollowupID</th>
+        <th>Followup price</th>
+        <th>Half tank</th>
+        <th>Extra driven km</th>
+        <th>Damages</th>
+        <th>Damage cost</th>
+        <th>Dropoff distance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${contractFollowup.contractfollowupID}" />
+        <td th:text="${contractFollowup.followupPrice}" />
+        <td th:text="${contractFollowup.halfTank}" />
+        <td th:text="${contractFollowup.extraDrivenKm}" />
+        <td th:text="${contractFollowup.damages}" />
+        <td th:text="${contractFollowup.damageCost}" />
+        <td th:text="${contractFollowup.dropoffDistance}" />
+    </tr>
+    </tbody>
+</table>
+<div id="returnBtnContainer">
+    <a href="/contract/contractIndex">
+        <button class="btn-Return">Return</button>
+    </a>
+</div>
+</body>
+</html>

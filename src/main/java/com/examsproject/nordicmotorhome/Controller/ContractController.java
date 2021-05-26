@@ -20,7 +20,6 @@ import java.util.List;
 @Controller
 public class ContractController {
 
-
     @Autowired
     ContractService contractService;
     @Autowired
@@ -177,4 +176,10 @@ public class ContractController {
         return "redirect:/contract/contractIndex";
     }
 
+    @GetMapping("/contract/contractFollowup/contractFollowupDetails/{contractID}")
+    public String contractFollowupDetails(@PathVariable("contractID") int contractID, Model model) {
+        Contract c = contractService.findContractById(contractID);
+        model.addAttribute("contractFollowup",contractFollowupService.findContractFollowupById(c.getContractFollowupID()));
+        return "home/contract/contractFollowup/contractFollowupDetails";
+    }
 }

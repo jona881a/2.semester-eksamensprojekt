@@ -24,6 +24,7 @@ tr:nth-child(odd){
     border: none;
     padding: 7px 10px;
     text-align: center;
+    margin: auto;
 }
 
 .btn:hover{

@@ -84,8 +84,8 @@ public class CustomerController {
 
     @GetMapping("/customer/customerdebt/customerdebtIndex")
     public String customerdebtIndex(Model model) {
-        List<CustomerDebt> customerdebtList = customerDebtService.fetchAll();
-        model.addAttribute("customerdebts",customerdebtList);
+        List<CustomerDebt> customerdebts = customerDebtService.fetchAll();
+        model.addAttribute("customerdebts",customerdebts);
         return "home/customer/customerdebt/customerdebtIndex";
     }
 

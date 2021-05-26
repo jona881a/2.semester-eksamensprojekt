@@ -24,10 +24,6 @@ public class CustomerDebtRepo {
     }
 
     public CustomerDebt createCustomerDebt(CustomerDebt c) {
-        String sqlListItem = "INSERT INTO customerdebtlists(customerdebtID) VALUE(?)";
-
-        template.update(sqlListItem, c.getCustomerDebtID());
-
         String sql = "INSERT INTO customerdebts(customerdebtID,contractID,contractstartdate,contractenddate," +
                 "wascancelled,cancellationdate,dayssincecancellation,totalprice) VALUES(?,?,?,?,?,?,?,?)";
 
@@ -38,7 +34,7 @@ public class CustomerDebtRepo {
     }
 
     public CustomerDebt findCustomerDebtByID(int customerDebtID) {
-        String sql = "SELECT * FROM customerdebtlists WHERE customerdebtID = ?";
+        String sql = "SELECT * FROM customerdebts WHERE customerdebtID = ?";
         RowMapper<CustomerDebt> customerDebt = new BeanPropertyRowMapper<>(CustomerDebt.class);
         CustomerDebt c = template.queryForObject(sql,customerDebt,customerDebtID);
 
