@@ -45,7 +45,7 @@ public class ContractFollowupRepo {
         //Bruger vi til at opdatere contracten så contractFollowupID er tilknyttet til contracten korrekt
         String sqlUpdateContractFollowupID = "UPDATE contracts SET contractfollowupID = ? WHERE contractID = ?";
 
-        template.update(sqlCreateContractFollowup,c.getContractFollowUpID(),c.getFollowupPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
+        template.update(sqlCreateContractFollowup,c.getContractfollowupID(),c.getFollowupPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
                 c.isDamages(),c.getDamageCost(),c.getDropoffDistance());
 
         //Bruger vi til at hente contractfollowupID som lige er blevet oprettet
@@ -79,7 +79,7 @@ public class ContractFollowupRepo {
      * @return boolean that indicates if it deleted succesfully
      */
     public Boolean deleteContractFollowup(int contractFollowupID) {
-        String sql = "DELETE FROM contractfollowups WHERE contractFollowupID = ?";
+        String sql = "DELETE FROM contractfollowups WHERE contractfollowupID = ?";
 
         return template.update(sql, contractFollowupID) < 0;
     }
@@ -94,7 +94,7 @@ public class ContractFollowupRepo {
     public ContractFollowup updateContractFollowup(int contractFollowupID, ContractFollowup c) {
         String sql = "UPDATE contractfollowups SET contractfollowupID = ?,followupprice = ?,halftank = ?" +
                 ",extradrivenkm = ?,damages = ?,damagecost = ?, dropoffdistance = ? WHERE contractfollowupID = ?";
-        template.update(sql,c.getContractFollowUpID(),c.getFollowupPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
+        template.update(sql,c.getContractfollowupID(),c.getFollowupPrice(),c.isHalfTank(),c.isExtraDrivenKm(),
                 c.isDamages(),c.getDamageCost(),c.getDropoffDistance(), contractFollowupID);
         return c;
     }

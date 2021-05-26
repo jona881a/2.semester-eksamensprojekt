@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>contractFollowupUpdate</title>
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+
+</head>
+<body>
+
+<header>
+    <img class="logo" src="/css/img/NordicMotorhomeLogo.png" height="70" width="170"/>
+    <div class="container">
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/.">Home</a></li>
+                <li><a href="/contract/contractIndex">Contract</a></li>
+                <li><a href="/autocamper/autocamperIndex">Autocampers</a></li>
+                <li><a href="/customer/customerIndex">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<h1 class="pageTitle">Edit followup</h1>
+
+<div class="form-container">
+    <form class="text" action="/contract/contractFollowup/contractFollowupUpdate" method="post">
+        <label>ContractFollowupID:</label>
+        <input type="text" name="contractfollowupID" th:value="${c.contractfollowupID}" readonly>
+
+        <label>Is the tank half full or below:</label>
+        <input type="text" name="halfTank" th:value="${c.halfTank}">
+
+        <label>Extra driven km:</label>
+        <input type="text" name="extraDrivenKm" th:value="${c.extraDrivenKm}">
+
+        <label>Is there any damages to the autocamper:</label>
+        <input type="text" name="damages" th:value="${c.damages}">
+
+        <label>The damage cost:</label>
+        <input type="text" name="damageCost" th:value="${c.damageCost}">
+
+        <label>The dropoff distance to Nordic Motorhome garage</label>
+        <input type="text" name="dropoffDistance" th:value="${c.dropoffDistance}">
+
+        <input type="submit" value="Assign">
+    </form>
+</div>
+</body>
+</html>

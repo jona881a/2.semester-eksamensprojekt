@@ -76,7 +76,10 @@
                     <button class="btn" id="btn-Edit">Edit</button>
                 </a>
                 <a th:href="@{'/contract/contractFollowup/contractFollowupCreate/'+${contract.contractID}}">
-                    <button class="btn" id="btn-FollowUp">Perform followup</button>
+                    <button class="btn" id="btn-Followup">Perform followup</button>
+                </a>
+                <a th:href="@{'/contract/contractFollowup/contractFollowupUpdate/'+${contract.contractID}}">
+                    <button class="btn" id="btn-followup-Edit">Edit followup</button>
                 </a>
             </td>
         </tr>

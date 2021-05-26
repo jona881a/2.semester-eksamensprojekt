@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -150,4 +149,32 @@ public class ContractController {
 
         return "redirect:/contract/contractIndex";
     }
+
+    /**
+     * Metode der henter siden til at update en contractFollowup
+     * @param contractID
+     * @param model
+     * @return contractFollowupUpdate.html
+     */
+    @GetMapping("/contract/contractFollowup/contractFollowupUpdate/{contractID}")
+    public String contractFollowupUpdate(@PathVariable("contractID") int contractID, Model model) {
+        Contract contract =contractService.findContractById(contractID);
+        ContractFollowup contractFollowup = contractFollowupService.findContractFollowupById(contract.getContractFollowupID());
+        model.addAttribute("c",contractFollowup);
+
+        return "home/contract/contractFollowup/contractFollowupUpdate";
+    }
+
+    /**
+     * Metode der updater contractfollowup der er valgt
+     * @param contractFollowUp
+     * @return tilbage til contractIndex.html
+     */
+    @PostMapping("/contract/contractFollowup/contractFollowupUpdate")
+    public String contractFollowupCreate(@ModelAttribute ContractFollowup contractFollowUp) {
+        contractFollowupService.calculateTotalPrice(contractFollowUp);
+        contractFollowupService.updateContractFollowup(contractFollowUp.getContractfollowupID(),contractFollowUp);
+        return "redirect:/contract/contractIndex";
+    }
+
 }
