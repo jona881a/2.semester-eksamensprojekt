@@ -42,10 +42,10 @@ public class ContractFollowupService {
     public double calculateTotalPrice(ContractFollowup c) {
         double totalPrice = 0;
 
-        if (c.getHalfTank().equals("yes")) {
+        if (c.getHalfTank() != null && c.getHalfTank().equals("yes")) {
             totalPrice += 70;
         }
-        if (c.getDamages().equals("yes")) {
+        if (c.getDamages() != null && c.getDamages().equals("yes")) {
             totalPrice += c.getDamageCost();
         }
         if(c.getExtraDrivenKm() > 0.0) { //hvis der er kørt gennemsnittleigt over 400 km om dagen ganger vi med 5.21 pr km
