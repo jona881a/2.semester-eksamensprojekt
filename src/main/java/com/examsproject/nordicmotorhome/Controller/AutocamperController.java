@@ -1,7 +1,5 @@
 package com.examsproject.nordicmotorhome.Controller;
 import com.examsproject.nordicmotorhome.Model.Autocamper;
-import com.examsproject.nordicmotorhome.Model.Contract;
-import com.examsproject.nordicmotorhome.Model.Customer;
 import com.examsproject.nordicmotorhome.Service.AutocamperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
