@@ -34,6 +34,11 @@ public class ContractFollowupService {
         return contractFollowupRepo.updateContractFollowup(contractFollowupID,c);
     }
 
+    /**
+     * Metode til at regne den pris opfølgningen af autocamperen kommer til at koste
+     * @param c
+     * @return totalPrice
+     */
     public double calculateTotalPrice(ContractFollowup c) {
         double totalPrice = 0;
 
