@@ -49,7 +49,7 @@ public class CustomerDebtRepo {
 
     public CustomerDebt updateCustomerDebt(int customerDebtID, CustomerDebt c) {
         String sql = "UPDATE customerdebts SET customerdebtID = ?,contractID = ?,contractstartdate = ?,contractenddate = ?," +
-                "wascancelled = ?,cancellationdate = ?,dayssincecancellation = ?,totalprice = ? WHERE customerdebtid = ?";
+                "wascancelled = ?,cancellationdate = ?,dayssincecancellation = ?,totalprice = ? WHERE customerdebtID = ?";
         template.update(sql,c.getCustomerDebtID(),c.getContractID(),c.getContractStartDate(),c.getContractEndDate(),
                 c.getWasCancelled(),c.getCancellationDate(),c.getDaysSinceCancellation(),c.getTotalPrice());
         return c;

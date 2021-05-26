@@ -113,12 +113,12 @@ public class ContractService {
         LocalDate dateContractBeginDate = LocalDate.of(localDateStart.getYear(),
                 localDateStart.getMonth(), localDateStart.getDayOfMonth());
 
-        //Det antal dage der er imellem den dag den bliver aflyst og den dag contracten skulle have været gået i gang
+        //Antal dage mellem den dag kontrakten bliver aflyst og den dag kontrakten skulle have været gået i gang
         int numDays = Period.between(dateCancelDate, dateContractBeginDate).getDays();
         if (numDays == 0) {
             numDays = 1;
         }
-        if (numDays >= 50) { //hvis der er mere end 50 dage til så får man 80% tilbage
+        if (numDays >= 50) { //hvis der er mere end 50 dage til så får man 80% eller mindre tilbage
             if (c.getRentalPrice() * 0.2 <= 200) {
                 cancellationFeePrice += 200;
             } else {
