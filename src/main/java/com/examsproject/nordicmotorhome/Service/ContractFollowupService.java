@@ -49,11 +49,11 @@ public class ContractFollowupService {
             totalPrice += c.getDamageCost();
         }
         if(c.getExtraDrivenKm() > 0.0) { //hvis der er kørt gennemsnittleigt over 400 km om dagen ganger vi med 5.21 pr km
-            totalPrice += c.getExtraDrivenKm();
+            totalPrice += c.getExtraDrivenKm() * 0.7;
         }
         if(c.getDropoffDistance() > 0.0) { //hvis afleveringsstedet er udenfor Nordic motorhome ganger vi med 5.21
             // for hver km der er til vores garage
-            totalPrice += c.getDropoffDistance();
+            totalPrice += c.getDropoffDistance() * 0.7;
         }
         c.setFollowupPrice(totalPrice);
 
