@@ -32,22 +32,24 @@
     <tr>
         <th>Customer debt ID</th>
         <th>Contract ID</th>
-        <th>Contract followup ID</th>
-        <th>Customer ID</th>
-        <th>Autocamper ID</th>
-        <th>Was cancelled:</th>
-        <th>Total payment:</th>
+        <th>Contract start date</th>
+        <th>Contract end date</th>
+        <th>Was the contract cancelled?</th>
+        <th>The cancellation date</th>
+        <th>Days since cancellation</th>
+        <th>The debt</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="customer: ${customers}">
+    <tr>
         <td th:text="${customerdebt.customerdebtID}">
         <td th:text="${contract.contractID}">
-        <td th:text="${contract.contractfollowupID}">
-        <td th:text="${contract.customerID}">
-        <td th:text="${contract.autocamperID}">
-        <td th:text="${customerdebt.wascancelled}">
-        <td th:text="${customerdebt.totalpayment}">
+        <td th:text="${customerdebt.contractStartDate}">
+        <td th:text="${customerdebt.contractEndDate}">
+        <td th:text="${customerdebt.wasCancelled}">
+        <td th:text="${customerdebt.cancellationDate}">
+        <td th:text="${customerdebt.daysSinceCancellation}">
+        <td th:text="${customerdebt.totalPrice}">
 
         <td>
             <a th:href="@{'/customerdebt/customerdebtDelete/'+${customerdebt.customerdebtID}}">

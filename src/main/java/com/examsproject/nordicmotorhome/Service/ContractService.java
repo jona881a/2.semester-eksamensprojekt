@@ -42,7 +42,7 @@ public class ContractService {
     }
 
     /**
-     * metoden udregner den totale lejepris i den pågældende sæson og med ekstrapakker
+     * Metoden udregner den totale lejepris i den pågældende sæson og med ekstrapakker
      * @author: rasmuskoefoed
      * @param c
      * @param e
@@ -58,9 +58,42 @@ public class ContractService {
         LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
         LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
         int numDays = Period.between(date1, date2).getDays(); //Vi tager afstanden imellem de to datoer
+        int numMonths = Period.between(date1,date2).getMonths();
+
         if (numDays == 0) {
             numDays = 1;
         }
+        if(numMonths > 0) {
+            if(date2.getMonth().equals(Month.JANUARY)) {
+                numDays += 31;
+            } else if(date2.getMonth().equals(Month.FEBRUARY)) {
+                numDays += 29;
+            } else if(date2.getMonth().equals(Month.MARCH)) {
+                numDays += 30;
+            } else if(date2.getMonth().equals(Month.APRIL)) {
+                numDays += 31;
+            } else if(date2.getMonth().equals(Month.MAY)) {
+                numDays += 30;
+            } else if(date2.getMonth().equals(Month.JUNE)) {
+                numDays += 31;
+            } else if(date2.getMonth().equals(Month.JULY)) {
+                numDays += 30;
+            } else if(date2.getMonth().equals(Month.AUGUST)) {
+                numDays += 31;
+            } else if(date2.getMonth().equals(Month.SEPTEMBER)) {
+                numDays += 30;
+            } else if(date2.getMonth().equals(Month.OCTOBER)) {
+                numDays += 31;
+            } else if(date2.getMonth().equals(Month.NOVEMBER)) {
+                numDays += 30;
+            } else if(date2.getMonth().equals(Month.DECEMBER)) {
+                numDays += 31;
+            }
+
+
+        }
+
+
         //lægger antaldage ganget med prisen af autocamperen til prisen
         rentalPrice += numDays * autocamperService.findAutocamperByID(c.getAutocamperID()).getPriceperday();
 
@@ -94,6 +127,7 @@ public class ContractService {
         } else if (localDateEnd.getMonthValue() == 10) {
             rentalPrice *= MIDDLE_SEASON;
         }
+
         c.setRentalPrice(rentalPrice);
 
         return rentalPrice;

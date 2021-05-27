@@ -1,5 +1,4 @@
 package com.examsproject.nordicmotorhome.Controller;
-import com.examsproject.nordicmotorhome.Model.Autocamper;
 import com.examsproject.nordicmotorhome.Model.Customer;
 import com.examsproject.nordicmotorhome.Model.CustomerDebt;
 import com.examsproject.nordicmotorhome.Service.CustomerDebtService;
@@ -86,7 +85,7 @@ public class CustomerController {
     public String customerdebtIndex(Model model) {
         List<CustomerDebt> customerdebts = customerDebtService.fetchAll();
         model.addAttribute("customerdebts",customerdebts);
-        return "home/customer/customerdebt/customerdebtIndex";
+        return "customerdebtDetails";
     }
 
     @GetMapping("/customer/customerdebt/customerdebtCreate")
@@ -109,7 +108,7 @@ public class CustomerController {
         return "redirect:/customer/customerdebt/customerdebtIndex";
     }
 
-    @GetMapping("/customer/customerdebt/customerdebtIndex/{customerdebtID}")
+    @GetMapping("/customer/customerdebt/customerdebtDetails/{customerdebtID}")
     public String customerdebtUpdate(@PathVariable("customerdebtID") int customerdebtID, Model model) {
         CustomerDebt c = customerDebtService.findCustomerDebtByID(customerdebtID);
         model.addAttribute("customerdebt",c);
