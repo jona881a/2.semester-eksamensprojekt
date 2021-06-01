@@ -16,8 +16,8 @@ public class AutocamperRepo {
     JdbcTemplate template;
 
     /**
-     * queries the table for all autocampers
-     * @return list with all autocampers in object form
+     * Henter alle autocamper data i SQL og laver om til objekter
+     * @return liste af autocamperobjekter
      */
     public List<Autocamper> fetchAll() {
         String sql = "SELECT * FROM autocampers";
@@ -27,8 +27,8 @@ public class AutocamperRepo {
     }
 
     /**
-     * queries the autocampers that is available and puts them in list
-     * @return list with autocampers available
+     * Henter alle autocamper data i SQL og laver dem til objekter, men kun dem der er tilgængelige
+     * @return liste af autocamperobjekter
      */
     public List<Autocamper> fetchAllAvailable() {
         String sql = "SELECT * FROM autocampers WHERE isavailable = 'yes'";
@@ -38,9 +38,9 @@ public class AutocamperRepo {
     }
 
     /**
-     * Inserts the chosen values into the database
-     * @param a the autocamper
-     * @return the autocamper
+     * Indsætter data fra objektet der blev oprettet i contractController
+     * @param a autocamper
+     * @return autocamper
      */
     public Autocamper createAutocamper(Autocamper a) {
         String sql = "INSERT INTO autocampers(autocamperID, brand, model, isAvailable,size, numberPlate, priceperday)" +
@@ -51,9 +51,9 @@ public class AutocamperRepo {
     }
 
     /**
-     * find the desired autocamper by its id
-     * @param autocamperID the id on the autocamper
-     * @return the autocamper
+     * Finder autocamper med valgte autocamperID
+     * @param autocamperID
+     * @return autocamper
      */
     public Autocamper findAutocamperByID(int autocamperID) {
         String sql = "SELECT * FROM autocampers WHERE autocamperID = ?";
@@ -64,9 +64,9 @@ public class AutocamperRepo {
     }
 
     /**
-     * delete the desired autocamper by its id
-     * @param autocamperID the id on the autocamper
-     * @return boolean that indicates if it deleted succesfully
+     * Sletter autocamper med specifikt id
+     * @param autocamperID
+     * @return 1 hvis der er slettet eller 0 hvis der ikke er
      */
     public Boolean deleteAutocamper(int autocamperID) {
         String sql = "DELETE FROM autocampers WHERE autocamperID = ?";
@@ -75,10 +75,10 @@ public class AutocamperRepo {
     }
 
     /**
-     * updates any info that needs changing on the autocamper
-     * @param autocamperID the id on the autocamper
-     * @param a the autocamper
-     * @return the autocamper
+     * Opdatere alt information til det specifikke objekt defineret af ID'et
+     * @param autocamperID
+     * @param a autocamper
+     * @return autocamper
      */
     public Autocamper updateAutocamper(int autocamperID, Autocamper a) {
         String sql = "UPDATE autocampers SET autocamperID = ?, brand = ?, model = ?, isAvailable = ?," +

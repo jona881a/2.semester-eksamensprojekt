@@ -32,9 +32,9 @@ public class ContractController {
     ContractFollowupService contractFollowupService;
 
     /**
-     * getting the index site of the contracts
+     * GetMapping for at hente contractIndex.html
      * @param model
-     * @return
+     * @return contractIndex.html
      */
     @GetMapping("/contract/contractIndex")
     public String contractIndex(Model model) {
@@ -44,9 +44,9 @@ public class ContractController {
     }
 
     /**
-     * getting the site for creating
+     * Getmapping for contractCreate.html
      * @param model
-     * @return
+     * @return contractCreate.html
      */
     @GetMapping("/contract/contractCreate")
     public String contractCreate(Model model) {
@@ -56,10 +56,10 @@ public class ContractController {
     }
 
     /**@Author raskoe
-     * Creation of a contract
-     * The method sets the autocamper to not available when rented and calculates the price for the rent
+     * PostMapping for contractCreate.html
+     * Metoden tager dataet fra html siden og regner en pris på lejen og gemmer den i databasen
      * @param c
-     * @return
+     * @return Redirect til contractIndex.html
      */
     @PostMapping("/contract/contractCreate")
     public String contractCreate(@ModelAttribute Contract c, @ModelAttribute Extras e) {
@@ -71,7 +71,7 @@ public class ContractController {
     /**
      * Metode til at slette en contract, når vi sletter en kontrakt så laver vi en customerdebt som regner cancellationprisen
      * @param contractID
-     * @return to the homepage
+     * @return contractIndex.html
      */
     @GetMapping("/contract/contractDelete/{contractID}")
     public String contractDelete(@PathVariable("contractID") int contractID){
@@ -90,7 +90,7 @@ public class ContractController {
     /**
      * Metode der henter siden til opdatering af contract
      * @param contractID
-     * @return redirect til contractUpdate
+     * @return redirect til contractUpdate.html
      */
     @GetMapping("/contract/contractUpdate/{contractID}")
     public String contractUpdate(@PathVariable("contractID") int contractID, Model model){
@@ -105,7 +105,7 @@ public class ContractController {
      * Metode der updatere kontrakten og udregner prisen igen
      * @param contract
      * @param extras
-     * @return redirecter til indekssiden
+     * @return redirect til contractIndex.html
      */
     @PostMapping("/contract/contractUpdate")
     public String contractUpdate(@ModelAttribute Contract contract, @ModelAttribute Extras extras) {

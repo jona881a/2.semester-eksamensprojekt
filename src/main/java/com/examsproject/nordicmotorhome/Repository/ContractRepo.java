@@ -25,8 +25,8 @@ public class ContractRepo {
     JdbcTemplate template;
 
     /**
-     * queries tabellen for contracts
-     * @return en liste med alle contracts som objekter
+     * Henter alt data og indsætter i Contract objekter
+     * @return en liste med contractobjekter
      */
     public List<Contract> fetchAll() {
         String sql = "SELECT * FROM contracts JOIN rentaldetails USING(rentaldetailsID)";
@@ -96,11 +96,12 @@ public class ContractRepo {
     }
 
     /**
-     * delete the desired contract by its id
-     * @param contractID the id on the contract
-     * @return boolean that indicates if it deleted succesfully
+     * Sletter Contract objektet og alle de data der ligger i undertabeller baseret på ID'et
+     * @param contractID
+     * @return 1 hvis det lykkedes 0 hvis det ikke gjorde
      */
     public Contract deleteContract(int contractID) {
+        //Vi sletter Contract og alle de rows der er tilknyttet til Contract objektet i de andre tabeller
         String sqlDeleteContracts = "DELETE FROM contracts WHERE contractID = ?";
         String sqlDeleteRentalDetails = "DELETE FROM rentaldetails WHERE rentaldetailsID = ?";
         String sqlDeleteExtras = "DELETE FROM extras WHERE extrasID = ?";
@@ -116,12 +117,13 @@ public class ContractRepo {
     }
 
     /**
-     * updates any info that needs changing on the contract
-     * @param contractID the id on the contract
-     * @param c the contract
-     * @return the contract
+     * Opdatere det specifikke Contract objekt baseret på ID
+     * @param contractID
+     * @param c contract
+     * @return contract
      */
     public Contract updateContract(int contractID, Contract c) {
+        //Vi opdatere Contract objektets data rentaldetails som er tilknyttet Contract
         String sqlContractUpdate = "UPDATE contracts SET contractID = ?,autocamperID = ?,customerID = ?" +
                 ",rentalprice = ? WHERE contractid = ?";
         String sqlRentalDetailsUpdate = "UPDATE rentaldetails SET rentaldetailsID = ?,rentalstartdate = ?," +

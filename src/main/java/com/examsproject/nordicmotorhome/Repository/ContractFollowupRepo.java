@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * class that handles contractFollowups sql
- *
  * @author jonaskunert
  */
 
@@ -22,9 +20,8 @@ public class ContractFollowupRepo {
     JdbcTemplate template;
 
     /**
-     * queries the table for all contractfollowups
-     *
-     * @return list with all contractsfollowups in object form
+     * Henter alt data og indsætter i ContractFollowup objekter
+     * @return Liste af ContractFollowupobjekter
      */
     public List<ContractFollowup> fetchAll() {
         String sql = "SELECT * FROM contractfollowups";
@@ -35,9 +32,8 @@ public class ContractFollowupRepo {
 
     /**
      * Indsætter den nyoprettede contractfollowup i databasen og opdatere contract så contractFollowupID passer
-     *
      * @param c
-     * @return contract followup
+     * @return ContractFollowup
      */
     public ContractFollowup createContractFollowup(ContractFollowup c, int contractID) {
         String sqlCreateContractFollowup = "INSERT INTO contractfollowups(contractfollowupID,followupprice,halftank," +
@@ -59,10 +55,9 @@ public class ContractFollowupRepo {
     }
 
     /**
-     * find the desired contract by its id
-     *
-     * @param contractFollowupID the id on the contract followup
-     * @return the contractfollowup
+     * Finder den specifikke ContractFollowup baseret på ID
+     * @param contractFollowupID
+     * @return ContractFollowup
      */
     public ContractFollowup findContractFollowupByID(int contractFollowupID) {
         String sql = "SELECT * FROM contractfollowups WHERE contractFollowupID = ?";
@@ -73,10 +68,9 @@ public class ContractFollowupRepo {
     }
 
     /**
-     * delete the desired contract followup by its id
-     *
+     * Sletter specifik ContractFollowup baseret på ID
      * @param contractFollowupID the id on the contract followup
-     * @return boolean that indicates if it deleted succesfully
+     * @return 1 hvis det lykkedes 0 hvis det ikke gjorde
      */
     public Boolean deleteContractFollowup(int contractFollowupID) {
         String sql = "DELETE FROM contractfollowups WHERE contractfollowupID = ?";
@@ -85,11 +79,10 @@ public class ContractFollowupRepo {
     }
 
     /**
-     * updates any info that needs changing on the contract followup
-     *
-     * @param contractFollowupID the id on the contract
-     * @param c          the contract followup
-     * @return the contract followup
+     * Opdatere den specifikke ContractFollowup baseret på ID
+     * @param contractFollowupID
+     * @param c ContractFollowup
+     * @return ContractFollowup
      */
     public ContractFollowup updateContractFollowup(int contractFollowupID, ContractFollowup c) {
         String sql = "UPDATE contractfollowups SET contractfollowupID = ?,followupprice = ?,halftank = ?" +

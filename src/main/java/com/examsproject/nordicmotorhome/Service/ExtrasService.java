@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author jonaskunert
+ */
 @Service
 public class ExtrasService {
 

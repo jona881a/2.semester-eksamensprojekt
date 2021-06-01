@@ -58,11 +58,12 @@ public class ContractService {
         LocalDate date1 = LocalDate.of(localDateStart.getYear(), localDateStart.getMonth(), localDateStart.getDayOfMonth());
         LocalDate date2 = date1.with(Month.from(localDateEnd.getMonth())).withDayOfMonth(localDateEnd.getDayOfMonth());
         int numDays = Period.between(date1, date2).getDays(); //Vi tager afstanden imellem de to datoer
-        int numMonths = Period.between(date1,date2).getMonths();
+        int numMonths = Period.between(date1,date2).getMonths(); //Hvis der er over en måneds leje så tæller denne variabel
 
         if (numDays == 0) {
             numDays = 1;
-        }
+        } //Hvis der er mere end en måneds leje så ligger vi det korresponderende antal dage til den måned vi er i
+        //ved udlejningen
         if(numMonths > 0) {
             if(date2.getMonth().equals(Month.JANUARY)) {
                 numDays += 31;
